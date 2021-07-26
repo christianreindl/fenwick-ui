@@ -1,0 +1,60 @@
+@mixin icon-size($size) {
+  height: $size;
+  font-size: $size;
+
+  &::before {
+    font-size: $size;
+  }
+}
+
+@mixin icon-pseudo($icon-code) {
+  opacity: 1;
+  width: 1em;
+  speak: none;
+  content: $icon-code;
+  line-height: 1em;
+  position: relative;
+  font-style: normal;
+  text-align: center;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  font-family: "unicons";
+  display: inline-block;
+}
+
+.icon {
+  margin: 0;
+  line-height: 1;
+  display: inline-block;
+
+  &::before {
+    margin: 0;
+    font-size: $icon-size-md;
+  }
+
+  &.icon--xs {
+    @include icon-size($icon-size-xs)
+  }
+
+  &.icon--sm {
+    @include icon-size($icon-size-sm)
+  }
+
+  &.icon--md {
+    @include icon-size($icon-size-md)
+  }
+
+  &.icon--lg {
+    @include icon-size($icon-size-lg)
+  }
+
+  &.icon--xl {
+    @include icon-size($icon-size-xl)
+  }
+
+  &.icon--xxl {
+    @include icon-size($icon-size-xxl)
+  }
+}
+

@@ -1,0 +1,356 @@
+$navbar-height: 72px;
+$navbar-offset: 28px;
+
+.nav {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: $navbar-height  + $navbar-offset;
+    padding-top: $navbar-offset;
+    background-color: $color-fill-white;
+    transition: $transition-ui-default;
+
+    ul {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.nav--scrolled {
+    height: $navbar-height;
+    padding-top: 0;
+    box-shadow: inset 0 -1px 0 0 $color-fill-black-alpha-07;
+
+    .nav__logo {
+        transform: scale(1) translate3d(0,0,0);
+    }
+}
+
+.nav__grid-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav__left,
+.nav__right {
+    width: 25%;
+    height: 100%;
+}
+
+.nav__center {
+    height: 100%;
+    flex: 1 1 auto;
+}
+
+.nav__right {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav__logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: currentColor;
+    transform: scale(1.2) translate3d(0,0,0);
+    transform-origin: left center;
+    transition: $transition-ui-default;
+
+    &:active {
+        opacity: 0.5;
+    }
+}
+
+.nav__right__divider {
+    height: 16px;
+    width: 1px;
+    margin: 0 12px;
+    opacity: 0.25;
+    @include dashed-background-vertical()
+}
+
+.nav__menu {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.nav__item {
+    height: 100%;
+}
+
+.nav__link {
+    @include type-paragraph-md();
+    height: 100%;
+    display: flex;
+    padding: 0 14px;
+    align-items: center;
+    font-weight: $font-weight-medium;
+    color: $color-text-tertiary-onlight;
+
+    &:hover,
+    &:focus {
+        color: $color-text-base-onlight;
+    }
+}
+
+.nav__megamenu__background {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 800px;
+    max-height: 90vh;
+    position: absolute;
+    transform-origin: top;
+    background-color: $color-fill-gray-darkest;
+    z-index: -1;
+    //display: none;
+
+    @supports (backdrop-filter: blur(20px)) {
+        background-color: $color-ui-megamenu-background;
+        backdrop-filter: blur(20px);
+    }
+}
+
+.nav__megamenu__underlay {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background-color: $color-fill-black-alpha-50;
+    z-index: -1;
+}
+
+.nav__megamenu__link {
+    display: flex;
+    align-items: center;
+
+    .nav__megamenu__link__arrow .icon,
+    .nav__megamenu__link__label {
+        transition: $transition-ui-default;
+    }
+
+    &:hover,
+    &:focus {
+        color: $color-text-primary-ondark;
+
+        .icon {
+            transform: translateX(100%);
+        }
+        .nav__megamenu__link__arrow {
+            color: inherit;
+        }
+        .nav__megamenu__link__label {
+            transform: translateX(40px);
+        }
+    }
+}
+
+.nav__megamenu__link__arrow {
+    display: block;
+    width: $icon-size-lg;
+    height: $icon-size-lg;
+    overflow: hidden;
+    display: flex;
+    color: $color-text-secondary-ondark;
+
+    .icon {
+        display: block;
+        @include icon-size($icon-size-lg);
+    }
+
+    &:first-child {
+        margin-right: -$icon-size-lg;
+
+        .icon:first-child {
+            margin-left: -$icon-size-lg;
+        }
+    }
+
+    &:last-child {
+        margin-left: 16px;
+    }
+}
+
+.nav__megamenu {
+    //display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+
+.nav__megamenu__head {
+    display: block;
+    padding: 64px 0;
+    max-width: 400px;
+}
+
+.nav__megamenu__title {
+    @include type-h3();
+    margin-bottom: 16px;
+    color: $color-text-base-ondark;
+}
+
+.nav__megamenu__description {
+    @include type-paragraph-lg();
+    display: block;
+    color: $color-text-secondary-ondark;
+}
+
+.nav__megamenu__columns {
+    justify-content: space-between;
+}
+
+.nav__megamenu__subpages {
+    margin: 0;
+    padding: 0;
+}
+
+.nav__megamenu__column {
+    position: relative;
+
+    &::before {
+        @include dashed-background(
+            $color-ui-divider-dotted-ondark,
+            $size-ui-dotted-line-large
+        );
+        content: "";
+        top: 0;
+        left: 0;
+        height: $size-ui-dotted-line-large;
+        width: 100%;
+        position: absolute;
+    }
+}
+
+.nav__megamenu__column__link {
+    @include type-h5();
+    height: 80px;
+    color: $color-text-base-ondark;
+
+    .nav__megamenu__link__label {
+        flex: 1 1 auto;
+    }
+}
+
+.nav__megamenu__subpage__link {
+    @include type-paragraph-sm();
+    color: $color-text-secondary-ondark;
+    padding: 4px 0;
+
+    .nav__megamenu__link__arrow {
+        width: $icon-size-sm;
+        height: $icon-size-sm;
+
+        .icon {
+            @include icon-size($icon-size-sm);
+        }
+
+        &:first-child {
+            margin-right: -$icon-size-sm;
+
+            .icon:first-child {
+                margin-left: -$icon-size-sm;
+            }
+        }
+    }
+
+    &:hover,
+    &.focus {
+        .nav__megamenu__link__label {
+            transform: translateX(28px);
+        }
+    }
+}
+
+// Default View:
+
+.nav__megamenu {
+    visibility: hidden;
+}
+
+.nav__megamenu__column,
+.nav__megamenu__head {
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: opacity 0.1s 0s $ease-in-quad, transform 0s 0.1s linear;
+}
+
+.nav__megamenu__background,
+.nav__megamenu__underlay {
+    transition: transform 0.25s ease;
+}
+
+.nav__megamenu__background {
+    transform: scaleY(0) translate3d(0,0,0);
+}
+
+.nav__megamenu__underlay {
+    visibility: hidden;
+    opacity: 0;
+}
+
+
+// When open:
+
+.nav.nav--megamenu-open {
+    color: $color-text-base-ondark;
+
+    .nav__link {
+        color: $color-text-tertiary-ondark;
+
+        &:hover,
+        &:focus {
+            color: $color-text-base-ondark;
+        }
+    }
+
+    .nav__item--active .nav__link {
+        color: $color-text-base-ondark;
+    }
+
+    .nav__megamenu__background,
+    .nav__megamenu__underlay {
+        transition: transform 0.5s $ease-out-cubic;
+    }
+
+    .nav__megamenu__background {
+        transform: scaleY(1) translate3d(0,0,0);
+    }
+
+    .nav__megamenu__underlay {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .nav__item--active {
+        .nav__megamenu__column,
+        .nav__megamenu__head {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.35s 0.15s $ease-out-quad;
+        }
+
+        .nav__megamenu__column {
+            @for $i from 1 to 5 {
+                &:nth-child(#{$i}) {
+                    transition-delay: $i * 0.05s + 0.15s;
+                }
+            }
+        }
+
+        .nav__megamenu {
+            visibility: visible;
+        }
+    }
+}

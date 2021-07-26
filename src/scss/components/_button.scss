@@ -1,0 +1,254 @@
+$button-height-lg: 56px;
+$button-height-md: 48px;
+$button-height-sm: 36px;
+
+@mixin button-base() {
+    @include disabled();
+    @include appearance-reset();
+    text-align: left;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    vertical-align: middle;
+    font-weight: $font-weight-regular;
+    color: $color-text-primary-onlight;
+
+    background-color: transparent;
+
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &:focus {
+       // outline: none;
+    }
+
+    &:active {
+        opacity: 0.5;
+    }
+}
+
+@mixin button--sm() {
+    @include type-paragraph-sm();
+    height: $button-height-sm;
+    min-width: $button-height-sm;
+
+    &.button--round {
+        padding: 0;
+        width: $button-height-sm;
+
+        .icon {
+            @include icon-size($icon-size-sm);
+        }
+    }
+
+    .button__icon {
+        width: $icon-size-sm;
+        height: $icon-size-sm;
+
+        .icon {
+            @include icon-size($icon-size-sm);
+        }
+    }
+
+    .button__icon:first-child {
+        margin-right: -$icon-size-sm;
+
+        .icon:first-child {
+            margin-left: -$icon-size-sm;
+        }
+    }
+
+    &.button--underline--simple .button__icon:first-child {
+        margin-right: 16px;
+    }
+}
+
+@mixin button--md() {
+    @include type-paragraph-md();
+    height: $button-height-md;
+    min-width: $button-height-md;
+
+    &.button--round {
+        padding: 0;
+        width: $button-height-md;
+
+        .icon {
+            @include icon-size($icon-size-md);
+        }
+    }
+
+    .button__icon {
+        width: $icon-size-md;
+        height: $icon-size-md;
+
+        .icon {
+            @include icon-size($icon-size-md);
+        }
+    }
+
+    .button__icon:first-child {
+        margin-right: -$icon-size-md;
+
+        .icon:first-child {
+            margin-left: -$icon-size-md;
+        }
+    }
+
+    &.button--underline--simple .button__icon:first-child {
+        margin-right: 16px;
+    }
+}
+
+@mixin button--lg() {
+    @include type-paragraph-lg();
+    height: $button-height-lg;
+    min-width: $button-height-lg;
+
+    &.button--round {
+        padding: 0;
+        width: $button-height-lg;
+
+        .icon {
+            @include icon-size($icon-size-lg);
+        }
+    }
+
+    &.button--underline {
+        .button__icon {
+            width: $icon-size-lg;
+            height: $icon-size-lg;
+
+            .icon {
+                @include icon-size($icon-size-lg);
+            }
+        }
+
+        .button__icon:first-child {
+            margin-right: -$icon-size-lg;
+
+            .icon:first-child {
+                margin-left: -$icon-size-lg;
+            }
+        }
+
+        &.button--underline--simple .button__icon:first-child {
+            margin-right: 16px;
+        }
+    }
+}
+
+@mixin button--underline() {
+    .button__icon {
+        overflow: hidden;
+        display: flex;
+
+        .icon {
+            transition: $transition-ui-default;
+            position: relative;
+        }
+    }
+
+    &.button--underline {
+        .button__icon:last-child {
+            margin-left: 32px;
+        }
+
+        .button__label {
+            transition: $transition-ui-default;
+            display: block;
+        }
+
+        &:hover,
+        &:focus {
+            .icon {
+                transform: translateX(100%);
+            }
+            .button__label {
+                transform: translateX(40px);
+            }
+        }
+
+        &.button--underline--simple {
+            &:hover,
+            &:focus {
+                .button__label {
+                    transform: none;
+                    margin-left: 12px;
+                }
+            }
+        }
+    }
+}
+
+
+.button {
+    @include button-base();
+    @include button--md();
+}
+
+.button--sm {
+    @include button--sm();
+}
+
+.button--lg {
+    @include button--lg();
+}
+
+.button--underline {
+    @include ui-underline();
+    @include button--underline();
+}
+
+.button--round {
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: currentColor;
+        opacity: 0;
+    }
+
+    &:hover,
+    &:focus {
+        &::before {
+            opacity: 0.08;
+        }
+    }
+
+    &:active {
+        opacity: 1;
+        &::before {
+            opacity: 0.15;
+        }
+    }
+}
+
+.button--secondary {
+    color: $color-text-base-onlight;
+}
+
+.button--accent-orange {
+    color: $color-text-accent-orange-onlight;
+}
+
+.dark {
+    .button {
+        color: $color-text-primary-ondark;
+    }
+
+    .button--secondary {
+        color: $color-text-base-ondark;
+    }
+
+    .button--accent-orange {
+        color: $color-text-accent-orange-ondark;
+    }
+}

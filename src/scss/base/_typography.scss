@@ -1,0 +1,105 @@
+@mixin common-heading-styles {
+  font-family: 'Swis721 Ex BT', sans-serif;
+  letter-spacing: -0.035em;
+}
+
+@mixin common-body-styles {
+  font-family: 'Swis721 BT', sans-serif;
+}
+
+@mixin type-display {
+  @include breakpoint-style("font-size", $font-size-display);
+  @include breakpoint-style("line-height", $line-height-display);
+  @include common-heading-styles();
+}
+
+@mixin type-h1 {
+  @include breakpoint-style("font-size", $font-size-h1);
+  @include breakpoint-style("line-height", $line-height-h1);
+  @include common-heading-styles();
+}
+
+@mixin type-h2 {
+  @include breakpoint-style("font-size", $font-size-h2);
+  @include breakpoint-style("line-height", $line-height-h2);
+  @include common-heading-styles();
+}
+
+@mixin type-h2 {
+  @include breakpoint-style("font-size", $font-size-h2);
+  @include breakpoint-style("line-height", $line-height-h2);
+  @include common-heading-styles();
+}
+
+@mixin type-h3 {
+  @include breakpoint-style("font-size", $font-size-h3);
+  @include breakpoint-style("line-height", $line-height-h3);
+  @include common-heading-styles();
+}
+
+@mixin type-h4 {
+  @include breakpoint-style("font-size", $font-size-h4);
+  @include breakpoint-style("line-height", $line-height-h4);
+  @include common-heading-styles();
+}
+
+@mixin type-h5 {
+  @include breakpoint-style("font-size", $font-size-h5);
+  @include breakpoint-style("line-height", $line-height-h5);
+  @include common-heading-styles();
+}
+
+@mixin type-h6 {
+  @include breakpoint-style("font-size", $font-size-h6);
+  @include breakpoint-style("line-height", $line-height-h6);
+  @include common-heading-styles();
+}
+
+@mixin type-paragraph-lg {
+  @include breakpoint-style("font-size", $font-size-paragraph-lg);
+  @include breakpoint-style("line-height", $line-height-paragraph-lg);
+  @include common-body-styles();
+  letter-spacing: -0.01em;
+}
+
+@mixin type-paragraph-md {
+  @include breakpoint-style("font-size", $font-size-paragraph-md);
+  @include breakpoint-style("line-height", $line-height-paragraph-md);
+  @include common-body-styles();
+}
+
+@mixin type-paragraph-sm {
+  @include breakpoint-style("font-size", $font-size-paragraph-sm);
+  @include breakpoint-style("line-height", $line-height-paragraph-sm);
+  @include common-body-styles();
+}
+
+body {
+  @include type-paragraph-md(); 
+
+  /* Improve antialaiasing on dark backgrounds */
+  text-rendering: geometricPrecision;
+  -moz-text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.heading-display { @include type-display(); }
+
+.heading-1 { @include type-h1(); }
+.heading-2 { @include type-h2(); }
+.heading-3 { @include type-h3(); }
+.heading-4 { @include type-h4(); }
+.heading-5 { @include type-h5(); }
+.heading-6 { @include type-h6(); }
+
+.paragraph--lg { @include type-paragraph-lg(); }
+.paragraph, .paragraph--md { @include type-paragraph-md(); }
+.paragraph--sm { @include type-paragraph-sm(); }

@@ -1,0 +1,79 @@
+$input-wrapper-icon-offset: 12px;
+$input-wrapper-button-offset: 4px;
+$input-wrapper-placeholder-offset: 40px;
+
+@mixin input-wrapper--icon($side) {
+  .input-wrapper {
+    &.input-wrapper--icon-#{$side} {
+      > .uil {
+        #{$side}: $input-wrapper-icon-offset;
+      }
+      .input {
+        padding-#{$side}: $input-wrapper-placeholder-offset;
+      }
+    }
+  }
+}
+
+@mixin input-wrapper--button($side) {
+  .input-wrapper {
+    &.input-wrapper--button-#{$side} {
+      > .button {
+        #{$side}: $input-wrapper-button-offset;
+      }
+      .input {
+        padding-#{$side}: $input-wrapper-placeholder-offset;
+      }
+    }
+  }
+}
+
+.input-wrapper {
+  position: relative;
+
+  > .icon,
+  > .button {
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+  }
+
+  > .icon {
+    color: $color-text-tertiary-onlight;
+  }
+
+  > .button {
+    @include button--sm();
+  }
+}
+
+@include input-wrapper--icon(left);
+@include input-wrapper--icon(right);
+@include input-wrapper--button(left);
+@include input-wrapper--button(right);
+
+
+
+.input-wrapper--underline {
+    @include ui-underline($color-text-tertiary-onlight);
+
+    &:hover {
+        @include ui-underline($color-text-base-onlight);
+    }
+
+    &:focus-within {
+        @include ui-underline($color-text-primary-onlight);
+    }
+
+    &.input-wrapper--invalid {
+        @include ui-underline($color-text-accent-orange-onlight);
+
+        &:hover {
+            @include ui-underline($color-text-accent-orange-onlight);
+        }
+
+        &:focus-within {
+            @include ui-underline($color-text-accent-orange-onlight);
+        }
+    }
+}
