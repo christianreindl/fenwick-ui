@@ -26,8 +26,11 @@ tl.fromTo(
     0
 );
 
+
 const navContainer = document.querySelector(".nav");
 const navUnderlay = document.querySelector(".nav__megamenu__underlay");
+
+const navWayfinding = document.querySelector(".wayfinding--sticky");
 
 const navHamburger = document.querySelector(".nav__hamburger");
 const navActions = document.querySelectorAll(".nav__action");
@@ -72,11 +75,13 @@ function toggleHamburgerMenu(event) {
 }
 
 function checkScroll() {
-    const startY = 10; //The point where the navbar changes in px
+    const startY = 100; //The point where the navbar changes in px
     if (window.pageYOffset > startY) {
         navContainer.classList.add("nav--scrolled");
+        navWayfinding.classList.add("wayfinding--scrolled");
     } else {
         navContainer.classList.remove("nav--scrolled");
+        navWayfinding.classList.remove("wayfinding--scrolled");
     }
 }
 

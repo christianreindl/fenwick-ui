@@ -1,0 +1,122 @@
+.wayfinding {
+    position: relative;
+    top: 200px;
+    width: 100%;
+}
+
+.wayfinding__inner {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    position: relative;
+    align-items: center;
+
+    &::after {
+        content: "";
+        left: 0;
+        bottom: 0;
+        height: 1px;
+        width: 100%;
+        display: block;
+        position: absolute;
+        @include dashed-background($color-ui-divider-dotted-onlight);
+    }
+}
+
+.wayfinding__divider {
+    height: 16px;
+    width: 1px;
+    margin: 0 12px;
+    opacity: 0.25;
+    @include dashed-background-vertical();
+}
+
+.wayfinding__left,
+.wayfinding__right {
+    flex: 1 1 33%;
+}
+
+.wayfinding__right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.wayfinding__center {
+    height: 100%;
+}
+
+.wayfinding__menu {
+    @include type-paragraph-md();
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    list-style: none;
+    display: flex;
+}
+
+.wayfinding__menu__item {
+    height: 100%;
+    display: block;
+}
+
+.wayfinding__menu__anchor {
+    height: 100%;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    color: $color-text-tertiary-onlight;
+    font-weight: $font-weight-medium;
+
+    &:hover,
+    &:focus {
+        color: $color-text-base-onlight;
+        text-decoration: none;
+    }
+}
+
+
+.wayfinding__menu__item--active .wayfinding__menu__anchor { 
+	color: $color-text-base-onlight;
+}
+
+.wayfinding--sticky {
+	left: 0;
+    width: 100%;
+	opacity: 0;
+    position: fixed;
+	visibility: hidden;
+    top: $navbar-height;
+    z-index: $zindex-wayfinding;
+    background-color: $color-fill-white;
+	transform: translateY($navbar-offset);
+    box-shadow: inset 0 -1px 0 0 $color-fill-black-alpha-10;
+	transition: $transition-ui-default;
+
+    .wayfinding__inner {
+        height: 56px;
+
+        &::after {
+            display: none;
+        }
+    }
+
+    .wayfinding__menu {
+        @include type-paragraph-sm();
+    }
+
+    .wayfinding__right {
+        padding-right: 4px;
+    }
+
+    .wayfinding__divider {
+        margin: 0 16px;
+    }
+
+	&.wayfinding--scrolled {
+		visibility: visible;
+		transform: translateY(0);
+		opacity: 1;
+
+	}
+}

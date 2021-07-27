@@ -110,6 +110,7 @@ $line-height-paragraph-sm: (
 $font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-medium: 500;
+$font-weight-bold: 700;
 
 /* Grid */
 $grid-outer-padding: (
@@ -188,6 +189,8 @@ $color-ui-divider-dotted-ondark: $color-fill-white-alpha-25;
 // Misc
 
 $size-ui-dotted-line-large: 5px;
+$navbar-height: 72px;
+$navbar-offset: 28px;
 
 // Easings
 
@@ -209,3 +212,4 @@ $ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
 
 // Z-Index
 $zindex-navigation: 900;
+$zindex-wayfinding: 899;

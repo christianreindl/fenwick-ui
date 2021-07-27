@@ -1,3 +1,30 @@
+@mixin link-base() {
+    color: $color-text-primary-onlight;
+    text-decoration: none;
+  
+    &:hover, &:focus {
+      text-decoration: underline;
+    }
+  
+    &:active {
+      opacity: 0.75;
+    }
+
+    .dark & {
+        color: $color-text-primary-ondark;
+    }
+  }
+  
+  a {
+    @include link-base();
+  
+    &[disabled] {
+      cursor: pointer;
+      pointer-events: none;
+    }
+  }
+
+
 @mixin link-underline() {
   display: inline-block;
   position: relative;
@@ -41,12 +68,7 @@
 }
 
 a {
-  text-decoration: none;
-  color: $color-text-primary-onlight;
-
-  &:active {
-      opacity: 0.75;
-  }
+  @include link-base();
 
   &[disabled] {
       cursor: pointer;

@@ -1,6 +1,6 @@
 $button-height-lg: 56px;
 $button-height-md: 48px;
-$button-height-sm: 36px;
+$button-height-sm: 40px;
 
 @mixin button-base() {
     @include disabled();

@@ -1,0 +1,50 @@
+.breadcrumbs {
+    margin: 0;
+    padding: 0;
+
+    li {
+        @include type-paragraph-md();
+        font-size: inherit;
+        text-transform: none;
+        font-weight: $font-weight-medium;
+        color: $color-text-base-onlight;
+
+        &::after {
+            display: none;
+        }
+    }
+
+    a {
+        @include link-base();
+        font-weight: $font-weight-regular;
+    }
+
+    li a::after,
+    li:first-child a::before {
+        content: "/";
+        margin: 0 0.7em;
+        font-size: 0.8em;
+        vertical-align: middle;
+        font-weight: $font-weight-medium;
+        color: $color-text-tertiary-onlight;
+    }
+
+    li:first-child a::before {
+        margin-left: 0;
+    }
+
+    &.breadcrumbs--small li {
+        @include type-paragraph-sm();
+    }
+
+    .dark & {
+        li {
+            color: $color-text-base-ondark;
+        }
+
+        li a::after,
+        li:first-child a::before {
+            color: $color-text-tertiary-ondark;
+        }
+    }
+}

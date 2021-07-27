@@ -14725,6 +14725,7 @@ tl.fromTo(".featured-image__inner", {
 }, 0);
 var navContainer = document.querySelector(".nav");
 var navUnderlay = document.querySelector(".nav__megamenu__underlay");
+var navWayfinding = document.querySelector(".wayfinding--sticky");
 var navHamburger = document.querySelector(".nav__hamburger");
 var navActions = document.querySelectorAll(".nav__action");
 var navItems = document.querySelectorAll(".nav__item");
@@ -14765,12 +14766,14 @@ function toggleHamburgerMenu(event) {
 }
 
 function checkScroll() {
-  var startY = 10; //The point where the navbar changes in px
+  var startY = 100; //The point where the navbar changes in px
 
   if (window.pageYOffset > startY) {
     navContainer.classList.add("nav--scrolled");
+    navWayfinding.classList.add("wayfinding--scrolled");
   } else {
     navContainer.classList.remove("nav--scrolled");
+    navWayfinding.classList.remove("wayfinding--scrolled");
   }
 }
 
