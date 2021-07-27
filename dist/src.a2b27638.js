@@ -14694,7 +14694,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.js":[function(require,module,exports) {
+},{"/Users/christianreindl/Code/fenwick-ui/src/fonts/Swiss 721/Bitstream - Swis721 BT Roman.ttf":[["Bitstream - Swis721 BT Roman.456682ea.ttf","src/fonts/Swiss 721/Bitstream - Swis721 BT Roman.ttf"],"src/fonts/Swiss 721/Bitstream - Swis721 BT Roman.ttf"],"/Users/christianreindl/Code/fenwick-ui/src/fonts/Swiss 721/Bitstream - Swis721 BT Italic.ttf":[["Bitstream - Swis721 BT Italic.4826e429.ttf","src/fonts/Swiss 721/Bitstream - Swis721 BT Italic.ttf"],"src/fonts/Swiss 721/Bitstream - Swis721 BT Italic.ttf"],"/Users/christianreindl/Code/fenwick-ui/src/fonts/Swiss 721/Bitstream - Swis721 Md BT Medium.ttf":[["Bitstream - Swis721 Md BT Medium.25358636.ttf","src/fonts/Swiss 721/Bitstream - Swis721 Md BT Medium.ttf"],"src/fonts/Swiss 721/Bitstream - Swis721 Md BT Medium.ttf"],"/Users/christianreindl/Code/fenwick-ui/src/fonts/Swiss 721/Bitstream - Swis721 Md BT Medium Italic.ttf":[["Bitstream - Swis721 Md BT Medium Italic.353c5111.ttf","src/fonts/Swiss 721/Bitstream - Swis721 Md BT Medium Italic.ttf"],"src/fonts/Swiss 721/Bitstream - Swis721 Md BT Medium Italic.ttf"],"/Users/christianreindl/Code/fenwick-ui/src/fonts/Swiss 721/Bitstream - Swis721 BT Bold.ttf":[["Bitstream - Swis721 BT Bold.bfc55fd0.ttf","src/fonts/Swiss 721/Bitstream - Swis721 BT Bold.ttf"],"src/fonts/Swiss 721/Bitstream - Swis721 BT Bold.ttf"],"/Users/christianreindl/Code/fenwick-ui/src/fonts/Swiss 721/Bitstream - Swis721 BT Bold Italic.ttf":[["Bitstream - Swis721 BT Bold Italic.09c5cd27.ttf","src/fonts/Swiss 721/Bitstream - Swis721 BT Bold Italic.ttf"],"src/fonts/Swiss 721/Bitstream - Swis721 BT Bold Italic.ttf"],"/Users/christianreindl/Code/fenwick-ui/src/fonts/Swiss 721/Bitstream - Swis721 Ex BT Roman.ttf":[["Bitstream - Swis721 Ex BT Roman.f0ac8238.ttf","src/fonts/Swiss 721/Bitstream - Swis721 Ex BT Roman.ttf"],"src/fonts/Swiss 721/Bitstream - Swis721 Ex BT Roman.ttf"],"/Users/christianreindl/Code/fenwick-ui/src/fonts/Swiss 721/Bitstream - Swis721 Ex BT Bold.ttf":[["Bitstream - Swis721 Ex BT Bold.d3b4f785.ttf","src/fonts/Swiss 721/Bitstream - Swis721 Ex BT Bold.ttf"],"src/fonts/Swiss 721/Bitstream - Swis721 Ex BT Bold.ttf"],"/Users/christianreindl/Code/fenwick-ui/src/fonts/Fenwick Icons/Fenwick-Web-Icons.ttf":[["Fenwick-Web-Icons.3be59d23.ttf","src/fonts/Fenwick Icons/Fenwick-Web-Icons.ttf"],"src/fonts/Fenwick Icons/Fenwick-Web-Icons.ttf"],"/Users/christianreindl/Code/fenwick-ui/src/fonts/Fenwick Icons/Fenwick-Web-Icons.woff":[["Fenwick-Web-Icons.5db74037.woff","src/fonts/Fenwick Icons/Fenwick-Web-Icons.woff"],"src/fonts/Fenwick Icons/Fenwick-Web-Icons.woff"],"/Users/christianreindl/Code/fenwick-ui/src/fonts/Fenwick Icons/Fenwick-Web-Icons.svg":[["Fenwick-Web-Icons.aeb0b4f4.svg","src/fonts/Fenwick Icons/Fenwick-Web-Icons.svg"],"src/fonts/Fenwick Icons/Fenwick-Web-Icons.svg"],"/Users/christianreindl/Code/fenwick-ui/src/fonts/Fenwick Icons/Fenwick-Web-Icons.eot":[["Fenwick-Web-Icons.4d4a67aa.eot","src/fonts/Fenwick Icons/Fenwick-Web-Icons.eot"],"src/fonts/Fenwick Icons/Fenwick-Web-Icons.eot"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _gsap = _interopRequireDefault(require("gsap"));
@@ -14723,10 +14723,13 @@ tl.fromTo(".featured-image__inner", {
   height: "140%",
   ease: "none"
 }, 0);
-var navContainer = document.querySelector('.nav');
-var navUnderlay = document.querySelector('.nav__megamenu__underlay');
-var navItems = document.querySelectorAll('.nav__item');
-var navLinks = document.querySelectorAll('.nav__link');
+var navContainer = document.querySelector(".nav");
+var navUnderlay = document.querySelector(".nav__megamenu__underlay");
+var navHamburger = document.querySelector(".nav__hamburger");
+var navActions = document.querySelectorAll(".nav__action");
+var navItems = document.querySelectorAll(".nav__item");
+var navLinks = document.querySelectorAll(".nav__link");
+var hamburgerMenuIsOpen = false;
 
 function hideTopMegamenu(event) {
   Array.prototype.forEach.call(navItems, function (navItem) {
@@ -14744,26 +14747,44 @@ function showTopMegamenu(event) {
   navItem.classList.add("nav__item--active");
 }
 
+function toggleHamburgerMenu(event) {
+  if (hamburgerMenuIsOpen) {
+    Array.prototype.forEach.call(navActions, function (navAction) {
+      navAction.classList.remove("nav__action--active");
+    });
+    navContainer.classList.remove("nav--hamburger-open", "dark");
+    hamburgerMenuIsOpen = false;
+  } else {
+    navContainer.classList.add("nav--hamburger-open", "dark");
+    Array.prototype.forEach.call(navActions, function (navAction) {
+      navAction.classList.remove("nav__action--active");
+    });
+    event.currentTarget.classList.add("nav__action--active");
+    hamburgerMenuIsOpen = true;
+  }
+}
+
 function checkScroll() {
   var startY = 10; //The point where the navbar changes in px
 
   if (window.pageYOffset > startY) {
-    navContainer.classList.add('nav--scrolled');
+    navContainer.classList.add("nav--scrolled");
   } else {
-    navContainer.classList.remove('nav--scrolled');
+    navContainer.classList.remove("nav--scrolled");
   }
 }
 
 Array.prototype.forEach.call(navLinks, function (navLink) {
-  navLink.addEventListener('focus', showTopMegamenu);
+  navLink.addEventListener("focus", showTopMegamenu);
 });
 Array.prototype.forEach.call(navLinks, function (navLink) {
-  navLink.addEventListener('mouseenter', showTopMegamenu);
+  navLink.addEventListener("mouseenter", showTopMegamenu);
 });
-navContainer.addEventListener('mouseleave', hideTopMegamenu);
-navUnderlay.addEventListener('mouseenter', hideTopMegamenu);
-window.addEventListener('scroll', checkScroll);
-window.addEventListener('load', checkScroll);
+navHamburger.addEventListener("click", toggleHamburgerMenu);
+navContainer.addEventListener("mouseleave", hideTopMegamenu);
+navUnderlay.addEventListener("mouseenter", hideTopMegamenu);
+window.addEventListener("scroll", checkScroll);
+window.addEventListener("load", checkScroll);
 },{"gsap":"node_modules/gsap/index.js","gsap/all":"node_modules/gsap/all.js","./scss/main.scss":"src/scss/main.scss"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -14792,7 +14813,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63418" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64935" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

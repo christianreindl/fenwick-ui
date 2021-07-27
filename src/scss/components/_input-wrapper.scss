@@ -5,7 +5,7 @@ $input-wrapper-placeholder-offset: 40px;
 @mixin input-wrapper--icon($side) {
   .input-wrapper {
     &.input-wrapper--icon-#{$side} {
-      > .uil {
+      > .icon {
         #{$side}: $input-wrapper-icon-offset;
       }
       .input {

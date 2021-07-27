@@ -1,0 +1,108 @@
+// -----------------------------------------------------------------------------
+// This file contains all @font-face declarations, if any.
+// -----------------------------------------------------------------------------
+
+$font-path: "/src/fonts/";
+
+
+// -----------------------------------------------------------------------------
+// Swiss 721 Font
+// -----------------------------------------------------------------------------
+
+
+// Regular
+
+@font-face {
+    font-family: "Swiss 721";
+    src: url($font-path + "Swiss 721/Bitstream - Swis721 BT Roman.ttf")
+        format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: "Swiss 721";
+    src: url($font-path + "Swiss 721/Bitstream - Swis721 BT Italic.ttf")
+        format("truetype");
+    font-weight: 400;
+    font-style: italic;
+    font-stretch: normal;
+}
+
+// Medium
+
+@font-face {
+    font-family: "Swiss 721";
+    src: url($font-path + "Swiss 721/Bitstream - Swis721 Md BT Medium.ttf")
+        format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: "Swiss 721";
+    src: url($font-path + "Swiss 721/Bitstream - Swis721 Md BT Medium Italic.ttf")
+        format("truetype");
+    font-weight: 500;
+    font-style: italic;
+    font-stretch: normal;
+}
+
+// Bold
+
+@font-face {
+    font-family: "Swiss 721";
+    src: url($font-path + "Swiss 721/Bitstream - Swis721 BT Bold.ttf")
+        format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: "Swiss 721";
+    src: url($font-path + "Swiss 721/Bitstream - Swis721 BT Bold Italic.ttf")
+        format("truetype");
+    font-weight: 700;
+    font-style: italic;
+    font-stretch: normal;
+}
+
+// Expanded
+
+@font-face {
+    font-family: "Swiss 721";
+    src: url($font-path + "Swiss 721/Bitstream - Swis721 Ex BT Roman.ttf")
+        format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: expanded;
+}
+
+@font-face {
+    font-family: "Swiss 721";
+    src: url($font-path + "Swiss 721/Bitstream - Swis721 Ex BT Bold.ttf")
+        format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: expanded;
+}
+
+// -----------------------------------------------------------------------------
+// Icon Font
+// -----------------------------------------------------------------------------
+
+@font-face {
+    font-family: "Fenwick Icons";
+    src: url($font-path + "Fenwick Icons/Fenwick-Web-Icons.ttf")
+            format("truetype"),
+        url($font-path + "Fenwick Icons/Fenwick-Web-Icons.woff") format("woff"),
+        url($font-path + "Fenwick Icons/Fenwick-Web-Icons.svg") format("svg"),
+        url($font-path + "Fenwick Icons/Fenwick-Web-Icons.eot#iefix")
+            format("embedded-opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}

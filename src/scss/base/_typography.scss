@@ -1,52 +1,55 @@
 @mixin common-heading-styles {
-  font-family: 'Swis721 Ex BT', sans-serif;
-  letter-spacing: -0.035em;
+  font-family: $font-family-default;
+  font-stretch: expanded;
 }
 
 @mixin common-body-styles {
-  font-family: 'Swis721 BT', sans-serif;
+  letter-spacing: 0.01em;
 }
 
 @mixin type-display {
   @include breakpoint-style("font-size", $font-size-display);
   @include breakpoint-style("line-height", $line-height-display);
   @include common-heading-styles();
+  margin-left: -0.075em; 
+  letter-spacing: -0.035em;
 }
 
 @mixin type-h1 {
   @include breakpoint-style("font-size", $font-size-h1);
   @include breakpoint-style("line-height", $line-height-h1);
   @include common-heading-styles();
+  margin-left: -0.05em; 
+  letter-spacing: -0.035em;
 }
 
 @mixin type-h2 {
   @include breakpoint-style("font-size", $font-size-h2);
   @include breakpoint-style("line-height", $line-height-h2);
   @include common-heading-styles();
-}
-
-@mixin type-h2 {
-  @include breakpoint-style("font-size", $font-size-h2);
-  @include breakpoint-style("line-height", $line-height-h2);
-  @include common-heading-styles();
+  margin-left: -0.05em;
+  letter-spacing: -0.035em; 
 }
 
 @mixin type-h3 {
   @include breakpoint-style("font-size", $font-size-h3);
   @include breakpoint-style("line-height", $line-height-h3);
   @include common-heading-styles();
+  letter-spacing: -0.015em;
 }
 
 @mixin type-h4 {
   @include breakpoint-style("font-size", $font-size-h4);
   @include breakpoint-style("line-height", $line-height-h4);
   @include common-heading-styles();
+  letter-spacing: -0.015em;
 }
 
 @mixin type-h5 {
   @include breakpoint-style("font-size", $font-size-h5);
   @include breakpoint-style("line-height", $line-height-h5);
   @include common-heading-styles();
+  letter-spacing: -0.015em;
 }
 
 @mixin type-h6 {
@@ -76,6 +79,7 @@
 
 body {
   @include type-paragraph-md(); 
+  font-family: $font-family-default;
 
   /* Improve antialaiasing on dark backgrounds */
   text-rendering: geometricPrecision;

@@ -26,14 +26,15 @@ tl.fromTo(
     0
 );
 
+const navContainer = document.querySelector(".nav");
+const navUnderlay = document.querySelector(".nav__megamenu__underlay");
 
+const navHamburger = document.querySelector(".nav__hamburger");
+const navActions = document.querySelectorAll(".nav__action");
+const navItems = document.querySelectorAll(".nav__item");
+const navLinks = document.querySelectorAll(".nav__link");
 
-const navContainer = document.querySelector('.nav')
-const navUnderlay = document.querySelector('.nav__megamenu__underlay')
-
-const navItems = document.querySelectorAll('.nav__item')
-const navLinks = document.querySelectorAll('.nav__link')
-
+let hamburgerMenuIsOpen = false;
 
 function hideTopMegamenu(event) {
     Array.prototype.forEach.call(navItems, (navItem) => {
@@ -43,8 +44,7 @@ function hideTopMegamenu(event) {
 }
 
 function showTopMegamenu(event) {
-  navContainer.classList.add("nav--megamenu-open", "dark");
-
+    navContainer.classList.add("nav--megamenu-open", "dark");
     Array.prototype.forEach.call(navItems, (navItem) => {
         navItem.classList.remove("nav__item--active");
     });
@@ -53,24 +53,43 @@ function showTopMegamenu(event) {
     navItem.classList.add("nav__item--active");
 }
 
-function checkScroll() {
-  const startY = 10; //The point where the navbar changes in px
-  if (window.pageYOffset > startY) {
-    navContainer.classList.add('nav--scrolled');
-  } else {
-    navContainer.classList.remove('nav--scrolled');
-  }
+
+function toggleHamburgerMenu(event) {
+    if (hamburgerMenuIsOpen) {
+        Array.prototype.forEach.call(navActions, (navAction) => {
+            navAction.classList.remove("nav__action--active");
+        });
+        navContainer.classList.remove("nav--hamburger-open", "dark");
+        hamburgerMenuIsOpen = false;
+    } else {
+        navContainer.classList.add("nav--hamburger-open", "dark");
+        Array.prototype.forEach.call(navActions, (navAction) => {
+            navAction.classList.remove("nav__action--active");
+        });
+        event.currentTarget.classList.add("nav__action--active");
+        hamburgerMenuIsOpen = true;
+    }
 }
 
-Array.prototype.forEach.call(navLinks, navLink => {
-  navLink.addEventListener('focus', showTopMegamenu)
+function checkScroll() {
+    const startY = 10; //The point where the navbar changes in px
+    if (window.pageYOffset > startY) {
+        navContainer.classList.add("nav--scrolled");
+    } else {
+        navContainer.classList.remove("nav--scrolled");
+    }
+}
+
+Array.prototype.forEach.call(navLinks, (navLink) => {
+    navLink.addEventListener("focus", showTopMegamenu);
 });
-Array.prototype.forEach.call(navLinks, navLink => {
-  navLink.addEventListener('mouseenter', showTopMegamenu)
+Array.prototype.forEach.call(navLinks, (navLink) => {
+    navLink.addEventListener("mouseenter", showTopMegamenu);
 });
 
-navContainer.addEventListener('mouseleave', hideTopMegamenu)
-navUnderlay.addEventListener('mouseenter', hideTopMegamenu)
+navHamburger.addEventListener("click", toggleHamburgerMenu);
+navContainer.addEventListener("mouseleave", hideTopMegamenu);
+navUnderlay.addEventListener("mouseenter", hideTopMegamenu);
 
-window.addEventListener('scroll', checkScroll)
-window.addEventListener('load', checkScroll)
+window.addEventListener("scroll", checkScroll);
+window.addEventListener("load", checkScroll);

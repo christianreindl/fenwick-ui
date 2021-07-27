@@ -43,19 +43,19 @@ $button-height-sm: 36px;
     }
 
     .button__icon {
-        width: $icon-size-sm;
-        height: $icon-size-sm;
+        width: $icon-size-xs;
+        height: $icon-size-xs;
 
         .icon {
-            @include icon-size($icon-size-sm);
+            @include icon-size($icon-size-xs);
         }
     }
 
     .button__icon:first-child {
-        margin-right: -$icon-size-sm;
+        margin-right: -$icon-size-xs;
 
         .icon:first-child {
-            margin-left: -$icon-size-sm;
+            margin-left: -$icon-size-xs;
         }
     }
 
@@ -79,19 +79,19 @@ $button-height-sm: 36px;
     }
 
     .button__icon {
-        width: $icon-size-md;
-        height: $icon-size-md;
+        width: $icon-size-sm;
+        height: $icon-size-sm;
 
         .icon {
-            @include icon-size($icon-size-md);
+            @include icon-size($icon-size-sm);
         }
     }
 
     .button__icon:first-child {
-        margin-right: -$icon-size-md;
+        margin-right: -$icon-size-sm;
 
         .icon:first-child {
-            margin-left: -$icon-size-md;
+            margin-left: -$icon-size-sm;
         }
     }
 
@@ -116,19 +116,19 @@ $button-height-sm: 36px;
 
     &.button--underline {
         .button__icon {
-            width: $icon-size-lg;
-            height: $icon-size-lg;
+            width: $icon-size-md;
+            height: $icon-size-md;
 
             .icon {
-                @include icon-size($icon-size-lg);
+                @include icon-size($icon-size-md);
             }
         }
 
         .button__icon:first-child {
-            margin-right: -$icon-size-lg;
+            margin-right: -$icon-size-md;
 
             .icon:first-child {
-                margin-left: -$icon-size-lg;
+                margin-left: -$icon-size-md;
             }
         }
 
@@ -203,6 +203,7 @@ $button-height-sm: 36px;
 .button--round {
     align-items: center;
     justify-content: center;
+    border-radius: 50%;
 
     &::before {
         content: "";
@@ -252,3 +253,8 @@ $button-height-sm: 36px;
         color: $color-text-accent-orange-ondark;
     }
 }
+
+
+
+
+  

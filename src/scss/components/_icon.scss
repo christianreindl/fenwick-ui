@@ -1,60 +1,160 @@
-@mixin icon-size($size) {
-  height: $size;
-  font-size: $size;
+$ic-angle-down: "\e900";
+$ic-angle-left: "\e901";
+$ic-angle-right: "\e902";
+$ic-angle-up: "\e903";
 
-  &::before {
+$ic-arrow-down: "\e904";
+$ic-arrow-left: "\e905";
+$ic-arrow-right: "\e906";
+$ic-arrow-up: "\e907";
+
+$ic-bookmark: "\e908";
+$ic-bookmark-binder: "\e909";
+
+$ic-brand-fenwick: "\e90b";
+$ic-brand-facebook: "\e90a";
+$ic-brand-linkedin: "\e90c";
+$ic-brand-twitter: "\e90d";
+
+$ic-check: "\e90e";
+$ic-close: "\e90f";
+$ic-enter-key: "\e910";
+$ic-envelope: "\e911";
+$ic-hamburger: "\e912";
+$ic-insight: "\e913";
+$ic-phone: "\e914";
+$ic-plus: "\e915";
+$ic-search: "\e916";
+$ic-share: "\e917";
+
+@mixin icon-size($size) {
+    height: $size;
     font-size: $size;
-  }
+
+    &::before {
+        font-size: $size;
+    }
 }
 
 @mixin icon-pseudo($icon-code) {
-  opacity: 1;
-  width: 1em;
-  speak: none;
-  content: $icon-code;
-  line-height: 1em;
-  position: relative;
-  font-style: normal;
-  text-align: center;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  font-family: "unicons";
-  display: inline-block;
+    opacity: 1;
+    width: 1em;
+    speak: none;
+    content: $icon-code;
+    line-height: 1em;
+    position: relative;
+    font-style: normal;
+    text-align: center;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    font-family: $font-family-icons;
+    display: inline-block;
 }
 
 .icon {
-  margin: 0;
-  line-height: 1;
-  display: inline-block;
-
-  &::before {
     margin: 0;
-    font-size: $icon-size-md;
-  }
+    line-height: 1;
+    display: inline-block;
 
-  &.icon--xs {
-    @include icon-size($icon-size-xs)
-  }
+    &::before {
+        margin: 0;
+        font-size: $icon-size-md;
+    }
 
-  &.icon--sm {
-    @include icon-size($icon-size-sm)
-  }
+    &.icon--xs {
+        @include icon-size($icon-size-xs);
+    }
 
-  &.icon--md {
-    @include icon-size($icon-size-md)
-  }
+    &.icon--sm {
+        @include icon-size($icon-size-sm);
+    }
 
-  &.icon--lg {
-    @include icon-size($icon-size-lg)
-  }
+    &.icon--md {
+        @include icon-size($icon-size-md);
+    }
 
-  &.icon--xl {
-    @include icon-size($icon-size-xl)
-  }
+    &.icon--lg {
+        @include icon-size($icon-size-lg);
+    }
 
-  &.icon--xxl {
-    @include icon-size($icon-size-xxl)
-  }
+    &.icon--xl {
+        @include icon-size($icon-size-xl);
+    }
+
+    &.icon--xxl {
+        @include icon-size($icon-size-xxl);
+    }
 }
 
+.icon {
+    &-angle-down::before {
+        @include icon-pseudo($ic-angle-down);
+    }
+    &-angle-left::before {
+        @include icon-pseudo($ic-angle-left);
+    }
+    &-angle-right::before {
+        @include icon-pseudo($ic-angle-right);
+    }
+    &-angle-up::before {
+        @include icon-pseudo($ic-angle-up);
+    }
+    &-arrow-down::before {
+        @include icon-pseudo($ic-arrow-down);
+    }
+    &-arrow-left::before {
+        @include icon-pseudo($ic-arrow-left);
+    }
+    &-arrow-right::before {
+        @include icon-pseudo($ic-arrow-right);
+    }
+    &-bookmark::before {
+        @include icon-pseudo($ic-bookmark);
+    }
+    &-bookmark-binder::before {
+        @include icon-pseudo($ic-bookmark-binder);
+    }
+    &-brand-fenwick::before {
+        @include icon-pseudo($ic-brand-fenwick);
+    }
+    &-brand-facebook::before {
+        @include icon-pseudo($ic-brand-facebook);
+    }
+    &-brand-linkedin::before {
+        @include icon-pseudo($ic-brand-linkedin);
+    }
+    &-brand-twitter::before {
+        @include icon-pseudo($ic-brand-twitter);
+    }
+    &-check::before {
+        @include icon-pseudo($ic-check);
+    }
+    &-close::before {
+        @include icon-pseudo($ic-close);
+    }
+    &-enter-key::before {
+        @include icon-pseudo($ic-enter-key);
+    }
+    &-envelope::before {
+        @include icon-pseudo($ic-envelope);
+    }
+    &-hamburger::before {
+        @include icon-pseudo($ic-hamburger);
+    }
+    &-insight::before {
+        @include icon-pseudo($ic-insight);
+    }
+    &-phone::before {
+        @include icon-pseudo($ic-phone);
+    }
+    &-plus::before {
+        @include icon-pseudo($ic-plus);
+    }
+    &-search::before {
+        @include icon-pseudo($ic-search);
+    }
+    &-share::before {
+        @include icon-pseudo($ic-search);
+    }
+}

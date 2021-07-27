@@ -1,96 +1,101 @@
+/* Font Stack */
+$font-family-default: 'Swiss 721', 'Helvetica Neue', sans-serif;
+$font-family-icons: 'Fenwick Icons';
+
 
 /* Font Size */
 
 $font-size-display: (
-  small: 100px,
-  medium: 100px,
-  xlarge: 100px,
+    small: 44px,
+    medium: 72px,
+    xlarge: 11vmin,
 );
 
 $font-size-h1: (
-  small: 80px,
-  medium: 80px,
-  xlarge: 80px,
+    small: 44px,
+    medium: 56px,
+    xlarge: 80px,
 );
 
 $font-size-h2: (
-  small: 64px,
-  medium: 64px,
-  xlarge: 64px,
+    small: 34px,
+    medium: 40px,
+    xlarge: 64px,
 );
 
 $font-size-h3: (
-  small: 40px,
-  medium: 40px,
-  xlarge: 40px,
+    small: 28px,
+    medium: 32px,
+    xlarge: 40px,
 );
 
 $font-size-h4: (
-  small: 28px,
-  medium: 28px,
-  xlarge: 28px,
+    small: 22px,
+    xlarge: 28px,
 );
 
 $font-size-h5: (
-  small: 20px,
-  medium: 20px,
-  xlarge: 20px,
+    small: 18px,
+    xlarge: 20px,
 );
 
 $font-size-h6: (
-  small: 18px,
-  medium: 18px,
-  xlarge: 18px,
+    small: 16px,
+    xlarge: 18px,
 );
 
 $font-size-paragraph-lg: (
-  small: 18px,
-  medium: 18px,
+    small: 16px,
+    medium: 18px,
 );
 
 $font-size-paragraph-md: (
-    small: 16px,
+    small: 14px,
     medium: 16px,
 );
 
 $font-size-paragraph-sm: (
-    small: 14px,
+    small: 12px,
     medium: 14px,
 );
 
-
-
 /* Line Height */
 $line-height-display: (
-  small: 1.1,
+    small: 1,
+    large: 1.1,
 );
 
 $line-height-h1: (
-  small: 1.2,
+    small: 1.1,
+    large: 1.2,
 );
 
 $line-height-h2: (
-  small: 1.125,
+    small: 1.125,
+    large: 1.125,
 );
 
 $line-height-h3: (
-  small: 1.3,
+    small: 1.3,
+    large: 1.3,
 );
 
 $line-height-h4: (
-  small: 1.4,
+    small: 1.4,
+    large: 1.4,
 );
 
 $line-height-h5: (
-  small: 1.6,
+    small: 1.6,
+    large: 1.6,
 );
 
 $line-height-h6: (
-  small: 1.55,
+    small: 1.55,
 );
 
 $line-height-paragraph-lg: (
-  small: 1.55,
+    small: 1.55,
 );
 
 $line-height-paragraph-md: (
@@ -106,14 +111,12 @@ $font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-medium: 500;
 
-
 /* Grid */
 $grid-outer-padding: (
     null: 20px,
     medium: 60px,
     large: 80px,
 );
-
 
 /* Icons */
 
@@ -129,56 +132,52 @@ $icon-size-xxl: 40px;
 
 $transition-ui-default: all 0.35s ease;
 
-
 // Fill Colors
 
-$color-fill-white: #FFFFFF;
+$color-fill-white: #ffffff;
 $color-fill-white-alpha-05: rgba($color-fill-white, 0.05);
 $color-fill-white-alpha-07: rgba($color-fill-white, 0.07);
-$color-fill-white-alpha-10: rgba($color-fill-white, 0.10);
+$color-fill-white-alpha-10: rgba($color-fill-white, 0.1);
 $color-fill-white-alpha-15: rgba($color-fill-white, 0.15);
 $color-fill-white-alpha-25: rgba($color-fill-white, 0.25);
-$color-fill-white-alpha-50: rgba($color-fill-white, 0.50);
+$color-fill-white-alpha-50: rgba($color-fill-white, 0.5);
 
 $color-fill-black: #000000;
 $color-fill-black-alpha-05: rgba($color-fill-black, 0.05);
 $color-fill-black-alpha-07: rgba($color-fill-black, 0.07);
-$color-fill-black-alpha-10: rgba($color-fill-black, 0.10);
+$color-fill-black-alpha-10: rgba($color-fill-black, 0.1);
 $color-fill-black-alpha-15: rgba($color-fill-black, 0.15);
 $color-fill-black-alpha-25: rgba($color-fill-black, 0.25);
-$color-fill-black-alpha-50: rgba($color-fill-black, 0.50);
+$color-fill-black-alpha-50: rgba($color-fill-black, 0.5);
 
-$color-fill-primary: #2E96FF;
-$color-fill-primary-dark: #0475DE;
-$color-fill-primary-darker: #0057C0;
+$color-fill-primary: #2e96ff;
+$color-fill-primary-dark: #0475de;
+$color-fill-primary-darker: #0057c0;
 
-$color-fill-gray-darkest: #1C1D1E;
+$color-fill-gray-darkest: #1c1d1e;
 $color-fill-gray-darker: #313134;
-$color-fill-gray-dark: #3B3B3E;
-$color-fill-gray-medium: #E2E4E7;
-$color-fill-gray-light: #F7F7F7;
-$color-fill-gray-lighter:#FAFAFA;
-
+$color-fill-gray-dark: #3b3b3e;
+$color-fill-gray-medium: #e2e4e7;
+$color-fill-gray-light: #f7f7f7;
+$color-fill-gray-lighter: #fafafa;
 
 // Text Colors (on Light)
 
 $color-text-base-onlight: #313134;
-$color-text-secondary-onlight: #626A76;
-$color-text-tertiary-onlight: #ACB2B9;
+$color-text-secondary-onlight: #626a76;
+$color-text-tertiary-onlight: #acb2b9;
 
-$color-text-primary-onlight: #0475DE;
-$color-text-accent-orange-onlight: #FF6633;
-
+$color-text-primary-onlight: #0475de;
+$color-text-accent-orange-onlight: #ff6633;
 
 // Text Colors (on Dark)
 
-$color-text-base-ondark: #FFFFFF;
+$color-text-base-ondark: #ffffff;
 $color-text-secondary-ondark: rgba($color-text-base-ondark, 0.8);
 $color-text-tertiary-ondark: rgba($color-text-base-ondark, 0.5);
 
-$color-text-primary-ondark: #3BA3F8;
-$color-text-accent-orange-ondark: #FF6633;
-
+$color-text-primary-ondark: #3ba3f8;
+$color-text-accent-orange-ondark: #ff6633;
 
 // UI Colors
 
@@ -186,12 +185,9 @@ $color-ui-megamenu-background: rgba(10, 10, 10, 0.85);
 $color-ui-divider-dotted-onlight: $color-fill-black-alpha-25;
 $color-ui-divider-dotted-ondark: $color-fill-white-alpha-25;
 
-
-
 // Misc
 
 $size-ui-dotted-line-large: 5px;
-
 
 // Easings
 
@@ -209,3 +205,7 @@ $ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
 $ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
 $ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
 $ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+
+
+// Z-Index
+$zindex-navigation: 900;
