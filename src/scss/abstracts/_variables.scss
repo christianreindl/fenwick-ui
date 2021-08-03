@@ -162,6 +162,9 @@ $color-fill-gray-medium: #e2e4e7;
 $color-fill-gray-light: #f7f7f7;
 $color-fill-gray-lighter: #fafafa;
 
+$color-fill-accent-orange: #ff6633;
+
+
 // Text Colors (on Light)
 
 $color-text-base-onlight: #313134;
@@ -183,6 +186,9 @@ $color-text-accent-orange-ondark: #ff6633;
 // UI Colors
 
 $color-ui-megamenu-background: rgba(10, 10, 10, 0.85);
+$color-ui-navbar-background-onlight: rgba(255, 255, 255, 0.85);
+$color-ui-navbar-background-ondark: rgba(28, 29, 30, 0.85);
+
 $color-ui-divider-dotted-onlight: $color-fill-black-alpha-25;
 $color-ui-divider-dotted-ondark: $color-fill-white-alpha-25;
 
@@ -191,6 +197,7 @@ $color-ui-divider-dotted-ondark: $color-fill-white-alpha-25;
 $size-ui-dotted-line-large: 5px;
 $navbar-height: 72px;
 $navbar-offset: 28px;
+$filter-navigation-background: blur(16px);
 
 // Easings
 

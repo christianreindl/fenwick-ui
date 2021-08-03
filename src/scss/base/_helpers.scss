@@ -36,18 +36,27 @@
 }
 
 // Text weight
-.text-weight--medium {
+.text--weight-medium {
     font-weight: $font-weight-medium;
 }
 
-.text-weight--bold {
+.text--weight-bold {
     font-weight: $font-weight-bold;
 }
 
 
+// Text Alignment
+
+.text--centered,
+.text--center {
+    text-align: center;
+}
+
+
+
 // Spacings
 
-@mixin spacing-generator($side, $count: 30) {
+@mixin spacing-generator($side, $count: 50) {
     @for $i from 1 to $count {
         .margin-#{$side}--#{$i * 4} {
             margin-#{$side}: $i * 4px !important;

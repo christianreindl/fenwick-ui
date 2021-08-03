@@ -7,7 +7,6 @@ $button-height-sm: 40px;
     @include appearance-reset();
     text-align: left;
     position: relative;
-    display: inline-block;
     text-decoration: none;
     vertical-align: middle;
     font-weight: $font-weight-regular;
@@ -16,15 +15,12 @@ $button-height-sm: 40px;
     background-color: transparent;
 
     cursor: pointer;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-
-    &:focus {
-       // outline: none;
-    }
 
     &:active {
         opacity: 0.5;
+        transform: translateY(1px);
     }
 }
 
@@ -33,13 +29,17 @@ $button-height-sm: 40px;
     height: $button-height-sm;
     min-width: $button-height-sm;
 
-    &.button--round {
+    &.button--circle {
         padding: 0;
         width: $button-height-sm;
 
         .icon {
             @include icon-size($icon-size-sm);
         }
+    }
+
+    &.button--rounded {
+        border-radius: $button-height-sm / 2;
     }
 
     .button__icon {
@@ -69,13 +69,17 @@ $button-height-sm: 40px;
     height: $button-height-md;
     min-width: $button-height-md;
 
-    &.button--round {
+    &.button--circle {
         padding: 0;
         width: $button-height-md;
 
         .icon {
             @include icon-size($icon-size-md);
         }
+    }
+
+    &.button--rounded {
+        border-radius: $button-height-md / 2;
     }
 
     .button__icon {
@@ -105,13 +109,17 @@ $button-height-sm: 40px;
     height: $button-height-lg;
     min-width: $button-height-lg;
 
-    &.button--round {
+    &.button--circle {
         padding: 0;
         width: $button-height-lg;
 
         .icon {
             @include icon-size($icon-size-lg);
         }
+    }
+
+    &.button--rounded {
+        border-radius: $button-height-lg / 2;
     }
 
     &.button--underline {
@@ -141,7 +149,7 @@ $button-height-sm: 40px;
 @mixin button--underline() {
     .button__icon {
         overflow: hidden;
-        display: flex;
+        display: inline-flex;
 
         .icon {
             transition: $transition-ui-default;
@@ -181,6 +189,21 @@ $button-height-sm: 40px;
     }
 }
 
+@mixin button--solid($color-text, $color-fill) {
+    color: $color-text;
+    background-color: $color-fill;
+
+    &:hover,
+    &:focus {
+        background-color: darken($color-fill, 10%);
+    }
+
+    &:active {
+        opacity: 1;
+        background-color: darken($color-fill, 15%);
+    }
+}
+
 
 .button {
     @include button-base();
@@ -200,7 +223,7 @@ $button-height-sm: 40px;
     @include button--underline();
 }
 
-.button--round {
+.button--circle {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
@@ -232,6 +255,34 @@ $button-height-sm: 40px;
     }
 }
 
+
+.button--rounded {
+    text-align: center;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    border-radius: 50%;
+    border: 1px dotted currentColor;
+    overflow: hidden;
+    position: relative;
+
+    &:hover, &:focus {
+        border: 1px solid currentColor;
+    }
+}
+
+.button--solid {
+    border: none;
+    @include button--solid($color-text-base-ondark, $color-fill-primary);
+
+    &.button--secondary {
+        @include button--solid($color-text-base-ondark, $color-fill-gray-darker)
+    }
+    &.button--alert {
+        @include button--solid($color-text-base-ondark, $color-fill-accent-orange)
+    }
+}
+
+
 .button--secondary {
     color: $color-text-base-onlight;
 }
@@ -252,9 +303,16 @@ $button-height-sm: 40px;
     .button--accent-orange {
         color: $color-text-accent-orange-ondark;
     }
+
+    .button--solid {
+        border: none;
+        @include button--solid($color-text-base-ondark, $color-fill-primary);
+    
+        &.button--secondary {
+            @include button--solid($color-text-base-onlight, $color-fill-gray-lighter)
+        }
+        &.button--alert {
+            @include button--solid($color-text-base-onlight, $color-fill-accent-orange)
+        }
+    }  
 }
-
-
-
-
-  

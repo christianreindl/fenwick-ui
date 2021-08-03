@@ -3,112 +3,96 @@
 // -----------------------------------------------------------------------------
 
 @mixin disabled() {
-  &[disabled] {
-    opacity: 0.3;
-    cursor: not-allowed;
-  }
+    &[disabled] {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
 }
 
 @mixin appearance-reset() {
-  -webkit-appearance: none;
-  -moz-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
-
-@mixin breakpoint-style($rule, $breakpoint-style-map, $style-breakpoints: $breakpoints) {
-  @each $breakpoint, $breakpoint-style in $breakpoint-style-map {
-    @if $breakpoint == null {
-      #{$rule}: $breakpoint-style;
+@mixin breakpoint-style(
+    $rule,
+    $breakpoint-style-map,
+    $style-breakpoints: $breakpoints
+) {
+    @each $breakpoint, $breakpoint-style in $breakpoint-style-map {
+        @if $breakpoint == null {
+            #{$rule}: $breakpoint-style;
+        } @else {
+            @if map-has-key($style-breakpoints, $breakpoint) {
+                $breakpoint: map-get($style-breakpoints, $breakpoint);
+            }
+            @media screen and (min-width: $breakpoint) {
+                #{$rule}: $breakpoint-style;
+            }
+        }
     }
-    @else {      
-      @if map-has-key($style-breakpoints, $breakpoint) {
-        $breakpoint: map-get($style-breakpoints, $breakpoint);
-      }
-      @media screen and (min-width: $breakpoint) {
-        #{$rule}: $breakpoint-style;
-      }
-    }
-  }
 }
 
 @mixin dashed-background($color: currentColor, $height: 1px) {
-  background-repeat: repeat-x;
-  background-position: center;
-  background-color: transparent;
-  background-size: 3px $height;
-  background-image: linear-gradient(
-    to right,
-    $color 33%,
-    transparent 0%
-  );
+    background-repeat: repeat-x;
+    background-position: center;
+    background-color: transparent;
+    background-size: 3px $height;
+    background-image: linear-gradient(to right, $color 33%, transparent 0%);
 }
 
 @mixin dashed-background-vertical($color: currentColor, $width: 1px) {
-  background-repeat: repeat-y;
-  background-position: center;
-  background-color: transparent;
-  background-size: $width 3px;
-  background-image: linear-gradient(
-    to bottom,
-    $color 33%,
-    transparent 0%
-  );
+    background-repeat: repeat-y;
+    background-position: center;
+    background-color: transparent;
+    background-size: $width 3px;
+    background-image: linear-gradient(to bottom, $color 33%, transparent 0%);
 }
 
 @mixin ui-underline($color: currentColor) {
-  position: relative;
+    position: relative;
 
-  &::before,
-  &::after {
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 1px;
-    position: absolute;
-    content: "";
-  }
-
-  &::before {
-    @include dashed-background($color);
-  }
-
-  &::after {
-    transform: scaleX(0);
-    transform-origin: left;
-    background-color: $color;
-    transition: $transition-ui-default;
-  }
-
-  &:hover,
-  &:focus,
-  &:focus-within {
+    &::before,
     &::after {
-      transform: scaleX(1);
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        position: absolute;
+        content: "";
     }
-  }
+
+    &::before {
+        @include dashed-background($color);
+    }
+
+    &::after {
+        transform: scaleX(0);
+        transform-origin: left;
+        background-color: $color;
+        transition: transform 0.35s ease;
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-within {
+        &::after {
+            transform: scaleX(1);
+        }
+    }
 }
 
+@mixin dotted-background($theme: "light", $size: "default") {
+    background-repeat: repeat;
+    background-image: url("/src/img/pattern_dots_onlight.svg");
 
-/*
-@mixin grid-padding($fs-map, $fs-breakpoints: $breakpoints) {
-  @each $fs-breakpoint, $fs-font-size in $fs-map {
-    @if $fs-breakpoint == null {
-      padding-left: $fs-font-size;
-      padding-right: $fs-font-size;
+    @if ($size == "small") {
+        background-size: 6px;
+    } @else {
+        background-size: 12px;
     }
-    @else {
-      // If $fs-font-size is a key that exists in
-      // $fs-breakpoints, use the value
 
-      $fs-key: $fs-breakpoint;
-
-      @if map-has-key($fs-breakpoints, $fs-breakpoint) {
-        $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
-      }
-      @media screen and (min-width: $fs-breakpoint) {
-        padding-left: $fs-font-size;
-        padding-right: $fs-font-size;
-      }
+    .dark & {
+        background-image: url("/src/img/pattern_dots_ondark.svg");
     }
-  }
-}*/
+}

@@ -55,3 +55,26 @@
         bottom: 0;
     }
 }
+
+.dark {
+    .list__button {
+        color: $color-text-base-ondark;
+
+        .button__icon {
+            color: $color-text-tertiary-ondark;
+        }
+
+        &::before,
+        &:after {
+            @include dashed-background($color-ui-divider-dotted-ondark);
+        }
+
+        &:hover,
+        &:focus {
+            color: $color-text-primary-ondark;
+            .button__icon {
+                color: inherit;
+            }
+        }
+    }
+}

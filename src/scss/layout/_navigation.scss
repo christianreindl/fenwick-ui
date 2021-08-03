@@ -4,14 +4,14 @@
     z-index: $zindex-navigation;
     height: $navbar-height + $navbar-offset;
 
-    ul {
-        list-style: none;
-    }
-
     a {
         text-decoration: none;
-        color: inherit;
     }
+}
+
+ul {
+    list-style: none;
+}
 
 .nav__grid-container {
     height: 100%;
@@ -20,19 +20,12 @@
     justify-content: space-between;
 }
 
-.nav__left,
-.nav__right {
-    width: 25%;
-    height: 100%;
-}
-
 .nav__center {
     height: 100%;
     flex: 1 1 auto;
 }
 
 .nav__right {
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -46,6 +39,7 @@
     transform: scale(1.2) translate3d(0, 0, 0);
     transform-origin: left center;
     transition: transform 0.35s ease;
+    color: inherit;
 
     &:active {
         opacity: 0.5;
@@ -80,6 +74,7 @@
     @include type-paragraph-md();
     display: flex;
     align-items: center;
+    color: inherit;
 }
 
 .nav__megamenu__background {
@@ -92,11 +87,10 @@
     transform-origin: top;
     background-color: $color-fill-gray-darkest;
     z-index: -1;
-    //display: none;
 
-    @supports (backdrop-filter: blur(20px)) {
+    @supports (backdrop-filter: $filter-navigation-background) {
         background-color: $color-ui-megamenu-background;
-        backdrop-filter: blur(20px);
+        backdrop-filter: $filter-navigation-background;
     }
 }
 
@@ -113,6 +107,7 @@
 .nav__megamenu__link {
     display: flex;
     align-items: center;
+    color: inherit;
 
     .nav__megamenu__link__arrow .icon,
     .nav__megamenu__link__label {
@@ -165,8 +160,12 @@
     //display: none;
     position: absolute;
     left: 0;
+    top: $navbar-height + $navbar-offset;
     width: 100%;
+    padding-bottom: 40px;
+    max-height: calc(90vh - #{$navbar-height + $navbar-offset});
     color: $color-text-base-ondark;
+    overflow: auto;
 }
 
 .nav__megamenu__head {
@@ -194,6 +193,10 @@
 .nav__megamenu__subpages {
     margin: 0;
     padding: 0;
+
+    &:first-child {
+        padding-top: 40px;
+    }
 }
 
 .nav__megamenu__column {
@@ -253,8 +256,29 @@
     }
 }
 
+.nav__megamenu__insight {
+    display: flex;
+    padding-top: 40px;
 }
 
+.nav__megamenu__insight__label {
+    color: $color-text-tertiary-ondark;
+    flex: 0 0 40%;
+}
+
+.nav__megamenu__insight__content {
+    flex: 0 0 60%;
+}
+
+.nav__megamenu__insight__title {
+    margin-bottom: 24px;
+    color: $color-text-base-ondark;
+}
+
+.nav__megamenu__insight__date {
+    color: $color-text-tertiary-ondark;
+    margin-bottom: 16px;
+}
 
 // Default View:
 
@@ -283,10 +307,7 @@
     opacity: 0;
 }
 
-
-
 // Hamburger & Search Buttons:
-
 
 .nav__action {
     position: relative;
@@ -298,14 +319,15 @@
 }
 
 .nav__action__icon--default {
-    transition: transform 0.3s 0.15s $ease-out-quad, opacity 0.2s 0.15s $ease-out-quad;
+    transition: transform 0.3s 0.15s $ease-out-quad,
+        opacity 0.2s 0.15s $ease-out-quad;
 }
 
 .nav__action__icon--close {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
     opacity: 0;
     transition: transform 0.2s $ease-in-quad, opacity 0.2s $ease-in-quad;
 }
@@ -317,19 +339,37 @@
         transition: transform 0.2s $ease-in-quad, opacity 0.2s $ease-in-quad;
     }
     .nav__action__icon--close {
-        transform: translate(-50%,-50%) rotate(0);
+        transform: translate(-50%, -50%) rotate(0);
         opacity: 1;
-        transition: transform 0.2s 0.15s $ease-out-quad, opacity 0.2s 0.15s $ease-out-quad;
+        transition: transform 0.2s 0.15s $ease-out-quad,
+            opacity 0.2s 0.15s $ease-out-quad;
     }
 }
-
-
 
 @include breakpoint(large up) {
     .nav {
         position: fixed;
         background-color: $color-fill-white;
         transition: $transition-ui-default;
+
+        @supports (backdrop-filter: $filter-navigation-background) {
+            background-color: $color-ui-navbar-background-onlight;
+            backdrop-filter: $filter-navigation-background;
+        }
+
+        .dark & {
+            background-color: $color-fill-gray-darkest;
+
+            @supports (backdrop-filter: $filter-navigation-background) {
+                background-color: $color-ui-navbar-background-ondark;
+            }
+        }
+    }
+
+    .nav__left,
+    .nav__right {
+        width: 25%;
+        height: 100%;
     }
 
     .nav--scrolled {
@@ -353,6 +393,15 @@
         &:focus {
             color: $color-text-base-onlight;
         }
+
+        .dark & {
+            color: $color-text-tertiary-ondark;
+
+            &:hover,
+            &:focus {
+                color: $color-text-base-ondark;
+            }
+        }
     }
 
     .nav__hamburger {
@@ -361,6 +410,7 @@
 
     .nav.nav--megamenu-open {
         color: $color-text-base-ondark;
+        backdrop-filter: none;
 
         .nav__link {
             color: $color-text-tertiary-ondark;
@@ -412,8 +462,6 @@
     }
 }
 
-
-
 @include breakpoint(medium down) {
     .nav {
         position: absolute;
@@ -450,11 +498,21 @@
     .nav__hamburger {
         color: $color-text-base-ondark;
         background-color: $color-fill-gray-darker;
+
+        .dark & {
+            color: $color-text-base-onlight;
+            background-color: $color-fill-gray-light;
+        }
     }
 
     .nav__search {
         color: $color-text-base-onlight;
         background-color: $color-fill-gray-light;
+
+        .dark & {
+            color: $color-text-base-ondark;
+            background-color: $color-fill-gray-darker;
+        }
     }
 
     .nav__center {
@@ -480,7 +538,7 @@
     }
 
     .nav__link {
-        @include type-h2();
+        @include type-h1();
         padding: 6px 0;
         color: $color-text-base-ondark;
 
@@ -506,7 +564,7 @@
         position: fixed;
     }
 
-    .nav__item{
+    .nav__item {
         opacity: 0;
         transform: translateY(-20%);
     }
@@ -546,7 +604,7 @@
             color: $color-text-base-onlight;
             background-color: $color-fill-gray-light;
         }
-        .nav__item{
+        .nav__item {
             opacity: 1;
             transform: translateY(0);
             transition: $transition-ui-default;
@@ -556,6 +614,6 @@
                     transition-delay: $i * 0.05s + 0.1s;
                 }
             }
-        }    
+        }
     }
 }

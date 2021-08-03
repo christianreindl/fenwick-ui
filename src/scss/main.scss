@@ -10,19 +10,5 @@
 
 @import "pages/all";
 
-
-
-.featured-image {
-  width: 100%;
-  height: 400px;
-  margin-top: 25vh;
-  margin-bottom: 25vh;
-  overflow: hidden;
-}
-
-.featured-image__inner {
-  width: 100%;
-  position: relative;
-  object-fit: cover;
-}
+@import "theme/all";
 
