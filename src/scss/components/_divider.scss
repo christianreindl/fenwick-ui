@@ -1,0 +1,7 @@
+.divider {
+	@include dashed-background-vertical();
+    height: 16px;
+    width: 1px;
+    margin: 0 12px;
+    opacity: 0.25;
+}

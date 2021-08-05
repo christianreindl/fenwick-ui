@@ -20,7 +20,6 @@ $button-height-sm: 40px;
 
     &:active {
         opacity: 0.5;
-        transform: translateY(1px);
     }
 }
 
@@ -195,6 +194,7 @@ $button-height-sm: 40px;
 
     &:hover,
     &:focus {
+        border: 1px solid transparent;
         background-color: darken($color-fill, 10%);
     }
 
@@ -249,6 +249,8 @@ $button-height-sm: 40px;
 
     &:active {
         opacity: 1;
+        transform: translateY(1px);
+
         &::before {
             opacity: 0.15;
         }
@@ -268,14 +270,18 @@ $button-height-sm: 40px;
     &:hover, &:focus {
         border: 1px solid currentColor;
     }
+
+    &:active {
+        transform: translateY(1px);
+    }
 }
 
 .button--solid {
-    border: none;
+    border: 1px solid transparent;
     @include button--solid($color-text-base-ondark, $color-fill-primary);
 
     &.button--secondary {
-        @include button--solid($color-text-base-ondark, $color-fill-gray-darker)
+        @include button--solid($color-text-base-onlight, $color-fill-gray-light)
     }
     &.button--alert {
         @include button--solid($color-text-base-ondark, $color-fill-accent-orange)
@@ -305,11 +311,10 @@ $button-height-sm: 40px;
     }
 
     .button--solid {
-        border: none;
         @include button--solid($color-text-base-ondark, $color-fill-primary);
     
         &.button--secondary {
-            @include button--solid($color-text-base-onlight, $color-fill-gray-lighter)
+            @include button--solid($color-text-base-ondark, $color-fill-white-alpha-10)
         }
         &.button--alert {
             @include button--solid($color-text-base-onlight, $color-fill-accent-orange)

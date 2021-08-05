@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./node_modules/@iconscout/unicons/css/line.css" />
 </head>
 
-<body class="dark theme--gray-darkest">
+<body class="">
   <nav class="nav">
     <div class="nav__grid-container grid-container">
       <div class="nav__left">
@@ -44,7 +44,7 @@
                 <div class="nav__megamenu__columns grid-x grid-margin-x">
 
                   <div class="nav__megamenu__column cell small-3">
-                    <a href="" class="nav__megamenu__column__link nav__megamenu__link">
+                    <a href="" class="nav__megamenu__column__title nav__megamenu__link">
                       <span class="nav__megamenu__link__arrow">
                         <i class="icon icon-arrow-right"></i>
                       </span>
@@ -110,7 +110,7 @@
                   </div>
 
                   <div class="nav__megamenu__column cell small-3">
-                    <a href="" class="nav__megamenu__column__link nav__megamenu__link">
+                    <a href="" class="nav__megamenu__column__title nav__megamenu__link">
                       <span class="nav__megamenu__link__arrow">
                         <i class="icon icon-arrow-right"></i>
                       </span>
@@ -175,9 +175,9 @@
                     </ul>
                   </div>
 
-       
+
                   <div class="nav__megamenu__column cell small-3">
-                    <a href="" class="nav__megamenu__column__link nav__megamenu__link">
+                    <a href="" class="nav__megamenu__column__title nav__megamenu__link">
                       <span class="nav__megamenu__link__arrow">
                         <i class="icon icon-arrow-right"></i>
                       </span>
@@ -242,9 +242,9 @@
                     </ul>
                   </div>
 
-                  
+
                   <div class="nav__megamenu__column cell small-3">
-                    <a href="" class="nav__megamenu__column__link nav__megamenu__link">
+                    <a href="" class="nav__megamenu__column__title nav__megamenu__link">
                       <span class="nav__megamenu__link__arrow">
                         <i class="icon icon-arrow-right"></i>
                       </span>
@@ -309,7 +309,7 @@
                     </ul>
                   </div>
 
-                
+
                 </div>
               </div>
             </div>
@@ -436,15 +436,98 @@
 
 
         </ul>
+
       </div>
       <div class="nav__right">
         <div class="nav__right__divider show-for-large"></div>
-        <button class="button button--circle button--secondary nav__action nav__search">
-          <i class="icon icon-search nav__action__icon--default"></i>
-          <i class="icon icon-close nav__action__icon--close"></i>
-        </button>
+        <div class="nav__item nav__search">
+          <button class="button button--circle button--secondary nav__action nav__button--search">
+            <i class="icon icon-search nav__action__icon--default"></i>
+            <i class="icon icon-close nav__action__icon--close"></i>
+          </button>
+
+          <div class="nav__search__megamenu nav__megamenu">
+            <div class="grid-container">
+              <div class="searchfield nav__megamenu__head">
+                <i class="icon icon--xl icon-search searchfield__icon"></i>
+                <input type="text" placeholder="Search fenwick.com" class="searchfield__input">
+                <p class="searchfield__helper">
+                  Press Enter <i class="icon icon--sm icon-enter-key"></i> to search.
+                </p>
+                <div class="searchfield__actions">
+                  <button class="button button--rounded button--solid button--secondary">
+                    Clear
+                  </button>
+                  <button class="button button--rounded button--solid hide-for-large">
+                    Search
+                  </button>
+                </div>
+              </div>
+
+              <div class="nav__megamenu__columns grid-x">
+                <div class="nav__megamenu__column cell small-12 medium-6 large-4">
+                  <h2 class="nav__megamenu__column__title">
+                    Frequent Searches
+                  </h2>
+                  <ul class="nav__megamenu__subpages">
+                    <li class="nav__megamenu__subpage">
+                      <a href="" class="nav__megamenu__subpage__link nav__megamenu__link">
+                        <span class="nav__megamenu__link__arrow">
+                          <i class="icon icon-search"></i>
+                        </span>
+                        <span class="nav__megamenu__link__label">
+                          Company Profile
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav__megamenu__subpage">
+                      <a href="" class="nav__megamenu__subpage__link nav__megamenu__link">
+                        <span class="nav__megamenu__link__arrow">
+                          <i class="icon icon-search"></i>
+                        </span>
+                        <span class="nav__megamenu__link__label">
+                          Offices
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav__megamenu__subpage">
+                      <a href="" class="nav__megamenu__subpage__link nav__megamenu__link">
+                        <span class="nav__megamenu__link__arrow">
+                          <i class="icon icon-search"></i>
+                        </span>
+                        <span class="nav__megamenu__link__label">
+                          Startup & Venture Capital
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav__megamenu__subpage">
+                      <a href="" class="nav__megamenu__subpage__link nav__megamenu__link">
+                        <span class="nav__megamenu__link__arrow">
+                          <i class="icon icon-search"></i>
+                        </span>
+                        <span class="nav__megamenu__link__label">
+                          Capital Markets & Public Companies
+                        </span>
+                      </a>
+                    </li>
+                    <li class="nav__megamenu__subpage">
+                      <a href="" class="nav__megamenu__subpage__link nav__megamenu__link">
+                        <span class="nav__megamenu__link__arrow">
+                          <i class="icon icon-search"></i>
+                        </span>
+                        <span class="nav__megamenu__link__label">
+                          Contact
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="nav__right__divider hide-for-large"></div>
-        <button class="button button--circle button--secondary nav__action nav__hamburger">
+        <button class="button button--circle button--secondary nav__action nav__button--hamburger">
           <i class="icon icon-hamburger nav__action__icon--default"></i>
           <i class="icon icon-close nav__action__icon--close"></i>
         </button>
@@ -454,7 +537,8 @@
     <div class="nav__megamenu__background"></div>
   </nav>
 
-  <div class="wayfinding wayfinding--sticky">
+
+  <div class="wayfinding wayfinding--sticky" style="display: none;">
     <div class="grid-container wayfinding__grid-container">
       <div class="wayfinding__inner">
         <div class="wayfinding__left">
@@ -500,6 +584,182 @@
 
 
 
+  <section class="home__hero">
+    <div class="home__title">
+      <div class="grid-container">
+        <h1 class="heading-display home__title__inner">
+          <span class="home__title__line">The leading law firm</span>
+          <span class="home__title__line">built for leaders in</span>
+          <span class="home__title__line">tech and life sciences</span>
+        </h1>
+      </div>
+    </div>
+
+    <div class="home__cases grid-container">
+      <a href="" class="home__case" data-depth='-0.50'>
+        <span class="home__case__pattern"></span>
+        <span class="home__case__image">
+          <span class="home__case__image__inner">
+            <img src="/src/img/demo/logo_client_white.svg" alt="" class="home__case__logo">
+            <img src="/src/img/demo/photo_case_1.png" alt="" class="home__case__photo">
+          </span>
+        </span>
+        <span class="home__case__title heading-6">
+          <span class="home__case__title__arrow">
+            <i class="icon icon-arrow-right icon--lg" aria-hidden="true"></i>
+          </span>
+          <span class="home__case__title__inner">
+            Fenwick Represents <span style="color: #CD5A98;">Figma</span> in $200 Million Series E Financing
+          </span>
+        </span>
+      </a>
+
+      <a href="" class="home__case" data-depth='0.60'>
+        <span class="home__case__pattern"></span>
+        <span class="home__case__image">
+          <span class="home__case__image__inner">
+            <img src="/src/img/demo/logo_client_white.svg" alt="" class="home__case__logo">
+            <img src="/src/img/demo/photo_case_1.png" alt="" class="home__case__photo">
+          </span>
+        </span>
+        <span class="home__case__title heading-6">
+          <span class="home__case__title__arrow">
+            <i class="icon icon-arrow-right icon--lg" aria-hidden="true"></i>
+          </span>
+          <span class="home__case__title__inner">
+            Fenwick Represents <span style="color: #CD5A98;">Figma</span> in $200 Million Series E Financing
+          </span>
+        </span>
+      </a>
+
+      <a href="" class="home__case" data-depth='-0.9'>
+        <span class="home__case__pattern"></span>
+        <span class="home__case__image">
+          <span class="home__case__image__inner">
+            <img src="/src/img/demo/logo_client_white.svg" alt="" class="home__case__logo">
+            <img src="/src/img/demo/photo_case_1.png" alt="" class="home__case__photo">
+          </span>
+        </span>
+        <span class="home__case__title heading-6">
+          <span class="home__case__title__arrow">
+            <i class="icon icon-arrow-right icon--lg" aria-hidden="true"></i>
+          </span>
+          <span class="home__case__title__inner">
+            Fenwick Represents <span style="color: #CD5A98;">Figma</span> in $200 Million Series E Financing
+          </span>
+        </span>
+      </a>
+
+      <a href="" class="home__case" data-depth='0.5'>
+        <span class="home__case__pattern"></span>
+        <span class="home__case__image">
+          <span class="home__case__image__inner">
+            <img src="/src/img/demo/logo_client_white.svg" alt="" class="home__case__logo">
+            <img src="/src/img/demo/photo_case_1.png" alt="" class="home__case__photo">
+          </span>
+        </span>
+        <span class="home__case__title heading-6">
+          <span class="home__case__title__arrow">
+            <i class="icon icon-arrow-right icon--lg" aria-hidden="true"></i>
+          </span>
+          <span class="home__case__title__inner">
+            Fenwick Represents <span style="color: #CD5A98;">Figma</span> in $200 Million Series E Financing
+          </span>
+        </span>
+      </a>
+
+      <a href="" class="home__case" data-depth='-0.2'>
+        <span class="home__case__pattern"></span>
+        <span class="home__case__image">
+          <span class="home__case__image__inner">
+            <img src="/src/img/demo/logo_client_white.svg" alt="" class="home__case__logo">
+            <img src="/src/img/demo/photo_case_1.png" alt="" class="home__case__photo">
+          </span>
+        </span>
+        <span class="home__case__title heading-6">
+          <span class="home__case__title__arrow">
+            <i class="icon icon-arrow-right icon--lg" aria-hidden="true"></i>
+          </span>
+          <span class="home__case__title__inner">
+            Fenwick Represents <span style="color: #CD5A98;">Figma</span> in $200 Million Series E Financing
+          </span>
+        </span>
+      </a>
+
+      <div class="home__case" data-depth="-0.1">
+        <div class="home__stat">
+          <h2 class="home__stat__top">
+            <span class="home__stat__title">1</span>
+            <span class="home__stat__subtitle">st Place</span>
+          </h2>
+          <div class="home__stat__bottom">
+            <p class="home__stat__description">
+              in ALM Media’s inaugural Composite Ranking Index
+            </p>
+            <p class="home__stat__caption">
+              2021
+            </p>
+          </div>
+        </div>
+
+        <div class="home__stat">
+          <h2 class="home__stat__top">
+            <span class="home__stat__title">3</span>
+            <span class="home__stat__subtitle">Times</span>
+          </h2>
+          <div class="home__stat__bottom">
+            <p class="home__stat__description">
+              of the past five years named Technology Group of the Year by Law 360
+            </p>
+            <p class="home__stat__caption">
+              2021
+            </p>
+          </div>
+        </div>
+
+        <div class="home__stat">
+          <h2 class="home__stat__top">
+            <span class="home__stat__title">25</span>
+            <span class="home__stat__subtitle">%</span>
+          </h2>
+          <div class="home__stat__bottom">
+            <p class="home__stat__description">
+              of Fenwick partners are ranked by Chambers USA and Chambers Global
+            </p>
+            <p class="home__stat__caption">
+              2020
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="home__about">
+    <div class="grid-container text--centered">
+      <div class="grid-margin-x grid-x">
+        <h2 class="heading-2 cell large-10 large-offset-1 margin-bottom--48">
+          Dedicated to helping technology and life sciences companies thrive at every stage of growth, we are inspired by our clients and driven toward their success.
+        </h2>
+      </div>
+      <button class="button button--underline">
+        <span class="button__icon">
+          <i class="icon icon-arrow-right"></i>
+        </span>
+        <span class="button__label">
+          Learn more about Fenwick
+        </span>
+        <span class="button__icon">
+          <i class="icon icon-arrow-right"></i>
+        </span>
+      </button>
+    </div>
+  </section>
+
+
   <header class="insight__header padding-top--140 padding-bottom--100">
     <div class="wayfinding">
       <div class="grid-container wayfinding__grid-container">
@@ -532,17 +792,204 @@
         </h1>
         <div class="featured-image cell small-12">
           <div class="featured-image__mask">
-          <img
-            src="https://images.unsplash.com/photo-1625754544587-36cff82f7d9f?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYyNzE0ODQ4NA&ixlib=rb-1.2.1&q=85"
-            alt="" class="featured-image__inner" />
+            <img
+              src="https://images.unsplash.com/photo-1625754544587-36cff82f7d9f?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYyNzE0ODQ4NA&ixlib=rb-1.2.1&q=85"
+              alt="" class="featured-image__inner" />
           </div>
         </div>
       </div>
     </div>
-    
+
   </header>
 
+
   <div class="grid-container" style="padding-top: 300px;">
+
+    <div class="grid-x grid-margin-x">
+      <div class="cell small-6 large-4">
+        <div class="card padding-top--40">
+          <h3 class="heading-4 margin-bottom--24">Pro Bono</h3>
+          <p class="paragraph margin-bottom--16">
+            Our pro bono practice is dedicated to ensuring that disadvantaged people and communities have representation
+            and access to justice.
+          </p>
+          <ul class="list list--bullets margin-bottom--24">
+            <li>Bullet</li>
+            <li>Bullet</li>
+            <li>Bullet</li>
+          </ul>
+          <ul class="list margin-bottom--24">
+            <li class="list__item">
+              <a href="" class="button button--underline button--underline--simple list__button">
+                <span class="button__icon">
+                  <i class="icon icon-arrow-right"></i>
+                  <i class="icon icon-arrow-right"></i>
+                </span>
+                <span class="button__label">
+                  List item
+                </span>
+              </a>
+            </li>
+            <li class="list__item">
+              <a href="" class="button button--underline button--underline--simple list__button">
+                <span class="button__icon">
+                  <i class="icon icon-arrow-right"></i>
+                  <i class="icon icon-arrow-right"></i>
+                </span>
+                <span class="button__label">
+                  List item
+                </span>
+              </a>
+            </li>
+            <li class="list__item">
+              <a href="" class="button button--underline button--underline--simple list__button">
+                <span class="button__icon">
+                  <i class="icon icon-arrow-right"></i>
+                  <i class="icon icon-arrow-right"></i>
+                </span>
+                <span class="button__label">
+                  List item
+                </span>
+              </a>
+            </li>
+          </ul>
+          <button class="button button--underline">
+            <span class="button__icon">
+              <i class="icon icon-arrow-right"></i>
+            </span>
+            <span class="button__label">
+              Learn more
+            </span>
+            <span class="button__icon">
+              <i class="icon icon-arrow-right"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <div class="cell small-6 large-4">
+        <div class="card padding-top--40">
+          <h3 class="heading-4 margin-bottom--24">Pro Bono</h3>
+          <p class="paragraph margin-bottom--16">
+            Our pro bono practice is dedicated to ensuring that disadvantaged people and communities have representation
+            and access to justice.
+          </p>
+          <ul class="list list--bullets margin-bottom--24">
+            <li>Bullet</li>
+            <li>Bullet</li>
+            <li>Bullet</li>
+          </ul>
+          <ul class="list margin-bottom--24">
+            <li class="list__item">
+              <a href="" class="button button--underline button--underline--simple list__button">
+                <span class="button__icon">
+                  <i class="icon icon-arrow-right"></i>
+                  <i class="icon icon-arrow-right"></i>
+                </span>
+                <span class="button__label">
+                  List item
+                </span>
+              </a>
+            </li>
+            <li class="list__item">
+              <a href="" class="button button--underline button--underline--simple list__button">
+                <span class="button__icon">
+                  <i class="icon icon-arrow-right"></i>
+                  <i class="icon icon-arrow-right"></i>
+                </span>
+                <span class="button__label">
+                  List item
+                </span>
+              </a>
+            </li>
+            <li class="list__item">
+              <a href="" class="button button--underline button--underline--simple list__button">
+                <span class="button__icon">
+                  <i class="icon icon-arrow-right"></i>
+                  <i class="icon icon-arrow-right"></i>
+                </span>
+                <span class="button__label">
+                  List item
+                </span>
+              </a>
+            </li>
+          </ul>
+          <button class="button button--underline">
+            <span class="button__icon">
+              <i class="icon icon-arrow-right"></i>
+            </span>
+            <span class="button__label">
+              Learn more
+            </span>
+            <span class="button__icon">
+              <i class="icon icon-arrow-right"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <div class="cell small-6 large-4">
+        <div class="card padding-top--40">
+          <h3 class="heading-4 margin-bottom--24">Pro Bono</h3>
+          <p class="paragraph margin-bottom--16">
+            Our pro bono practice is dedicated to ensuring that disadvantaged people and communities have representation
+            and access to justice.
+          </p>
+          <ul class="list list--bullets margin-bottom--24">
+            <li>Bullet</li>
+            <li>Bullet</li>
+            <li>Bullet</li>
+          </ul>
+          <ul class="list margin-bottom--24">
+            <li class="list__item">
+              <a href="" class="button button--underline button--underline--simple list__button">
+                <span class="button__icon">
+                  <i class="icon icon-arrow-right"></i>
+                  <i class="icon icon-arrow-right"></i>
+                </span>
+                <span class="button__label">
+                  List item
+                </span>
+              </a>
+            </li>
+            <li class="list__item">
+              <a href="" class="button button--underline button--underline--simple list__button">
+                <span class="button__icon">
+                  <i class="icon icon-arrow-right"></i>
+                  <i class="icon icon-arrow-right"></i>
+                </span>
+                <span class="button__label">
+                  List item
+                </span>
+              </a>
+            </li>
+            <li class="list__item">
+              <a href="" class="button button--underline button--underline--simple list__button">
+                <span class="button__icon">
+                  <i class="icon icon-arrow-right"></i>
+                  <i class="icon icon-arrow-right"></i>
+                </span>
+                <span class="button__label">
+                  List item
+                </span>
+              </a>
+            </li>
+          </ul>
+          <button class="button button--underline">
+            <span class="button__icon">
+              <i class="icon icon-arrow-right"></i>
+            </span>
+            <span class="button__label">
+              Learn more
+            </span>
+            <span class="button__icon">
+              <i class="icon icon-arrow-right"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <p class="heading-display">Display</p>
     <p class="heading-1">Heading 1</p>
     <p class="heading-2">Heading 2</p>
@@ -620,7 +1067,7 @@
       </span>
     </button>
 
-  
+
     <button class="button button--lg button--circle button--secondary">
       <i class="icon icon-search"></i>
     </button>

@@ -51,11 +51,11 @@ ul {
 }
 
 .nav__right__divider {
+    @include dashed-background-vertical();
     height: 16px;
     width: 1px;
     margin: 0 12px;
     opacity: 0.25;
-    @include dashed-background-vertical();
 }
 
 .nav__menu {
@@ -216,9 +216,11 @@ ul {
     }
 }
 
-.nav__megamenu__column__link {
+.nav__megamenu__column__title {
     @include type-h5();
     height: 80px;
+    display: flex;
+    align-items: center;
     color: $color-text-base-ondark;
 
     .nav__megamenu__link__label {
@@ -332,7 +334,8 @@ ul {
     transition: transform 0.2s $ease-in-quad, opacity 0.2s $ease-in-quad;
 }
 
-.nav__action--active {
+.nav__action--active,
+.nav__item--active {
     .nav__action__icon--default {
         transform: rotate(45deg);
         opacity: 0;
@@ -346,11 +349,26 @@ ul {
     }
 }
 
+
+// Search View:
+
+.nav__search {
+    height: auto;
+
+    .nav__megamenu__column {
+        margin-left: 100px;
+    }
+
+    &.nav__item--active {
+
+    }
+}
+
 @include breakpoint(large up) {
     .nav {
         position: fixed;
         background-color: $color-fill-white;
-        transition: $transition-ui-default;
+        transition: $transition-ui-default, backdrop-filter 0s linear;
 
         @supports (backdrop-filter: $filter-navigation-background) {
             background-color: $color-ui-navbar-background-onlight;
@@ -404,7 +422,7 @@ ul {
         }
     }
 
-    .nav__hamburger {
+    .nav__button--hamburger {
         display: none;
     }
 
@@ -487,15 +505,15 @@ ul {
         right: 0;
     }
 
-    .nav__search,
-    .nav__hamburger {
+    .nav__button--search,
+    .nav__button--hamburger {
         &.button {
             width: $button-height-lg;
             height: $button-height-lg;
         }
     }
 
-    .nav__hamburger {
+    .nav__button--hamburger {
         color: $color-text-base-ondark;
         background-color: $color-fill-gray-darker;
 
@@ -505,7 +523,7 @@ ul {
         }
     }
 
-    .nav__search {
+    .nav__button--search {
         color: $color-text-base-onlight;
         background-color: $color-fill-gray-light;
 

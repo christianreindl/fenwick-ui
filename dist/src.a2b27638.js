@@ -14723,10 +14723,43 @@ tl.fromTo(".featured-image__inner", {
   height: "140%",
   ease: "none"
 }, 0);
+
+var tlCases = _gsap.default.timeline({
+  scrollTrigger: {
+    trigger: ".home__cases",
+    scrub: true,
+    end: "bottom top"
+  }
+});
+
+var homeCases = _gsap.default.utils.toArray(".home__case");
+
+homeCases.forEach(function (section, i) {
+  section.image = section.querySelector(".home__case__image__inner");
+  var depth = section.dataset.depth;
+  var movement = -(section.offsetHeight * depth * 2);
+  console.log("depth", depth);
+  tlCases.to(section, {
+    y: movement,
+    ease: "none"
+  }, 0);
+
+  _gsap.default.from(section.image, {
+    scrollTrigger: {
+      trigger: section,
+      toggleActions: "restart none none reverse"
+    },
+    height: "25%",
+    duration: 0.75,
+    ease: "power3.out"
+  });
+}); // Navigation
+
 var navContainer = document.querySelector(".nav");
 var navUnderlay = document.querySelector(".nav__megamenu__underlay");
 var navWayfinding = document.querySelector(".wayfinding--sticky");
-var navHamburger = document.querySelector(".nav__hamburger");
+var navHamburger = document.querySelector(".nav__button--hamburger");
+var navSearch = document.querySelector(".nav__button--search");
 var navActions = document.querySelectorAll(".nav__action");
 var navItems = document.querySelectorAll(".nav__item");
 var navLinks = document.querySelectorAll(".nav__link");
@@ -14783,6 +14816,8 @@ Array.prototype.forEach.call(navLinks, function (navLink) {
 Array.prototype.forEach.call(navLinks, function (navLink) {
   navLink.addEventListener("mouseenter", showTopMegamenu);
 });
+navSearch.addEventListener("click", showTopMegamenu);
+navSearch.addEventListener("focus", showTopMegamenu);
 navHamburger.addEventListener("click", toggleHamburgerMenu);
 navContainer.addEventListener("mouseleave", hideTopMegamenu);
 navUnderlay.addEventListener("mouseenter", hideTopMegamenu);

@@ -96,3 +96,28 @@
         background-image: url("/src/img/pattern_dots_ondark.svg");
     }
 }
+
+
+@mixin card-border-line($position: 'top') {
+    position: relative;
+    
+    &::before {
+		@include dashed-background(
+            $color-ui-divider-dotted-onlight,
+            $size-ui-dotted-line-large
+        );
+        content: "";
+        #{$position}: 0;
+        left: 0;
+        height: $size-ui-dotted-line-large;
+        width: 100%;
+        position: absolute;
+	}
+
+	.dark &::before {
+		@include dashed-background(
+            $color-ui-divider-dotted-ondark,
+            $size-ui-dotted-line-large
+        );
+	}
+}

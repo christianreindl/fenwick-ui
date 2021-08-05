@@ -26,13 +26,52 @@ tl.fromTo(
     0
 );
 
+const tlCases = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".home__cases",
+        scrub: true,
+        end: "bottom top"
+    },
+});
+
+
+let homeCases = gsap.utils.toArray(".home__case");
+
+homeCases.forEach((section, i) => {
+    section.image = section.querySelector(".home__case__image__inner");
+    const depth = section.dataset.depth;
+    const movement = -(section.offsetHeight * depth * 2);
+
+    console.log("depth", depth);
+
+    tlCases
+        .to(section, {
+            y: movement,
+            ease: "none",
+        }, 0)
+  
+
+    gsap.from(section.image, {
+        scrollTrigger: {
+            trigger: section,
+            toggleActions: "restart none none reverse",
+        },
+        height: "25%",
+        duration: 0.75,
+        ease: "power3.out",
+    });
+});
+
+// Navigation
 
 const navContainer = document.querySelector(".nav");
 const navUnderlay = document.querySelector(".nav__megamenu__underlay");
 
 const navWayfinding = document.querySelector(".wayfinding--sticky");
 
-const navHamburger = document.querySelector(".nav__hamburger");
+const navHamburger = document.querySelector(".nav__button--hamburger");
+const navSearch = document.querySelector(".nav__button--search");
+
 const navActions = document.querySelectorAll(".nav__action");
 const navItems = document.querySelectorAll(".nav__item");
 const navLinks = document.querySelectorAll(".nav__link");
@@ -55,7 +94,6 @@ function showTopMegamenu(event) {
     const navItem = event.currentTarget.parentNode;
     navItem.classList.add("nav__item--active");
 }
-
 
 function toggleHamburgerMenu(event) {
     if (hamburgerMenuIsOpen) {
@@ -92,8 +130,12 @@ Array.prototype.forEach.call(navLinks, (navLink) => {
     navLink.addEventListener("mouseenter", showTopMegamenu);
 });
 
+navSearch.addEventListener("click", showTopMegamenu);
+navSearch.addEventListener("focus", showTopMegamenu);
+
 navHamburger.addEventListener("click", toggleHamburgerMenu);
 navContainer.addEventListener("mouseleave", hideTopMegamenu);
+
 navUnderlay.addEventListener("mouseenter", hideTopMegamenu);
 
 window.addEventListener("scroll", checkScroll);

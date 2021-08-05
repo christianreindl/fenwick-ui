@@ -1,3 +1,7 @@
+// -----------------------------------------------------------------------------
+// Link list
+// -----------------------------------------------------------------------------
+
 .list {
     margin: 0;
     padding: 0;
@@ -21,6 +25,7 @@
 }
 
 .list__button {
+    display: flex;
     color: $color-text-base-onlight;
 
     .button__label {
@@ -76,5 +81,27 @@
                 color: inherit;
             }
         }
+    }
+}
+
+
+// -----------------------------------------------------------------------------
+// Regular List
+// -----------------------------------------------------------------------------
+
+.list--bullets {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+
+    li {
+    }
+
+    li:before {
+        @include icon-pseudo($ic-angle-right);
+        display: inline;
+        margin-left: -0.33em;
+        opacity: 50%;
+        padding-right: 0.5em;
     }
 }
