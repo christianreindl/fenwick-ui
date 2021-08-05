@@ -14727,7 +14727,7 @@ tl.fromTo(".featured-image__inner", {
 var tlCases = _gsap.default.timeline({
   scrollTrigger: {
     trigger: ".home__cases",
-    scrub: true,
+    scrub: 1,
     end: "bottom top"
   }
 });
@@ -14736,6 +14736,7 @@ var homeCases = _gsap.default.utils.toArray(".home__case");
 
 homeCases.forEach(function (section, i) {
   section.image = section.querySelector(".home__case__image__inner");
+  section.pattern = section.querySelector(".home__case__pattern");
   var depth = section.dataset.depth;
   var movement = -(section.offsetHeight * depth * 2);
   console.log("depth", depth);
@@ -14743,6 +14744,15 @@ homeCases.forEach(function (section, i) {
     y: movement,
     ease: "none"
   }, 0);
+
+  _gsap.default.to(section.pattern, {
+    scrollTrigger: {
+      trigger: section,
+      scrub: 1
+    },
+    yPercent: 30,
+    ease: "none"
+  });
 
   _gsap.default.from(section.image, {
     scrollTrigger: {

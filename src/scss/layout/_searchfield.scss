@@ -49,6 +49,10 @@
 	opacity: 0.55;
 }
 
+.searchfield__input:focus ~ .searchfield__actions {
+	opacity: 1;
+}
+
 .searchfield__actions {
 	display: flex;
 	align-items: center;

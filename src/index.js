@@ -29,7 +29,7 @@ tl.fromTo(
 const tlCases = gsap.timeline({
     scrollTrigger: {
         trigger: ".home__cases",
-        scrub: true,
+        scrub: 1,
         end: "bottom top"
     },
 });
@@ -39,6 +39,7 @@ let homeCases = gsap.utils.toArray(".home__case");
 
 homeCases.forEach((section, i) => {
     section.image = section.querySelector(".home__case__image__inner");
+    section.pattern = section.querySelector(".home__case__pattern");
     const depth = section.dataset.depth;
     const movement = -(section.offsetHeight * depth * 2);
 
@@ -49,7 +50,15 @@ homeCases.forEach((section, i) => {
             y: movement,
             ease: "none",
         }, 0)
-  
+
+    gsap.to(section.pattern, {
+        scrollTrigger: {
+            trigger: section,
+            scrub: 1,
+        },
+        yPercent: 30,
+        ease: "none",
+    });
 
     gsap.from(section.image, {
         scrollTrigger: {

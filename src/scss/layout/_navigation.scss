@@ -587,6 +587,11 @@ ul {
         transform: translateY(-20%);
     }
 
+    .nav__search {
+        opacity: 1;
+        transform: none;
+    }
+
     .nav.nav--hamburger-open {
         color: $color-text-base-ondark;
 

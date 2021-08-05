@@ -87,9 +87,9 @@
     background-image: url("/src/img/pattern_dots_onlight.svg");
 
     @if ($size == "small") {
-        background-size: 6px;
+        background-size: 4px;
     } @else {
-        background-size: 12px;
+        background-size: 8px;
     }
 
     .dark & {
@@ -100,7 +100,7 @@
 
 @mixin card-border-line($position: 'top') {
     position: relative;
-    
+
     &::before {
 		@include dashed-background(
             $color-ui-divider-dotted-onlight,
