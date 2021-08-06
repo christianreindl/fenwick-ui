@@ -1,0 +1,39 @@
+.home__title {
+    height: 100vh;
+    display: flex;
+    text-align: left;
+    padding-bottom: 18vh;
+    align-items: flex-end;
+    justify-content: center;
+
+    @include breakpoint(medium up) {
+        padding-bottom: 25vh;
+    }
+
+    @include breakpoint(large up) {
+        top: 0;
+        position: sticky;
+        text-align: center;
+        align-items: center;
+        padding-bottom: 5vh;
+    }
+}
+
+.home__title__inner {
+    max-width: 120vmin;
+}
+
+.home__title__mask {
+    overflow: hidden;
+}
+
+.home__title__line,
+.home__title__mask {
+    display: block;
+    white-space: nowrap;
+
+    @include breakpoint(medium down) {
+        display: inline;
+        white-space: normal;
+    }
+}

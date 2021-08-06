@@ -100,21 +100,19 @@
     top: $navbar-height;
     z-index: $zindex-wayfinding;
     transition: $transition-ui-default;
-    background-color: $color-fill-white;
     transform: translateY($navbar-offset);
     box-shadow: inset 0 -1px 0 0 $color-fill-black-alpha-10;
 
-    @supports (backdrop-filter: $filter-navigation-background) {
-        background-color: $color-ui-navbar-background-onlight;
-        backdrop-filter: $filter-navigation-background;
-    }
+    @include backdrop-blur(
+        $color-ui-navbar-background-onlight,
+        $color-fill-white
+    );
 
     .dark & {
-        background-color: $color-fill-gray-darkest;
-
-        @supports (backdrop-filter: $filter-navigation-background) {
-            background-color: $color-ui-navbar-background-ondark;
-        }
+        @include backdrop-blur(
+            $color-ui-navbar-background-ondark,
+            $color-fill-gray-darkest
+        );
     }
 
     .wayfinding__inner {

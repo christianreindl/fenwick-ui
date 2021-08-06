@@ -85,13 +85,9 @@ ul {
     max-height: 90vh;
     position: absolute;
     transform-origin: top;
-    background-color: $color-fill-gray-darkest;
     z-index: -1;
 
-    @supports (backdrop-filter: $filter-navigation-background) {
-        background-color: $color-ui-megamenu-background;
-        backdrop-filter: $filter-navigation-background;
-    }
+    @include backdrop-blur();
 }
 
 .nav__megamenu__underlay {
@@ -349,7 +345,6 @@ ul {
     }
 }
 
-
 // Search View:
 
 .nav__search {
@@ -360,27 +355,24 @@ ul {
     }
 
     &.nav__item--active {
-
     }
 }
 
 @include breakpoint(large up) {
     .nav {
         position: fixed;
-        background-color: $color-fill-white;
         transition: $transition-ui-default, backdrop-filter 0s linear;
 
-        @supports (backdrop-filter: $filter-navigation-background) {
-            background-color: $color-ui-navbar-background-onlight;
-            backdrop-filter: $filter-navigation-background;
-        }
+        @include backdrop-blur(
+            $color-ui-navbar-background-onlight,
+            $color-fill-white
+        );
 
         .dark & {
-            background-color: $color-fill-gray-darkest;
-
-            @supports (backdrop-filter: $filter-navigation-background) {
-                background-color: $color-ui-navbar-background-ondark;
-            }
+            @include backdrop-blur(
+                $color-ui-navbar-background-ondark,
+                $color-fill-gray-darkest
+            );
         }
     }
 
@@ -429,6 +421,7 @@ ul {
     .nav.nav--megamenu-open {
         color: $color-text-base-ondark;
         backdrop-filter: none;
+        -webkit-backdrop-filter: none;
 
         .nav__link {
             color: $color-text-tertiary-ondark;
@@ -491,7 +484,7 @@ ul {
         @include xy-grid-container();
         top: 0;
         width: auto;
-        padding-top: $navbar-offset;
+        padding-top: 0;
         height: $navbar-height + $navbar-offset;
     }
 

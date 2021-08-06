@@ -14707,6 +14707,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _gsap.default.registerPlugin(_all.ScrollTrigger);
 
+var breakpoints = {
+  small: 0,
+  medium: 640,
+  large: 1024,
+  xlarge: 1200,
+  xxlarge: 1440
+};
+
 var tl = _gsap.default.timeline({
   scrollTrigger: {
     trigger: ".featured-image",
@@ -14732,25 +14740,50 @@ var tlCases = _gsap.default.timeline({
   }
 });
 
+_gsap.default.from(".home__title__line", {
+  yPercent: 100,
+  stagger: 0.1,
+  duration: 1,
+  ease: "power3.out"
+});
+
 var homeCases = _gsap.default.utils.toArray(".home__case");
 
 homeCases.forEach(function (section, i) {
   section.image = section.querySelector(".home__case__image__inner");
   section.pattern = section.querySelector(".home__case__pattern");
+  section.marquee = section.querySelector(".home__case__marquee");
   var depth = section.dataset.depth;
   var movement = -(section.offsetHeight * depth * 2);
   console.log("depth", depth);
-  tlCases.to(section, {
-    y: movement,
-    ease: "none"
-  }, 0);
+
+  _all.ScrollTrigger.matchMedia({
+    // Mobile
+    "(max-width: 800px)": function maxWidth800px() {},
+    // Tablet and Desktop
+    "(min-width: 1200px": function minWidth1200px() {
+      tlCases.to(section, {
+        y: movement,
+        ease: "none"
+      }, 0);
+    }
+  });
 
   _gsap.default.to(section.pattern, {
     scrollTrigger: {
       trigger: section,
       scrub: 1
     },
-    yPercent: 30,
+    yPercent: 40,
+    ease: "none"
+  });
+
+  _gsap.default.to(section.marquee, {
+    scrollTrigger: {
+      trigger: section,
+      scrub: 1
+    },
+    x: -200,
     ease: "none"
   });
 
@@ -14760,7 +14793,7 @@ homeCases.forEach(function (section, i) {
       toggleActions: "restart none none reverse"
     },
     height: "25%",
-    duration: 0.75,
+    duration: 1.25,
     ease: "power3.out"
   });
 }); // Navigation
@@ -14861,7 +14894,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58547" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56580" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

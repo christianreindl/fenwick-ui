@@ -4,6 +4,14 @@ import "./scss/main.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const breakpoints = {
+    small: 0,
+    medium: 640,
+    large: 1024,
+    xlarge: 1200,
+    xxlarge: 1440,
+};
+
 const tl = gsap.timeline({
     scrollTrigger: {
         trigger: ".featured-image",
@@ -30,33 +38,53 @@ const tlCases = gsap.timeline({
     scrollTrigger: {
         trigger: ".home__cases",
         scrub: 1,
-        end: "bottom top"
+        end: "bottom top",
     },
 });
 
+gsap.from(".home__title__line", {
+    yPercent: 100,
+    stagger: 0.1,
+    duration: 1,
+    ease: "power3.out",
+});
 
 let homeCases = gsap.utils.toArray(".home__case");
 
 homeCases.forEach((section, i) => {
     section.image = section.querySelector(".home__case__image__inner");
     section.pattern = section.querySelector(".home__case__pattern");
+    section.marquee = section.querySelector(".home__case__marquee");
+
     const depth = section.dataset.depth;
     const movement = -(section.offsetHeight * depth * 2);
 
     console.log("depth", depth);
 
-    tlCases
-        .to(section, {
-            y: movement,
-            ease: "none",
-        }, 0)
+    ScrollTrigger.matchMedia({
+        // Mobile
+        "(max-width: 800px)": function () {},
+        // Tablet and Desktop
+        "(min-width: 1200px": function () {
+            tlCases.to(section, { y: movement, ease: "none" }, 0);
+        },
+    });
 
     gsap.to(section.pattern, {
         scrollTrigger: {
             trigger: section,
             scrub: 1,
         },
-        yPercent: 30,
+        yPercent: 40,
+        ease: "none",
+    });
+
+    gsap.to(section.marquee, {
+        scrollTrigger: {
+            trigger: section,
+            scrub: 1,
+        },
+        x: -200,
         ease: "none",
     });
 
@@ -66,7 +94,7 @@ homeCases.forEach((section, i) => {
             toggleActions: "restart none none reverse",
         },
         height: "25%",
-        duration: 0.75,
+        duration: 1.25,
         ease: "power3.out",
     });
 });

@@ -97,27 +97,37 @@
     }
 }
 
-
-@mixin card-border-line($position: 'top') {
+@mixin card-border-line($position: "top") {
     position: relative;
 
     &::before {
-		@include dashed-background(
+        @include dashed-background(
             $color-ui-divider-dotted-onlight,
             $size-ui-dotted-line-large
         );
+        left: 0;
+        width: 100%;
         content: "";
         #{$position}: 0;
-        left: 0;
-        height: $size-ui-dotted-line-large;
-        width: 100%;
         position: absolute;
-	}
+        height: $size-ui-dotted-line-large;
+    }
 
-	.dark &::before {
-		@include dashed-background(
+    .dark &::before {
+        @include dashed-background(
             $color-ui-divider-dotted-ondark,
             $size-ui-dotted-line-large
         );
-	}
+    }
+}
+
+@mixin backdrop-blur($color-backdrop: $color-ui-megamenu-background, $color-fallback: $color-fill-gray-darkest) {
+    background-color: $color-fallback;
+
+    @supports (backdrop-filter: $filter-navigation-background) or
+        (-webkit-backdrop-filter: $filter-navigation-background) {
+        background-color: $color-backdrop;
+        backdrop-filter: $filter-navigation-background;
+        -webkit-backdrop-filter: $filter-navigation-background;
+    }
 }

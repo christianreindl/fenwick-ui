@@ -1,0 +1,57 @@
+
+// Home About
+
+.home__about {
+    position: relative;
+    padding: 0px 0 160px;
+
+    @include breakpoint(large up) {
+        text-align: center;
+    }
+}
+
+.home__about__copy {
+    margin-bottom: 32px;
+
+    @include breakpoint(large up) {
+        margin-bottom: 48px;
+    }
+}
+
+.home__about__clients {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    margin-top: 100px;
+
+    @include breakpoint(medium down) {
+        margin-top: 40px;
+    }
+}
+
+.home__about__clients__inner {
+    flex: none;
+    display: flex;
+    animation-name: clients-marquee;
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.home__about__clients__logo {
+    height: 100px;
+}
+
+.home__about__clients__caption {
+    margin-top: 40px;
+}
+
+
+@keyframes clients-marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%)
+    }
+}

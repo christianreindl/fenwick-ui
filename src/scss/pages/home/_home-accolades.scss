@@ -1,0 +1,41 @@
+// Statistics & Accolades
+
+.home__stats {
+    cursor: auto;
+    
+    @include breakpoint(small down) {
+        width: 100%;
+    }
+}
+
+.home__stat {
+    padding-right: 0;
+    margin-bottom: 48px;
+
+    @include breakpoint(large up) {
+        margin-bottom: 100px;
+        padding-right: 120px;
+    }
+}
+
+.home__stat__top {
+    @include card-border-line("bottom");
+    padding-bottom: 20px;
+}
+
+.home__stat__title {
+    @include type-h2();
+}
+
+.home__stat__subtitle {
+    @include type-h4();
+    margin-left: 0.25em;
+}
+
+.home__stat__bottom {
+    padding-top: 20px;
+}
+
+.home__stat__description {
+    margin-bottom: 12px;
+}
