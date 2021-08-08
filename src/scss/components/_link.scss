@@ -11,7 +11,8 @@
         opacity: 0.75;
     }
 
-    .dark & {
+    .dark &,
+    .dark-header & {
         color: $color-text-primary-ondark;
     }
 }
@@ -45,6 +46,7 @@
     &:hover,
     &:focus {
         outline: none;
+        text-decoration: none;
 
         &::after {
             transform: scaleX(1);

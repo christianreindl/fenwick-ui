@@ -1,0 +1,79 @@
+.header {
+	padding-top: 200px;
+	padding-bottom: 40px;
+
+	@include breakpoint(large up) {
+		padding-top: 200px;
+		padding-bottom: 100px;
+	}
+}
+
+
+.dark-header .header {
+	margin-bottom: 100px;
+	color: $color-text-base-ondark;
+	background-color: $color-fill-gray-darkest;
+
+	.text--secondary {
+		// Important to overwrite helper classes (see _helpers.scss)
+		color: $color-text-secondary-ondark !important;
+	}
+	
+	.text--tertiary {
+				// Important to overwrite helper classes (see _helpers.scss)
+		color: $color-text-tertiary-ondark !important;
+	}
+}
+
+.header__title {
+	margin-bottom: 24px;
+
+	@include breakpoint(large up) {
+		margin-bottom: 32px;
+	}
+}
+
+.header--main {
+
+	@include breakpoint(large up) {
+		text-align: center;
+	}
+}
+
+.header__eyebrow {
+	margin-bottom: 24px;
+}
+
+.header--insights {
+	padding-bottom: 200px;
+}
+
+.article__header {
+	padding-top: 140px;
+
+	.wayfinding {
+		margin-bottom: 48px;
+	}
+
+	@include breakpoint(large up) {
+		text-align: center;
+	}
+}
+
+.article__body {
+	padding-bottom: 80px;
+}
+
+.header.article__header--image {
+	$large-image-margin: 100px + map-get($featured-image-size-large, large) * 0.5;
+	margin-bottom: $large-image-margin;
+
+	.featured-image {
+		margin-top: 100px;
+		margin-bottom: -$large-image-margin;
+	}
+
+	.featured-image--small {
+	}
+}
+

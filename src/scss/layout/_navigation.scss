@@ -7,6 +7,10 @@
     a {
         text-decoration: none;
     }
+
+    .dark &, .dark-header & {
+        color: $color-text-base-ondark;
+    }
 }
 
 ul {
@@ -167,7 +171,6 @@ ul {
 .nav__megamenu__head {
     display: block;
     padding: 64px 0;
-    max-width: 400px;
 }
 
 .nav__megamenu__title {
@@ -179,6 +182,7 @@ ul {
 .nav__megamenu__description {
     @include type-paragraph-lg();
     display: block;
+    max-width: 400px;
     color: $color-text-secondary-ondark;
 }
 
@@ -308,6 +312,7 @@ ul {
 // Hamburger & Search Buttons:
 
 .nav__action {
+    color: inherit;
     position: relative;
 }
 
@@ -361,14 +366,14 @@ ul {
 @include breakpoint(large up) {
     .nav {
         position: fixed;
-        transition: $transition-ui-default, backdrop-filter 0s linear;
+        transition: height 0.35s ease, padding-top 0.35s ease, box-shadow 0.35s ease;
 
         @include backdrop-blur(
             $color-ui-navbar-background-onlight,
             $color-fill-white
         );
 
-        .dark & {
+        .dark &, .dark-header & {
             @include backdrop-blur(
                 $color-ui-navbar-background-ondark,
                 $color-fill-gray-darkest
@@ -390,6 +395,10 @@ ul {
         .nav__logo {
             transform: scale(1) translate3d(0, 0, 0);
         }
+
+        .dark &, .dark-header & {
+            box-shadow: inset 0 -1px 0 0 $color-fill-white-alpha-05;
+        }
     }
 
     .nav .nav__link {
@@ -404,7 +413,7 @@ ul {
             color: $color-text-base-onlight;
         }
 
-        .dark & {
+        .dark &, .dark-header & {
             color: $color-text-tertiary-ondark;
 
             &:hover,
@@ -510,7 +519,7 @@ ul {
         color: $color-text-base-ondark;
         background-color: $color-fill-gray-darker;
 
-        .dark & {
+        .dark &, .dark-header & {
             color: $color-text-base-onlight;
             background-color: $color-fill-gray-light;
         }
@@ -520,7 +529,7 @@ ul {
         color: $color-text-base-onlight;
         background-color: $color-fill-gray-light;
 
-        .dark & {
+        .dark &, .dark-header & {
             color: $color-text-base-ondark;
             background-color: $color-fill-gray-darker;
         }

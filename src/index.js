@@ -1,6 +1,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import "./scss/main.scss";
+import Vibrant from 'node-vibrant'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -177,3 +177,45 @@ navUnderlay.addEventListener("mouseenter", hideTopMegamenu);
 
 window.addEventListener("scroll", checkScroll);
 window.addEventListener("load", checkScroll);
+
+
+
+
+
+// Filters
+
+const filtersCompound = document.querySelector(".filters__compound");
+const filtersToggleButtons = document.querySelectorAll(".filters__compound__toggle");
+let filtersMultiselectActive = false
+
+function toggleCompoundFilters(event) {
+    console.log("Test")
+    if (filtersMultiselectActive) {
+        filtersCompound.classList.remove("filters__compound--mutliselect");
+        filtersMultiselectActive = false;
+    } else {
+        filtersCompound.classList.add("filters__compound--mutliselect");
+        filtersMultiselectActive = true;
+    }
+}
+
+Array.prototype.forEach.call(filtersToggleButtons, (toggle) => {
+    toggle.addEventListener("click", toggleCompoundFilters);
+});
+
+
+
+
+
+// Photos
+const people = document.querySelectorAll('.person');
+
+Array.prototype.forEach.call(people, (person) => {
+    person.background = person.querySelector('.person__background');
+    person.photo = person.querySelector('.person__photo');
+
+    Vibrant.from(person.photo.src).getPalette((err, palette) => {
+        person.background.style.backgroundColor = palette.LightMuted.hex;
+    })
+
+});

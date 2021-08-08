@@ -1,0 +1,90 @@
+
+.person {
+	display: block;
+	width: 100%;
+	color: inherit;
+	text-decoration: none;
+	margin-bottom: 48px;
+}
+
+.person__image {
+	padding-top: 5vw;
+	width: 100%;
+	display: flex;
+	overflow: hidden;
+	max-height: 360px;
+	position: relative;
+	margin-bottom: 16px;
+	align-items: flex-end;
+	background: $color-fill-gray-lighter;
+
+	.dark & {
+		background: $color-fill-white-alpha-05;
+	}
+}
+
+.person__photo {
+	width: 88%;
+	transition: $transition-ui-default;
+	object-fit: contain;
+	object-position: bottom left;
+}
+
+.person__background {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.08;
+	display: block;
+	position: absolute;
+	background-color: $color-fill-gray-lighter;
+	transition: $transition-ui-default;
+}
+
+.person__name {
+	@include type-h6();
+	margin-bottom: 8px;
+}
+
+.person__title,
+.person__city {
+	@include type-paragraph-sm();
+}
+
+.person__title {
+	color: $color-text-secondary-onlight;
+
+	.dark & {
+		color: $color-text-secondary-ondark;
+	}
+}
+
+.person__city {
+	color: $color-text-tertiary-onlight;
+
+	.dark & {
+		color: $color-text-tertiary-ondark;
+	}
+}
+
+.person {
+	&:hover,
+	&:focus {
+		.person__background {
+			opacity: 0.15;
+			transition-duration: 0.1s;
+		}
+
+		.person__photo {
+			transform: scale(1.05);
+		}
+	}
+
+	&:active {
+		.person__background {
+			opacity: 0.2;
+			transition-duration: 0s;
+		}
+	}
+}

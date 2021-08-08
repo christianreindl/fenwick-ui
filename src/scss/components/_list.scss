@@ -26,7 +26,7 @@
 
 .list__button {
     display: flex;
-    color: $color-text-base-onlight;
+    color: inherit;
 
     .button__label {
         flex: 1 1 auto;
@@ -63,7 +63,6 @@
 
 .dark {
     .list__button {
-        color: $color-text-base-ondark;
 
         .button__icon {
             color: $color-text-tertiary-ondark;

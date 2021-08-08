@@ -9,7 +9,7 @@
         font-size: inherit;
         text-transform: none;
         font-weight: $font-weight-medium;
-        color: $color-text-base-onlight;
+        color: inherit;
 
         &::after {
             display: none;
@@ -39,7 +39,8 @@
         @include type-paragraph-sm();
     }
 
-    .dark & {
+    .dark &,
+    .dark-header & {
         li {
             color: $color-text-base-ondark;
         }

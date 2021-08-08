@@ -1,0 +1,9 @@
+.services__image {
+    margin-bottom: 40px;
+
+    @include breakpoint(large up) {
+        margin-bottom: 80px;
+    }
+}
+
+

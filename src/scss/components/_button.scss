@@ -227,6 +227,7 @@ $button-height-sm: 40px;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    position: relative;
 
     &::before {
         content: "";
