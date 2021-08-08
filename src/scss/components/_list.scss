@@ -93,9 +93,6 @@
     margin-left: 0;
     padding-left: 0;
 
-    li {
-    }
-
     li:before {
         @include icon-pseudo($ic-angle-right);
         display: inline;

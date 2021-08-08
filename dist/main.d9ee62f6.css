@@ -9310,6 +9310,7 @@ ul {
 .nav__search .nav__megamenu__column {
   margin-left: 100px;
 }
+
 @media print, screen and (min-width: 64em) {
   .nav {
     position: fixed;
@@ -9769,6 +9770,7 @@ ul {
   margin-top: 100px;
   margin-bottom: -370px;
 }
+
 .searchfield {
   display: flex;
   align-items: center;
