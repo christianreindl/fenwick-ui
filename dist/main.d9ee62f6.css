@@ -5411,6 +5411,10 @@ h1, h2, h3, h4, h5, h6, p {
   }
 }
 
+b, strong {
+  font-weight: 500;
+}
+
 .text--primary {
   color: #0475de !important;
 }
@@ -5444,7 +5448,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .text--weight-bold {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .text--centered,
@@ -10477,6 +10481,13 @@ ul {
 }
 .dark .insight:hover, .dark .insight:focus {
   color: #3ba3f8;
+}
+
+.styletile {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .home__title {

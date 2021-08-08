@@ -65,7 +65,7 @@ homeCases.forEach((section, i) => {
         // Mobile
         "(max-width: 800px)": function () {},
         // Tablet and Desktop
-        "(min-width: 1200px": function () {
+        "(min-width: 640px": function () {
             tlCases.to(section, { y: movement, ease: "none" }, 0);
         },
     });
@@ -167,13 +167,13 @@ Array.prototype.forEach.call(navLinks, (navLink) => {
     navLink.addEventListener("mouseenter", showTopMegamenu);
 });
 
-navSearch.addEventListener("click", showTopMegamenu);
-navSearch.addEventListener("focus", showTopMegamenu);
+navSearch && navSearch.addEventListener("click", showTopMegamenu);
+navSearch && navSearch.addEventListener("focus", showTopMegamenu);
 
-navHamburger.addEventListener("click", toggleHamburgerMenu);
-navContainer.addEventListener("mouseleave", hideTopMegamenu);
+navHamburger && navHamburger.addEventListener("click", toggleHamburgerMenu);
+navContainer && navContainer.addEventListener("mouseleave", hideTopMegamenu);
 
-navUnderlay.addEventListener("mouseenter", hideTopMegamenu);
+navUnderlay && navUnderlay.addEventListener("mouseenter", hideTopMegamenu);
 
 window.addEventListener("scroll", checkScroll);
 window.addEventListener("load", checkScroll);
