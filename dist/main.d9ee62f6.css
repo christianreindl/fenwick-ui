@@ -9373,6 +9373,7 @@ ul {
 }
 
 .nav__megamenu__insight__title {
+  display: block;
   margin-bottom: 24px;
   color: #ffffff;
 }
