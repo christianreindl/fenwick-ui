@@ -426,6 +426,7 @@
 
     .home__tile__marquee {
         position: absolute;
+        -webkit-text-stroke-color: $color-text-tertiary-onlight;
     }
 }
 

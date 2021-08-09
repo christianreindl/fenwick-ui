@@ -11065,6 +11065,7 @@ ul {
 }
 .home__quote__background .home__tile__marquee {
   position: absolute;
+  -webkit-text-stroke-color: #acb2b9;
 }
 
 .home__quote__content {
