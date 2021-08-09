@@ -11020,8 +11020,7 @@ ul {
   }
 }
 .home__quote {
-  padding-top: 100px;
-  padding-bottom: 48px;
+  padding: 60px 0 48px;
   min-height: 480px;
   display: flex;
   align-content: center;
@@ -11034,6 +11033,11 @@ ul {
     -webkit-backdrop-filter: blur(16px);
   }
 }
+@media print, screen and (min-width: 64em) {
+  .home__quote {
+    padding: 100px 0 48px;
+  }
+}
 
 .home__quote__background {
   position: absolute;
@@ -11044,6 +11048,12 @@ ul {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  left: -40px;
+}
+@media print, screen and (min-width: 64em) {
+  .home__quote__background {
+    left: 0;
+  }
 }
 .home__quote__background::before, .home__quote__background::after {
   content: "";
@@ -11059,9 +11069,11 @@ ul {
 .dark .home__quote__background::before {
   background-image: url("/pattern_dots_ondark.b305aff0.svg");
 }
-.home__quote__background::after {
-  flex: 1 1 auto;
-  background-color: rgba(0, 0, 0, 0.03);
+@media print, screen and (min-width: 64em) {
+  .home__quote__background::after {
+    flex: 1 1 auto;
+    background-color: rgba(0, 0, 0, 0.03);
+  }
 }
 .home__quote__background .home__tile__marquee {
   position: absolute;
@@ -11070,9 +11082,13 @@ ul {
 
 .home__quote__content {
   position: relative;
-  max-width: 460px;
-  left: 80px;
-  flex: none;
+}
+@media print, screen and (min-width: 64em) {
+  .home__quote__content {
+    flex: none;
+    left: 80px;
+    max-width: 460px;
+  }
 }
 
 .home__quote__icon {

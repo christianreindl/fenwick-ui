@@ -388,12 +388,15 @@
 
 
 .home__quote {
-    padding-top: 100px;
-    padding-bottom: 48px;
+    padding: 60px 0 48px;
     min-height: 480px;
     display: flex;
     align-content: center;
     @include backdrop-blur(rgba($color-fill-white, 0.4), transparent);
+
+    @include breakpoint (large up) {
+        padding: 100px 0 48px;
+    }
 
 }
 
@@ -406,6 +409,11 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    left: -40px;
+
+    @include breakpoint(large up) {
+        left: 0;    
+    }
 
     &::before,
     &::after {
@@ -420,8 +428,10 @@
     }
 
     &::after {
-        flex: 1 1 auto;
-        background-color: $color-fill-black-alpha-03;
+        @include breakpoint(large up) {
+            flex: 1 1 auto;
+            background-color: $color-fill-black-alpha-03;    
+        }
     }
 
     .home__tile__marquee {
@@ -432,9 +442,12 @@
 
 .home__quote__content {
     position: relative;
-    max-width: 460px;
-    left: 80px;
-    flex: none;
+
+    @include breakpoint(large up) {
+        flex: none;
+        left: 80px;
+        max-width: 460px;
+    }
 }
 
 

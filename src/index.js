@@ -161,11 +161,11 @@ function toggleHamburgerMenu(event) {
 function checkScroll() {
     const startY = 100; //The point where the navbar changes in px
     if (window.pageYOffset > startY) {
-        navContainer.classList.add("nav--scrolled");
-        navWayfinding.classList.add("wayfinding--scrolled");
+        navContainer && navContainer.classList.add("nav--scrolled");
+        navWayfinding && navWayfinding.classList.add("wayfinding--scrolled");
     } else {
-        navContainer.classList.remove("nav--scrolled");
-        navWayfinding.classList.remove("wayfinding--scrolled");
+        navContainer && navContainer.classList.remove("nav--scrolled");
+        navWayfinding && navWayfinding.classList.remove("wayfinding--scrolled");
     }
 }
 
