@@ -7,7 +7,6 @@
 .insight__type {
     @include type-paragraph-md();
     display: flex;
-    padding-right: 40px;
     margin-bottom: 20px;
     align-items: center;
     color: $color-text-secondary-onlight;
@@ -24,13 +23,20 @@
 	.dark & {
 		color: $color-text-secondary-ondark;
 	}
+
+    @include breakpoint(medium up) {
+        padding-right: 40px;
+    }
 }
 
 .insight__title {
     @include type-h5();
     margin-bottom: 16px;
     transition: $transition-ui-default, color 0s linear;
-	padding-right: 40px;
+
+    @include breakpoint(medium up) {
+        padding-right: 40px;
+    }
 }
 
 .insight__meta {

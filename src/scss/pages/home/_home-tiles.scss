@@ -398,6 +398,10 @@
         padding: 100px 0 48px;
     }
 
+    .dark & {
+        @include backdrop-blur(rgba($color-fill-white, 0.05), transparent);
+    }
+
 }
 
 .home__quote__background {

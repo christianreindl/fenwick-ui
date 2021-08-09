@@ -10536,7 +10536,6 @@ ul {
 .insight__type {
   letter-spacing: 0.01em;
   display: flex;
-  padding-right: 40px;
   margin-bottom: 20px;
   align-items: center;
   color: #626a76;
@@ -10571,6 +10570,11 @@ ul {
 .dark .insight__type {
   color: rgba(255, 255, 255, 0.8);
 }
+@media print, screen and (min-width: 40em) {
+  .insight__type {
+    padding-right: 40px;
+  }
+}
 
 .insight__title {
   font-family: "Swiss 721", "Helvetica Neue", sans-serif;
@@ -10578,7 +10582,6 @@ ul {
   letter-spacing: -0.015em;
   margin-bottom: 16px;
   transition: all 0.35s ease, color 0s linear;
-  padding-right: 40px;
 }
 @media screen and (min-width: 0) {
   .insight__title {
@@ -10598,6 +10601,11 @@ ul {
 @media screen and (min-width: 1024px) {
   .insight__title {
     line-height: 1.6;
+  }
+}
+@media print, screen and (min-width: 40em) {
+  .insight__title {
+    padding-right: 40px;
   }
 }
 
@@ -11037,6 +11045,16 @@ ul {
 @media print, screen and (min-width: 64em) {
   .home__quote {
     padding: 100px 0 48px;
+  }
+}
+.dark .home__quote {
+  background-color: transparent;
+}
+@supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
+  .dark .home__quote {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
 }
 
