@@ -2,23 +2,11 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import Vibrant from "node-vibrant";
 
-
 gsap.registerPlugin(ScrollTrigger);
 
-
-
 // -----------------------------------------------------------------------------
-// Home Parallax Animation
+// Home Title lines intro animation
 // -----------------------------------------------------------------------------
-
-
-const tlCases = gsap.timeline({
-    scrollTrigger: {
-        trigger: ".home__tiles",
-        scrub: 1,
-        end: "bottom top",
-    },
-});
 
 gsap.from(".home__title__line", {
     yPercent: 100,
@@ -27,48 +15,57 @@ gsap.from(".home__title__line", {
     ease: "power3.out",
 });
 
+
+// -----------------------------------------------------------------------------
+// Home Parallax Animation
+// -----------------------------------------------------------------------------
+
 let homeTiles = gsap.utils.toArray(".home__tile");
 
-homeTiles.forEach((section, i) => {
-    section.image = section.querySelector(".home__case__image__inner");
-    section.pattern = section.querySelector(".home__case__pattern");
-    section.marquee = section.querySelector(".home__tile__marquee");
+homeTiles.forEach((tile, i) => {
+    tile.image = tile.querySelector(".home__case__image__inner");
+    tile.pattern = tile.querySelector(".home__case__pattern");
+    tile.marquee = tile.querySelector(".home__tile__marquee");
 
-    const depth = section.dataset.depth;
-    const movement = -(section.offsetHeight * depth * 2);
-
+    const depth = tile.dataset.depth;
+    const movement = -(tile.offsetHeight * depth * 2);
 
     ScrollTrigger.matchMedia({
-        "(max-width: 639px)": function () {
-            // Mobile
-        },
-        "(min-width: 640px": function () {
-            // Tablet and Desktop
-            tlCases.to(section, { y: movement, ease: "none" }, 0);
+        "(min-width: 640px)": function () {
+            // Parallax only is enabled on tablet and media
+            gsap.to(tile, {
+                scrollTrigger: {
+                    trigger: ".home__tiles",
+                    scrub: 1,
+                    end: "bottom top",
+                },
+                y: movement,
+                ease: "none",
+            });
         },
     });
 
-    gsap.to(section.pattern, {
+    gsap.to(tile.pattern, {
         scrollTrigger: {
-            trigger: section,
+            trigger: tile,
             scrub: 1,
         },
         yPercent: 40,
         ease: "none",
     });
 
-    gsap.to(section.marquee, {
+    gsap.to(tile.marquee, {
         scrollTrigger: {
-            trigger: section,
+            trigger: tile,
             scrub: 1,
         },
         x: -200,
         ease: "none",
     });
 
-    gsap.from(section.image, {
+    gsap.from(tile.image, {
         scrollTrigger: {
-            trigger: section,
+            trigger: tile,
             toggleActions: "restart none none reverse",
         },
         height: "25%",
@@ -77,12 +74,9 @@ homeTiles.forEach((section, i) => {
     });
 });
 
-
-
 // -----------------------------------------------------------------------------
 // Article Featured Image Parallax
 // -----------------------------------------------------------------------------
-
 
 gsap.fromTo(
     ".featured-image__inner",
@@ -95,17 +89,12 @@ gsap.fromTo(
         scrollTrigger: {
             trigger: ".featured-image",
             scrub: true,
-        },    
+        },
         yPercent: 0,
         height: "130%",
         ease: "none",
     }
 );
-
-
-
-
-
 
 // -----------------------------------------------------------------------------
 // Navigation Event Listeners.
@@ -184,8 +173,6 @@ navUnderlay && navUnderlay.addEventListener("mouseenter", hideTopMegamenu);
 window.addEventListener("scroll", checkScroll);
 window.addEventListener("load", checkScroll);
 
-
-
 // -----------------------------------------------------------------------------
 // Compound Filter States (Filter with 2 states on Insights page)
 // -----------------------------------------------------------------------------
@@ -210,8 +197,6 @@ function toggleCompoundFilters(event) {
 Array.prototype.forEach.call(filtersToggleButtons, (toggle) => {
     toggle.addEventListener("click", toggleCompoundFilters);
 });
-
-
 
 // -----------------------------------------------------------------------------
 // Extracting color from people photos and applying them as background

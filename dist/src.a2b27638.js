@@ -21998,67 +21998,65 @@ var _nodeVibrant = _interopRequireDefault(require("node-vibrant"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _gsap.default.registerPlugin(_all.ScrollTrigger); // -----------------------------------------------------------------------------
-// Home Parallax Animation
+// Home Title lines intro animation
 // -----------------------------------------------------------------------------
 
-
-var tlCases = _gsap.default.timeline({
-  scrollTrigger: {
-    trigger: ".home__tiles",
-    scrub: 1,
-    end: "bottom top"
-  }
-});
 
 _gsap.default.from(".home__title__line", {
   yPercent: 100,
   stagger: 0.1,
   duration: 1,
   ease: "power3.out"
-});
+}); // -----------------------------------------------------------------------------
+// Home Parallax Animation
+// -----------------------------------------------------------------------------
+
 
 var homeTiles = _gsap.default.utils.toArray(".home__tile");
 
-homeTiles.forEach(function (section, i) {
-  section.image = section.querySelector(".home__case__image__inner");
-  section.pattern = section.querySelector(".home__case__pattern");
-  section.marquee = section.querySelector(".home__tile__marquee");
-  var depth = section.dataset.depth;
-  var movement = -(section.offsetHeight * depth * 2);
+homeTiles.forEach(function (tile, i) {
+  tile.image = tile.querySelector(".home__case__image__inner");
+  tile.pattern = tile.querySelector(".home__case__pattern");
+  tile.marquee = tile.querySelector(".home__tile__marquee");
+  var depth = tile.dataset.depth;
+  var movement = -(tile.offsetHeight * depth * 2);
 
   _all.ScrollTrigger.matchMedia({
-    "(max-width: 639px)": function maxWidth639px() {// Mobile
-    },
-    "(min-width: 640px": function minWidth640px() {
-      // Tablet and Desktop
-      tlCases.to(section, {
+    "(min-width: 640px)": function minWidth640px() {
+      // Parallax only is enabled on tablet and media
+      _gsap.default.to(tile, {
+        scrollTrigger: {
+          trigger: ".home__tiles",
+          scrub: 1,
+          end: "bottom top"
+        },
         y: movement,
         ease: "none"
-      }, 0);
+      });
     }
   });
 
-  _gsap.default.to(section.pattern, {
+  _gsap.default.to(tile.pattern, {
     scrollTrigger: {
-      trigger: section,
+      trigger: tile,
       scrub: 1
     },
     yPercent: 40,
     ease: "none"
   });
 
-  _gsap.default.to(section.marquee, {
+  _gsap.default.to(tile.marquee, {
     scrollTrigger: {
-      trigger: section,
+      trigger: tile,
       scrub: 1
     },
     x: -200,
     ease: "none"
   });
 
-  _gsap.default.from(section.image, {
+  _gsap.default.from(tile.image, {
     scrollTrigger: {
-      trigger: section,
+      trigger: tile,
       toggleActions: "restart none none reverse"
     },
     height: "25%",
