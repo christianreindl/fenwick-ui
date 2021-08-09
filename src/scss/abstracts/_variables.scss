@@ -136,6 +136,7 @@ $transition-ui-default: all 0.35s ease;
 // Fill Colors
 
 $color-fill-white: #ffffff;
+$color-fill-white-alpha-03: rgba($color-fill-white, 0.03);
 $color-fill-white-alpha-05: rgba($color-fill-white, 0.05);
 $color-fill-white-alpha-07: rgba($color-fill-white, 0.07);
 $color-fill-white-alpha-10: rgba($color-fill-white, 0.1);
@@ -144,6 +145,7 @@ $color-fill-white-alpha-25: rgba($color-fill-white, 0.25);
 $color-fill-white-alpha-50: rgba($color-fill-white, 0.5);
 
 $color-fill-black: #000000;
+$color-fill-black-alpha-03: rgba($color-fill-black, 0.03);
 $color-fill-black-alpha-05: rgba($color-fill-black, 0.05);
 $color-fill-black-alpha-07: rgba($color-fill-black, 0.07);
 $color-fill-black-alpha-10: rgba($color-fill-black, 0.1);

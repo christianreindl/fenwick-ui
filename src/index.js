@@ -1,42 +1,20 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import Vibrant from 'node-vibrant'
+import Vibrant from "node-vibrant";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
-const breakpoints = {
-    small: 0,
-    medium: 640,
-    large: 1024,
-    xlarge: 1200,
-    xxlarge: 1440,
-};
 
-const tl = gsap.timeline({
-    scrollTrigger: {
-        trigger: ".featured-image",
-        scrub: true,
-    },
-});
 
-tl.fromTo(
-    ".featured-image__inner",
-    {
-        yPercent: -40,
-        height: "140%",
-        ease: "none",
-    },
-    {
-        yPercent: 0,
-        height: "140%",
-        ease: "none",
-    },
-    0
-);
+// -----------------------------------------------------------------------------
+// Home Parallax Animation
+// -----------------------------------------------------------------------------
+
 
 const tlCases = gsap.timeline({
     scrollTrigger: {
-        trigger: ".home__cases",
+        trigger: ".home__tiles",
         scrub: 1,
         end: "bottom top",
     },
@@ -49,23 +27,23 @@ gsap.from(".home__title__line", {
     ease: "power3.out",
 });
 
-let homeCases = gsap.utils.toArray(".home__case");
+let homeTiles = gsap.utils.toArray(".home__tile");
 
-homeCases.forEach((section, i) => {
+homeTiles.forEach((section, i) => {
     section.image = section.querySelector(".home__case__image__inner");
     section.pattern = section.querySelector(".home__case__pattern");
-    section.marquee = section.querySelector(".home__case__marquee");
+    section.marquee = section.querySelector(".home__tile__marquee");
 
     const depth = section.dataset.depth;
     const movement = -(section.offsetHeight * depth * 2);
 
-    console.log("depth", depth);
 
     ScrollTrigger.matchMedia({
-        // Mobile
-        "(max-width: 800px)": function () {},
-        // Tablet and Desktop
+        "(max-width: 639px)": function () {
+            // Mobile
+        },
         "(min-width: 640px": function () {
+            // Tablet and Desktop
             tlCases.to(section, { y: movement, ease: "none" }, 0);
         },
     });
@@ -99,16 +77,47 @@ homeCases.forEach((section, i) => {
     });
 });
 
-// Navigation
+
+
+// -----------------------------------------------------------------------------
+// Article Featured Image Parallax
+// -----------------------------------------------------------------------------
+
+
+gsap.fromTo(
+    ".featured-image__inner",
+    {
+        yPercent: -30,
+        height: "130%",
+        ease: "none",
+    },
+    {
+        scrollTrigger: {
+            trigger: ".featured-image",
+            scrub: true,
+        },    
+        yPercent: 0,
+        height: "130%",
+        ease: "none",
+    }
+);
+
+
+
+
+
+
+// -----------------------------------------------------------------------------
+// Navigation Event Listeners.
+// In a nutshell, for the sake of this demo I'm only applying classes,
+// so all animations are happening via CSS.
+// -----------------------------------------------------------------------------
 
 const navContainer = document.querySelector(".nav");
 const navUnderlay = document.querySelector(".nav__megamenu__underlay");
-
 const navWayfinding = document.querySelector(".wayfinding--sticky");
-
 const navHamburger = document.querySelector(".nav__button--hamburger");
 const navSearch = document.querySelector(".nav__button--search");
-
 const navActions = document.querySelectorAll(".nav__action");
 const navItems = document.querySelectorAll(".nav__item");
 const navLinks = document.querySelectorAll(".nav__link");
@@ -117,7 +126,7 @@ let hamburgerMenuIsOpen = false;
 
 function hideTopMegamenu(event) {
     Array.prototype.forEach.call(navItems, (navItem) => {
-        navItem.classList.remove("nav__item--active");
+        navItem.classList.remove("nav__item--expanded");
     });
     navContainer.classList.remove("nav--megamenu-open", "dark");
 }
@@ -125,26 +134,26 @@ function hideTopMegamenu(event) {
 function showTopMegamenu(event) {
     navContainer.classList.add("nav--megamenu-open", "dark");
     Array.prototype.forEach.call(navItems, (navItem) => {
-        navItem.classList.remove("nav__item--active");
+        navItem.classList.remove("nav__item--expanded");
     });
 
     const navItem = event.currentTarget.parentNode;
-    navItem.classList.add("nav__item--active");
+    navItem.classList.add("nav__item--expanded");
 }
 
 function toggleHamburgerMenu(event) {
     if (hamburgerMenuIsOpen) {
         Array.prototype.forEach.call(navActions, (navAction) => {
-            navAction.classList.remove("nav__action--active");
+            navAction.classList.remove("nav__action--expanded");
         });
         navContainer.classList.remove("nav--hamburger-open", "dark");
         hamburgerMenuIsOpen = false;
     } else {
         navContainer.classList.add("nav--hamburger-open", "dark");
         Array.prototype.forEach.call(navActions, (navAction) => {
-            navAction.classList.remove("nav__action--active");
+            navAction.classList.remove("nav__action--expanded");
         });
-        event.currentTarget.classList.add("nav__action--active");
+        event.currentTarget.classList.add("nav__action--expanded");
         hamburgerMenuIsOpen = true;
     }
 }
@@ -169,27 +178,26 @@ Array.prototype.forEach.call(navLinks, (navLink) => {
 
 navSearch && navSearch.addEventListener("click", showTopMegamenu);
 navSearch && navSearch.addEventListener("focus", showTopMegamenu);
-
 navHamburger && navHamburger.addEventListener("click", toggleHamburgerMenu);
 navContainer && navContainer.addEventListener("mouseleave", hideTopMegamenu);
-
 navUnderlay && navUnderlay.addEventListener("mouseenter", hideTopMegamenu);
-
 window.addEventListener("scroll", checkScroll);
 window.addEventListener("load", checkScroll);
 
 
 
-
-
-// Filters
+// -----------------------------------------------------------------------------
+// Compound Filter States (Filter with 2 states on Insights page)
+// -----------------------------------------------------------------------------
 
 const filtersCompound = document.querySelector(".filters__compound");
-const filtersToggleButtons = document.querySelectorAll(".filters__compound__toggle");
-let filtersMultiselectActive = false
+const filtersToggleButtons = document.querySelectorAll(
+    ".filters__compound__toggle"
+);
+let filtersMultiselectActive = false;
 
 function toggleCompoundFilters(event) {
-    console.log("Test")
+    console.log("Test");
     if (filtersMultiselectActive) {
         filtersCompound.classList.remove("filters__compound--mutliselect");
         filtersMultiselectActive = false;
@@ -205,17 +213,17 @@ Array.prototype.forEach.call(filtersToggleButtons, (toggle) => {
 
 
 
+// -----------------------------------------------------------------------------
+// Extracting color from people photos and applying them as background
+// -----------------------------------------------------------------------------
 
-
-// Photos
-const people = document.querySelectorAll('.person');
+const people = document.querySelectorAll(".person");
 
 Array.prototype.forEach.call(people, (person) => {
-    person.background = person.querySelector('.person__background');
-    person.photo = person.querySelector('.person__photo');
+    person.background = person.querySelector(".person__background");
+    person.photo = person.querySelector(".person__photo");
 
     Vibrant.from(person.photo.src).getPalette((err, palette) => {
         person.background.style.backgroundColor = palette.LightMuted.hex;
-    })
-
+    });
 });

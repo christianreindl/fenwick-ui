@@ -27,6 +27,17 @@ $ic-plus: "\e915";
 $ic-search: "\e916";
 $ic-share: "\e917";
 
+$ic-building: "\e918";
+$ic-exclamation-circle: "\e919";
+$ic-trademark: "\e91a";
+$ic-lightbulb: "\e91b";
+$ic-people: "\e91c";
+$ic-printer: "\e91d";
+$ic-microscope: "\e91e";
+$ic-suitcase: "\e91f";
+$ic-quotation-marks-outline: "\e920";
+
+
 @mixin icon-size($size) {
     height: $size;
     font-size: $size;
@@ -156,5 +167,32 @@ $ic-share: "\e917";
     }
     &-share::before {
         @include icon-pseudo($ic-share);
+    }
+    &-building::before {
+        @include icon-pseudo($ic-building);
+    }
+    &-exclamation-circle::before {
+        @include icon-pseudo($ic-exclamation-circle);
+    }
+    &-trademark::before {
+        @include icon-pseudo($ic-trademark);
+    }
+    &-lightbulb::before {
+        @include icon-pseudo($ic-lightbulb);
+    }
+    &-people::before {
+        @include icon-pseudo($ic-people);
+    }
+    &-printer::before {
+        @include icon-pseudo($ic-printer);
+    }
+    &-microscope::before {
+        @include icon-pseudo($ic-microscope);
+    }
+    &-suitcase::before {
+        @include icon-pseudo($ic-suitcase);
+    }
+    &-quotation-marks-outline::before {
+        @include icon-pseudo($ic-quotation-marks-outline);
     }
 }

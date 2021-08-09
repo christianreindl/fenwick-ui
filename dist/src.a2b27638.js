@@ -21997,36 +21997,14 @@ var _nodeVibrant = _interopRequireDefault(require("node-vibrant"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_gsap.default.registerPlugin(_all.ScrollTrigger);
+_gsap.default.registerPlugin(_all.ScrollTrigger); // -----------------------------------------------------------------------------
+// Home Parallax Animation
+// -----------------------------------------------------------------------------
 
-var breakpoints = {
-  small: 0,
-  medium: 640,
-  large: 1024,
-  xlarge: 1200,
-  xxlarge: 1440
-};
-
-var tl = _gsap.default.timeline({
-  scrollTrigger: {
-    trigger: ".featured-image",
-    scrub: true
-  }
-});
-
-tl.fromTo(".featured-image__inner", {
-  yPercent: -40,
-  height: "140%",
-  ease: "none"
-}, {
-  yPercent: 0,
-  height: "140%",
-  ease: "none"
-}, 0);
 
 var tlCases = _gsap.default.timeline({
   scrollTrigger: {
-    trigger: ".home__cases",
+    trigger: ".home__tiles",
     scrub: 1,
     end: "bottom top"
   }
@@ -22039,21 +22017,20 @@ _gsap.default.from(".home__title__line", {
   ease: "power3.out"
 });
 
-var homeCases = _gsap.default.utils.toArray(".home__case");
+var homeTiles = _gsap.default.utils.toArray(".home__tile");
 
-homeCases.forEach(function (section, i) {
+homeTiles.forEach(function (section, i) {
   section.image = section.querySelector(".home__case__image__inner");
   section.pattern = section.querySelector(".home__case__pattern");
-  section.marquee = section.querySelector(".home__case__marquee");
+  section.marquee = section.querySelector(".home__tile__marquee");
   var depth = section.dataset.depth;
   var movement = -(section.offsetHeight * depth * 2);
-  console.log("depth", depth);
 
   _all.ScrollTrigger.matchMedia({
-    // Mobile
-    "(max-width: 800px)": function maxWidth800px() {},
-    // Tablet and Desktop
+    "(max-width: 639px)": function maxWidth639px() {// Mobile
+    },
     "(min-width: 640px": function minWidth640px() {
+      // Tablet and Desktop
       tlCases.to(section, {
         y: movement,
         ease: "none"
@@ -22088,7 +22065,28 @@ homeCases.forEach(function (section, i) {
     duration: 1.25,
     ease: "power3.out"
   });
-}); // Navigation
+}); // -----------------------------------------------------------------------------
+// Article Featured Image Parallax
+// -----------------------------------------------------------------------------
+
+_gsap.default.fromTo(".featured-image__inner", {
+  yPercent: -30,
+  height: "130%",
+  ease: "none"
+}, {
+  scrollTrigger: {
+    trigger: ".featured-image",
+    scrub: true
+  },
+  yPercent: 0,
+  height: "130%",
+  ease: "none"
+}); // -----------------------------------------------------------------------------
+// Navigation Event Listeners.
+// In a nutshell, for the sake of this demo I'm only applying classes,
+// so all animations are happening via CSS.
+// -----------------------------------------------------------------------------
+
 
 var navContainer = document.querySelector(".nav");
 var navUnderlay = document.querySelector(".nav__megamenu__underlay");
@@ -22102,7 +22100,7 @@ var hamburgerMenuIsOpen = false;
 
 function hideTopMegamenu(event) {
   Array.prototype.forEach.call(navItems, function (navItem) {
-    navItem.classList.remove("nav__item--active");
+    navItem.classList.remove("nav__item--expanded");
   });
   navContainer.classList.remove("nav--megamenu-open", "dark");
 }
@@ -22110,25 +22108,25 @@ function hideTopMegamenu(event) {
 function showTopMegamenu(event) {
   navContainer.classList.add("nav--megamenu-open", "dark");
   Array.prototype.forEach.call(navItems, function (navItem) {
-    navItem.classList.remove("nav__item--active");
+    navItem.classList.remove("nav__item--expanded");
   });
   var navItem = event.currentTarget.parentNode;
-  navItem.classList.add("nav__item--active");
+  navItem.classList.add("nav__item--expanded");
 }
 
 function toggleHamburgerMenu(event) {
   if (hamburgerMenuIsOpen) {
     Array.prototype.forEach.call(navActions, function (navAction) {
-      navAction.classList.remove("nav__action--active");
+      navAction.classList.remove("nav__action--expanded");
     });
     navContainer.classList.remove("nav--hamburger-open", "dark");
     hamburgerMenuIsOpen = false;
   } else {
     navContainer.classList.add("nav--hamburger-open", "dark");
     Array.prototype.forEach.call(navActions, function (navAction) {
-      navAction.classList.remove("nav__action--active");
+      navAction.classList.remove("nav__action--expanded");
     });
-    event.currentTarget.classList.add("nav__action--active");
+    event.currentTarget.classList.add("nav__action--expanded");
     hamburgerMenuIsOpen = true;
   }
 }
@@ -22157,7 +22155,9 @@ navHamburger && navHamburger.addEventListener("click", toggleHamburgerMenu);
 navContainer && navContainer.addEventListener("mouseleave", hideTopMegamenu);
 navUnderlay && navUnderlay.addEventListener("mouseenter", hideTopMegamenu);
 window.addEventListener("scroll", checkScroll);
-window.addEventListener("load", checkScroll); // Filters
+window.addEventListener("load", checkScroll); // -----------------------------------------------------------------------------
+// Compound Filter States (Filter with 2 states on Insights page)
+// -----------------------------------------------------------------------------
 
 var filtersCompound = document.querySelector(".filters__compound");
 var filtersToggleButtons = document.querySelectorAll(".filters__compound__toggle");
@@ -22177,12 +22177,14 @@ function toggleCompoundFilters(event) {
 
 Array.prototype.forEach.call(filtersToggleButtons, function (toggle) {
   toggle.addEventListener("click", toggleCompoundFilters);
-}); // Photos
+}); // -----------------------------------------------------------------------------
+// Extracting color from people photos and applying them as background
+// -----------------------------------------------------------------------------
 
-var people = document.querySelectorAll('.person');
+var people = document.querySelectorAll(".person");
 Array.prototype.forEach.call(people, function (person) {
-  person.background = person.querySelector('.person__background');
-  person.photo = person.querySelector('.person__photo');
+  person.background = person.querySelector(".person__background");
+  person.photo = person.querySelector(".person__photo");
 
   _nodeVibrant.default.from(person.photo.src).getPalette(function (err, palette) {
     person.background.style.backgroundColor = palette.LightMuted.hex;
@@ -22216,7 +22218,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55298" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59372" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
