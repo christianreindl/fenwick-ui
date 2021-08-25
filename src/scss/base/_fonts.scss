@@ -14,8 +14,12 @@ $font-path: "/src/fonts/";
 
 @font-face {
     font-family: "Swiss 721";
-    src: url($font-path + "Swiss 721/Bitstream - Swis721 BT Roman.ttf")
-        format("truetype");
+    src: url($font-path + "Swiss 721/Swiss721-Roman.eot"); /* IE9 Compat Modes */
+    src: 
+        url($font-path + "Swiss 721/Swiss721-Roman.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+        url($font-path + "Swiss 721/Swiss721-Roman.woff2") format("woff2"), /* Super Modern Browsers */
+        url($font-path + "Swiss 721/Swiss721-Roman.woff") format("woff"), /* Pretty Modern Browsers */
+        url($font-path + "Swiss 721/Swiss721-Roman.ttf") format("truetype"); /* Safari, Android, iOS */
     font-weight: 400;
     font-style: normal;
     font-stretch: normal;
@@ -23,8 +27,12 @@ $font-path: "/src/fonts/";
 
 @font-face {
     font-family: "Swiss 721";
-    src: url($font-path + "Swiss 721/Bitstream - Swis721 BT Italic.ttf")
-        format("truetype");
+    src: url($font-path + "Swiss 721/Swiss721-Italic.eot"); /* IE9 Compat Modes */
+    src: 
+        url($font-path + "Swiss 721/Swiss721-Italic.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+        url($font-path + "Swiss 721/Swiss721-Italic.woff2") format("woff2"), /* Super Modern Browsers */
+        url($font-path + "Swiss 721/Swiss721-Italic.woff") format("woff"), /* Pretty Modern Browsers */
+        url($font-path + "Swiss 721/Swiss721-Italic.ttf") format("truetype"); /* Safari, Android, iOS */
     font-weight: 400;
     font-style: italic;
     font-stretch: normal;
@@ -34,8 +42,12 @@ $font-path: "/src/fonts/";
 
 @font-face {
     font-family: "Swiss 721";
-    src: url($font-path + "Swiss 721/Bitstream - Swis721 Md BT Medium.ttf")
-        format("truetype");
+    src: url($font-path + "Swiss 721/Swiss721-Medium.eot"); /* IE9 Compat Modes */
+    src: 
+        url($font-path + "Swiss 721/Swiss721-Medium.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+        url($font-path + "Swiss 721/Swiss721-Medium.woff2") format("woff2"), /* Super Modern Browsers */
+        url($font-path + "Swiss 721/Swiss721-Medium.woff") format("woff"), /* Pretty Modern Browsers */
+        url($font-path + "Swiss 721/Swiss721-Medium.ttf") format("truetype"); /* Safari, Android, iOS */
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
@@ -43,8 +55,12 @@ $font-path: "/src/fonts/";
 
 @font-face {
     font-family: "Swiss 721";
-    src: url($font-path + "Swiss 721/Bitstream - Swis721 Md BT Medium Italic.ttf")
-        format("truetype");
+    src: url($font-path + "Swiss 721/Swiss721-MediumItalic.eot"); /* IE9 Compat Modes */
+    src: 
+        url($font-path + "Swiss 721/Swiss721-MediumItalic.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+        url($font-path + "Swiss 721/Swiss721-MediumItalic.woff2") format("woff2"), /* Super Modern Browsers */
+        url($font-path + "Swiss 721/Swiss721-MediumItalic.woff") format("woff"), /* Pretty Modern Browsers */
+        url($font-path + "Swiss 721/Swiss721-MediumItalic.ttf") format("truetype"); /* Safari, Android, iOS */
     font-weight: 500;
     font-style: italic;
     font-stretch: normal;
@@ -54,8 +70,12 @@ $font-path: "/src/fonts/";
 
 @font-face {
     font-family: "Swiss 721";
-    src: url($font-path + "Swiss 721/Bitstream - Swis721 BT Bold.ttf")
-        format("truetype");
+    src: url($font-path + "Swiss 721/Swiss721-Bold.eot"); /* IE9 Compat Modes */
+    src: 
+        url($font-path + "Swiss 721/Swiss721-Bold.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+        url($font-path + "Swiss 721/Swiss721-Bold.woff2") format("woff2"), /* Super Modern Browsers */
+        url($font-path + "Swiss 721/Swiss721-Bold.woff") format("woff"), /* Pretty Modern Browsers */
+        url($font-path + "Swiss 721/Swiss721-Bold.ttf") format("truetype"); /* Safari, Android, iOS */
     font-weight: 700;
     font-style: normal;
     font-stretch: normal;
@@ -63,8 +83,12 @@ $font-path: "/src/fonts/";
 
 @font-face {
     font-family: "Swiss 721";
-    src: url($font-path + "Swiss 721/Bitstream - Swis721 BT Bold Italic.ttf")
-        format("truetype");
+    src: url($font-path + "Swiss 721/Swiss721-BoldItalic.eot"); /* IE9 Compat Modes */
+    src: 
+        url($font-path + "Swiss 721/Swiss721-BoldItalic.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+        url($font-path + "Swiss 721/Swiss721-BoldItalic.woff2") format("woff2"), /* Super Modern Browsers */
+        url($font-path + "Swiss 721/Swiss721-BoldItalic.woff") format("woff"), /* Pretty Modern Browsers */
+        url($font-path + "Swiss 721/Swiss721-BoldItalic.ttf") format("truetype"); /* Safari, Android, iOS */
     font-weight: 700;
     font-style: italic;
     font-stretch: normal;
@@ -74,21 +98,15 @@ $font-path: "/src/fonts/";
 
 @font-face {
     font-family: "Swiss 721";
-    src: url($font-path + "Swiss 721/Bitstream - Swis721 Ex BT Roman.ttf")
-        format("truetype");
+    src: 
+        url($font-path + "Swiss 721/Swiss721-Extended.woff2") format("woff2"), /* Super Modern Browsers */
+        url($font-path + "Swiss 721/Swiss721-Extended.woff") format("woff"), /* Pretty Modern Browsers */
+        url($font-path + "Swiss 721/Swiss721-Extended.ttf") format("truetype"); /* Safari, Android, iOS */
     font-weight: 400;
     font-style: normal;
     font-stretch: expanded;
 }
 
-@font-face {
-    font-family: "Swiss 721";
-    src: url($font-path + "Swiss 721/Bitstream - Swis721 Ex BT Bold.ttf")
-        format("truetype");
-    font-weight: 700;
-    font-style: normal;
-    font-stretch: expanded;
-}
 
 // -----------------------------------------------------------------------------
 // Icon Font

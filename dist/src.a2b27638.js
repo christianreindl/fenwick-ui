@@ -22179,15 +22179,18 @@ Array.prototype.forEach.call(filtersToggleButtons, function (toggle) {
 // Extracting color from people photos and applying them as background
 // -----------------------------------------------------------------------------
 
-var people = document.querySelectorAll(".person");
-Array.prototype.forEach.call(people, function (person) {
-  person.background = person.querySelector(".person__background");
-  person.photo = person.querySelector(".person__photo");
+/*
+const people = document.querySelectorAll(".person");
 
-  _nodeVibrant.default.from(person.photo.src).getPalette(function (err, palette) {
-    person.background.style.backgroundColor = palette.LightMuted.hex;
-  });
+Array.prototype.forEach.call(people, (person) => {
+    person.background = person.querySelector(".person__background");
+    person.photo = person.querySelector(".person__photo");
+
+    Vibrant.from(person.photo.src).getPalette((err, palette) => {
+        person.background.style.backgroundColor = palette.LightMuted.hex;
+    });
 });
+*/
 },{"gsap":"node_modules/gsap/index.js","gsap/all":"node_modules/gsap/all.js","node-vibrant":"node_modules/node-vibrant/lib/browser.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -22216,7 +22219,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55891" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58689" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

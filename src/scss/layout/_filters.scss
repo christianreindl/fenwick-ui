@@ -33,22 +33,17 @@
     cursor: pointer;
 }
 
-.filter__arrow {
-    display: flex;
-    position: relative;
-    margin-left: 4px;
-    overflow: hidden;
-}
-
 .filter__label {
-    display: block;
+    display: inline-block;
 }
 
 .filter__arrow {
     @include icon-size($icon-size-sm);
-    display: flex;
+    display: inline-flex;
+    margin-left: 4px;
     overflow: hidden;
     position: relative;
+
 
     &::before,
     &::after {

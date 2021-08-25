@@ -214,6 +214,10 @@ $button-height-sm: 40px;
     @include button--sm();
 }
 
+.button--md {
+    @include button--md();
+}
+
 .button--lg {
     @include button--lg();
 }
@@ -231,20 +235,27 @@ $button-height-sm: 40px;
 
     &::before {
         content: "";
-        position: absolute;
         top: 0;
         left: 0;
+        opacity: 0;
         width: 100%;
         height: 100%;
         border-radius: 50%;
+        position: absolute;
         background-color: currentColor;
-        opacity: 0;
     }
 
     &:hover,
     &:focus {
         &::before {
             opacity: 0.08;
+        }
+
+        .button__label {
+            opacity: 1;
+            visibility: visible;
+            transform: translate3d(-50%, 0, 0);
+            transition: $transition-ui-default;
         }
     }
 
@@ -255,6 +266,27 @@ $button-height-sm: 40px;
         &::before {
             opacity: 0.15;
         }
+    }
+
+    .button__label {
+        @include type-paragraph-sm();
+        top: 100%;
+        left: 50%;
+        opacity: 0;
+        display: block; 
+        margin: 4px auto 0;
+        padding: 4px 10px;
+        visibility: hidden;
+        position: absolute;
+        text-align: center;
+        white-space: nowrap;
+        transform: translate3d(-50%, -25%, 0);
+        color: $color-text-base-ondark;
+        box-shadow: $box-shadow-overlay;
+        border-radius: $border-radius-sm;
+        transition: $transition-ui-default;
+        transition-duration: 0.1s;
+        background-color: $color-fill-gray-darker;
     }
 }
 

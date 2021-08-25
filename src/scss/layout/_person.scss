@@ -8,7 +8,7 @@
 }
 
 .person__image {
-	padding-top: 5vw;
+	padding-top: 1.5vw;
 	width: 100%;
 	display: flex;
 	overflow: hidden;
@@ -35,7 +35,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	opacity: 0.08;
+	opacity: 0.1;
 	display: block;
 	position: absolute;
 	background-color: $color-fill-gray-lighter;
@@ -72,7 +72,7 @@
 	&:hover,
 	&:focus {
 		.person__background {
-			opacity: 0.15;
+			opacity: 0.2;
 			transition-duration: 0.1s;
 		}
 
@@ -83,7 +83,7 @@
 
 	&:active {
 		.person__background {
-			opacity: 0.2;
+			opacity: 0.25;
 			transition-duration: 0s;
 		}
 	}

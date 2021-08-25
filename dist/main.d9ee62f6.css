@@ -5054,57 +5054,69 @@ textarea {
 /* Icons */
 @font-face {
   font-family: "Swiss 721";
-  src: url("/Bitstream - Swis721 BT Roman.456682ea.ttf") format("truetype");
+  src: url("/Swiss721-Roman.c43b35c1.eot");
+  /* IE9 Compat Modes */
+  src: url("/Swiss721-Roman.c43b35c1.eot?#iefix") format("embedded-opentype"), url("/Swiss721-Roman.0900cf62.woff2") format("woff2"), url("/Swiss721-Roman.91795f8a.woff") format("woff"), url("/Swiss721-Roman.76d28553.ttf") format("truetype");
+  /* Safari, Android, iOS */
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Swiss 721";
-  src: url("/Bitstream - Swis721 BT Italic.4826e429.ttf") format("truetype");
+  src: url("/Swiss721-Italic.c0f2ecc8.eot");
+  /* IE9 Compat Modes */
+  src: url("/Swiss721-Italic.c0f2ecc8.eot?#iefix") format("embedded-opentype"), url("/Swiss721-Italic.e68ba171.woff2") format("woff2"), url("/Swiss721-Italic.5b460d88.woff") format("woff"), url("/Swiss721-Italic.c25265e7.ttf") format("truetype");
+  /* Safari, Android, iOS */
   font-weight: 400;
   font-style: italic;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Swiss 721";
-  src: url("/Bitstream - Swis721 Md BT Medium.25358636.ttf") format("truetype");
+  src: url("/Swiss721-Medium.dba3ddfa.eot");
+  /* IE9 Compat Modes */
+  src: url("/Swiss721-Medium.dba3ddfa.eot?#iefix") format("embedded-opentype"), url("/Swiss721-Medium.9a0e1c1b.woff2") format("woff2"), url("/Swiss721-Medium.09b22478.woff") format("woff"), url("/Swiss721-Medium.020984c6.ttf") format("truetype");
+  /* Safari, Android, iOS */
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Swiss 721";
-  src: url("/Bitstream - Swis721 Md BT Medium Italic.353c5111.ttf") format("truetype");
+  src: url("/Swiss721-MediumItalic.0379316c.eot");
+  /* IE9 Compat Modes */
+  src: url("/Swiss721-MediumItalic.0379316c.eot?#iefix") format("embedded-opentype"), url("/Swiss721-MediumItalic.39c58817.woff2") format("woff2"), url("/Swiss721-MediumItalic.4bef0df3.woff") format("woff"), url("/Swiss721-MediumItalic.ddb53748.ttf") format("truetype");
+  /* Safari, Android, iOS */
   font-weight: 500;
   font-style: italic;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Swiss 721";
-  src: url("/Bitstream - Swis721 BT Bold.bfc55fd0.ttf") format("truetype");
+  src: url("/Swiss721-Bold.e46c6874.eot");
+  /* IE9 Compat Modes */
+  src: url("/Swiss721-Bold.e46c6874.eot?#iefix") format("embedded-opentype"), url("/Swiss721-Bold.6e855002.woff2") format("woff2"), url("/Swiss721-Bold.0de4f9dc.woff") format("woff"), url("/Swiss721-Bold.97b86eee.ttf") format("truetype");
+  /* Safari, Android, iOS */
   font-weight: 700;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Swiss 721";
-  src: url("/Bitstream - Swis721 BT Bold Italic.09c5cd27.ttf") format("truetype");
+  src: url("/Swiss721-BoldItalic.2a7cea3d.eot");
+  /* IE9 Compat Modes */
+  src: url("/Swiss721-BoldItalic.2a7cea3d.eot?#iefix") format("embedded-opentype"), url("/Swiss721-BoldItalic.f40818fa.woff2") format("woff2"), url("/Swiss721-BoldItalic.c9f8637f.woff") format("woff"), url("/Swiss721-BoldItalic.832f68be.ttf") format("truetype");
+  /* Safari, Android, iOS */
   font-weight: 700;
   font-style: italic;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Swiss 721";
-  src: url("/Bitstream - Swis721 Ex BT Roman.f0ac8238.ttf") format("truetype");
+  src: url("/Swiss721-Extended.d7d73391.woff2") format("woff2"), url("/Swiss721-Extended.f66d12f6.woff") format("woff"), url("/Swiss721-Extended.cee09c18.ttf") format("truetype");
+  /* Safari, Android, iOS */
   font-weight: 400;
-  font-style: normal;
-  font-stretch: expanded;
-}
-@font-face {
-  font-family: "Swiss 721";
-  src: url("/Bitstream - Swis721 Ex BT Bold.d3b4f785.ttf") format("truetype");
-  font-weight: 700;
   font-style: normal;
   font-stretch: expanded;
 }
@@ -7686,6 +7698,61 @@ b, strong {
   margin-right: 16px;
 }
 
+.button--md {
+  letter-spacing: 0.01em;
+  height: 48px;
+  min-width: 48px;
+}
+@media screen and (min-width: 0) {
+  .button--md {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 640px) {
+  .button--md {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 0) {
+  .button--md {
+    line-height: 1.5;
+  }
+}
+.button--md.button--circle {
+  padding: 0;
+  width: 48px;
+}
+.button--md.button--circle .icon {
+  height: 24px;
+  font-size: 24px;
+}
+.button--md.button--circle .icon::before {
+  font-size: 24px;
+}
+.button--md.button--rounded {
+  border-radius: 24px;
+}
+.button--md .button__icon {
+  width: 20px;
+  height: 20px;
+}
+.button--md .button__icon .icon {
+  height: 20px;
+  font-size: 20px;
+}
+.button--md .button__icon .icon::before {
+  font-size: 20px;
+}
+.button--md .button__icon:first-child {
+  margin-right: -20px;
+}
+.button--md .button__icon:first-child .icon:first-child {
+  margin-left: -20px;
+}
+.button--md.button--underline--simple .button__icon:first-child {
+  margin-right: 16px;
+}
+
 .button--lg {
   letter-spacing: 0.01em;
   letter-spacing: -0.01em;
@@ -7757,7 +7824,7 @@ b, strong {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 1px;
+  background-size: 4px 1px;
   background-image: linear-gradient(to right, currentColor 33%, transparent 0%);
 }
 .button--underline::after {
@@ -7803,17 +7870,23 @@ b, strong {
 }
 .button--circle::before {
   content: "";
-  position: absolute;
   top: 0;
   left: 0;
+  opacity: 0;
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  position: absolute;
   background-color: currentColor;
-  opacity: 0;
 }
 .button--circle:hover::before, .button--circle:focus::before {
   opacity: 0.08;
+}
+.button--circle:hover .button__label, .button--circle:focus .button__label {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(-50%, 0, 0);
+  transition: all 0.35s ease;
 }
 .button--circle:active {
   opacity: 1;
@@ -7821,6 +7894,41 @@ b, strong {
 }
 .button--circle:active::before {
   opacity: 0.15;
+}
+.button--circle .button__label {
+  letter-spacing: 0.01em;
+  top: 100%;
+  left: 50%;
+  opacity: 0;
+  display: block;
+  margin: 4px auto 0;
+  padding: 4px 10px;
+  visibility: hidden;
+  position: absolute;
+  text-align: center;
+  white-space: nowrap;
+  transform: translate3d(-50%, -25%, 0);
+  color: #ffffff;
+  box-shadow: 0px 3px 3px -1px rgba(0, 0, 0, 0.1), 0px 20px 24px -10px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  transition: all 0.35s ease;
+  transition-duration: 0.1s;
+  background-color: #313134;
+}
+@media screen and (min-width: 0) {
+  .button--circle .button__label {
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 640px) {
+  .button--circle .button__label {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 0) {
+  .button--circle .button__label {
+    line-height: 1.42857;
+  }
 }
 
 .button--rounded {
@@ -8154,7 +8262,7 @@ textarea.input {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 1px;
+  background-size: 4px 1px;
   background-image: linear-gradient(to right, #acb2b9 33%, transparent 0%);
 }
 .input-wrapper--underline::after {
@@ -8181,7 +8289,7 @@ textarea.input {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 1px;
+  background-size: 4px 1px;
   background-image: linear-gradient(to right, #313134 33%, transparent 0%);
 }
 .input-wrapper--underline:hover::after {
@@ -8208,7 +8316,7 @@ textarea.input {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 1px;
+  background-size: 4px 1px;
   background-image: linear-gradient(to right, #0475de 33%, transparent 0%);
 }
 .input-wrapper--underline:focus-within::after {
@@ -8235,7 +8343,7 @@ textarea.input {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 1px;
+  background-size: 4px 1px;
   background-image: linear-gradient(to right, #ff6633 33%, transparent 0%);
 }
 .input-wrapper--underline.input-wrapper--invalid::after {
@@ -8262,7 +8370,7 @@ textarea.input {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 1px;
+  background-size: 4px 1px;
   background-image: linear-gradient(to right, #ff6633 33%, transparent 0%);
 }
 .input-wrapper--underline.input-wrapper--invalid:hover::after {
@@ -8289,7 +8397,7 @@ textarea.input {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 1px;
+  background-size: 4px 1px;
   background-image: linear-gradient(to right, #ff6633 33%, transparent 0%);
 }
 .input-wrapper--underline.input-wrapper--invalid:focus-within::after {
@@ -8320,7 +8428,7 @@ textarea.input {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 1px;
+  background-size: 4px 1px;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5) 33%, transparent 0%);
 }
 .dark .input-wrapper--underline::after {
@@ -8347,7 +8455,7 @@ textarea.input {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 1px;
+  background-size: 4px 1px;
   background-image: linear-gradient(to right, #ffffff 33%, transparent 0%);
 }
 .dark .input-wrapper--underline:hover::after {
@@ -8374,7 +8482,7 @@ textarea.input {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 1px;
+  background-size: 4px 1px;
   background-image: linear-gradient(to right, #3ba3f8 33%, transparent 0%);
 }
 .dark .input-wrapper--underline:focus-within::after {
@@ -8401,7 +8509,7 @@ textarea.input {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 1px;
+  background-size: 4px 1px;
   background-image: linear-gradient(to right, #ff6633 33%, transparent 0%);
 }
 .dark .input-wrapper--underline.input-wrapper--invalid::after {
@@ -8428,7 +8536,7 @@ textarea.input {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 1px;
+  background-size: 4px 1px;
   background-image: linear-gradient(to right, #ff6633 33%, transparent 0%);
 }
 .dark .input-wrapper--underline.input-wrapper--invalid:hover::after {
@@ -8455,7 +8563,7 @@ textarea.input {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 1px;
+  background-size: 4px 1px;
   background-image: linear-gradient(to right, #ff6633 33%, transparent 0%);
 }
 .dark .input-wrapper--underline.input-wrapper--invalid:focus-within::after {
@@ -8561,7 +8669,7 @@ textarea.input {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 1px;
+  background-size: 4px 1px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25) 33%, transparent 0%);
   transform: none;
 }
@@ -8580,7 +8688,7 @@ textarea.input {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 1px;
+  background-size: 4px 1px;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.25) 33%, transparent 0%);
 }
 .dark .list__button:hover, .dark .list__button:focus {
@@ -8622,7 +8730,7 @@ textarea.input {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 5px;
+  background-size: 4px 5px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25) 33%, transparent 0%);
   content: "";
   top: 0;
@@ -8635,7 +8743,7 @@ textarea.input {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 5px;
+  background-size: 4px 5px;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.25) 33%, transparent 0%);
 }
 
@@ -8643,7 +8751,7 @@ textarea.input {
   background-repeat: repeat-y;
   background-position: center;
   background-color: transparent;
-  background-size: 1px 3px;
+  background-size: 1px 4px;
   background-image: linear-gradient(to bottom, currentColor 33%, transparent 0%);
   height: 16px;
   width: 1px;
@@ -8764,7 +8872,7 @@ textarea.input {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 1px;
+  background-size: 4px 1px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25) 33%, transparent 0%);
 }
 
@@ -8776,7 +8884,7 @@ textarea.input {
   background-repeat: repeat-y;
   background-position: center;
   background-color: transparent;
-  background-size: 1px 3px;
+  background-size: 1px 4px;
   background-image: linear-gradient(to bottom, currentColor 33%, transparent 0%);
 }
 
@@ -8987,7 +9095,7 @@ textarea.input {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 5px;
+  background-size: 4px 5px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25) 33%, transparent 0%);
   content: "";
   top: 0;
@@ -9000,7 +9108,7 @@ textarea.input {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 5px;
+  background-size: 4px 5px;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.25) 33%, transparent 0%);
 }
 
@@ -9064,7 +9172,7 @@ ul {
   background-repeat: repeat-y;
   background-position: center;
   background-color: transparent;
-  background-size: 1px 3px;
+  background-size: 1px 4px;
   background-image: linear-gradient(to bottom, currentColor 33%, transparent 0%);
   height: 16px;
   width: 1px;
@@ -9274,7 +9382,7 @@ ul {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 5px;
+  background-size: 4px 5px;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.25) 33%, transparent 0%);
   content: "";
   top: 0;
@@ -9431,6 +9539,14 @@ ul {
   transition: transform 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53), opacity 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 
+.nav__action .nav__action__label--default {
+  display: block;
+}
+
+.nav__action .nav__action__label--close {
+  display: none;
+}
+
 .nav__action--expanded .nav__action__icon--default,
 .nav__item--expanded .nav__action__icon--default {
   transform: rotate(45deg);
@@ -9442,6 +9558,14 @@ ul {
   transform: translate(-50%, -50%) rotate(0);
   opacity: 1;
   transition: transform 0.2s 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.2s 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.nav__action--expanded .nav__action__label--default,
+.nav__item--expanded .nav__action__label--default {
+  display: none;
+}
+.nav__action--expanded .nav__action__label--close,
+.nav__item--expanded .nav__action__label--close {
+  display: block;
 }
 
 .nav__search {
@@ -9477,7 +9601,7 @@ ul {
 
   .nav__left,
 .nav__right {
-    width: 25%;
+    width: 15%;
     height: 100%;
   }
 
@@ -10095,21 +10219,15 @@ ul {
   }
 }
 
-.filter__arrow {
-  display: flex;
-  position: relative;
-  margin-left: 4px;
-  overflow: hidden;
-}
-
 .filter__label {
-  display: block;
+  display: inline-block;
 }
 
 .filter__arrow {
   height: 20px;
   font-size: 20px;
-  display: flex;
+  display: inline-flex;
+  margin-left: 4px;
   overflow: hidden;
   position: relative;
 }
@@ -10229,7 +10347,7 @@ ul {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 1px;
+  background-size: 4px 1px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25) 33%, transparent 0%);
   left: 0;
   bottom: 0;
@@ -10240,7 +10358,7 @@ ul {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 1px;
+  background-size: 4px 1px;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.25) 33%, transparent 0%);
 }
 .filters__initials:hover .filters__initials__scrollindicator__label {
@@ -10424,7 +10542,7 @@ ul {
 }
 
 .person__image {
-  padding-top: 5vw;
+  padding-top: 1.5vw;
   width: 100%;
   display: flex;
   overflow: hidden;
@@ -10450,7 +10568,7 @@ ul {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.08;
+  opacity: 0.1;
   display: block;
   position: absolute;
   background-color: #fafafa;
@@ -10516,14 +10634,14 @@ ul {
 }
 
 .person:hover .person__background, .person:focus .person__background {
-  opacity: 0.15;
+  opacity: 0.2;
   transition-duration: 0.1s;
 }
 .person:hover .person__photo, .person:focus .person__photo {
   transform: scale(1.05);
 }
 .person:active .person__background {
-  opacity: 0.2;
+  opacity: 0.25;
   transition-duration: 0s;
 }
 
@@ -10564,7 +10682,7 @@ ul {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 1px;
+  background-size: 4px 1px;
   background-image: linear-gradient(to right, currentColor 33%, transparent 0%);
 }
 .dark .insight__type {
@@ -10645,7 +10763,6 @@ ul {
   text-align: left;
   padding-bottom: 18vh;
   align-items: flex-end;
-  justify-content: center;
 }
 @media print, screen and (min-width: 40em) {
   .home__title {
@@ -10715,8 +10832,6 @@ ul {
   height: 100%;
   display: flex;
   position: absolute;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
 }
 .home__case__image__inner::before {
@@ -10753,19 +10868,20 @@ ul {
 }
 
 .home__case__photo {
-  width: 100%;
-  height: 100%;
-  position: absolute;
   left: 0;
   bottom: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  position: absolute;
   transform: scale(1.05);
 }
 
 .home__case__logo {
-  position: absolute;
-  width: 200px;
   z-index: 1;
+  margin: auto;
+  width: 200px;
+  position: relative;
 }
 
 .home__case__pattern {
@@ -11125,6 +11241,7 @@ ul {
 
 .home__stats {
   cursor: auto;
+  margin-left: auto;
 }
 @media print, screen and (max-width: 39.99875em) {
   .home__stats {
@@ -11151,7 +11268,7 @@ ul {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 5px;
+  background-size: 4px 5px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25) 33%, transparent 0%);
   left: 0;
   width: 100%;
@@ -11164,7 +11281,7 @@ ul {
   background-repeat: repeat-x;
   background-position: center;
   background-color: transparent;
-  background-size: 3px 5px;
+  background-size: 4px 5px;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.25) 33%, transparent 0%);
 }
 

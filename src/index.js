@@ -201,7 +201,7 @@ Array.prototype.forEach.call(filtersToggleButtons, (toggle) => {
 // -----------------------------------------------------------------------------
 // Extracting color from people photos and applying them as background
 // -----------------------------------------------------------------------------
-
+/*
 const people = document.querySelectorAll(".person");
 
 Array.prototype.forEach.call(people, (person) => {
@@ -212,3 +212,4 @@ Array.prototype.forEach.call(people, (person) => {
         person.background.style.backgroundColor = palette.LightMuted.hex;
     });
 });
+*/
