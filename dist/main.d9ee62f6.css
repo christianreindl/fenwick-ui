@@ -7882,11 +7882,13 @@ b, strong {
 .button--circle:hover::before, .button--circle:focus::before {
   opacity: 0.08;
 }
-.button--circle:hover .button__label, .button--circle:focus .button__label {
-  opacity: 1;
-  visibility: visible;
-  transform: translate3d(-50%, 0, 0);
-  transition: all 0.35s ease;
+@media (hover: hover) {
+  .button--circle:hover .button__label, .button--circle:focus .button__label {
+    opacity: 1;
+    visibility: visible;
+    transform: translate3d(-50%, 0, 0);
+    transition: all 0.35s ease;
+  }
 }
 .button--circle:active {
   opacity: 1;

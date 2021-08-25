@@ -251,11 +251,13 @@ $button-height-sm: 40px;
             opacity: 0.08;
         }
 
-        .button__label {
-            opacity: 1;
-            visibility: visible;
-            transform: translate3d(-50%, 0, 0);
-            transition: $transition-ui-default;
+        @media (hover: hover) {
+            .button__label {
+                opacity: 1;
+                visibility: visible;
+                transform: translate3d(-50%, 0, 0);
+                transition: $transition-ui-default;
+            }
         }
     }
 
