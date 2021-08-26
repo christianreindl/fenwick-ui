@@ -22002,6 +22002,13 @@ _gsap.default.registerPlugin(_all.ScrollTrigger); // ---------------------------
 // -----------------------------------------------------------------------------
 
 
+var homeTitle = document.querySelector(".home__title__inner");
+var homeLines = homeTitle.innerHTML.trim().split(/\n/);
+homeTitle.innerHTML = "";
+homeLines.forEach(function (line) {
+  homeTitle.innerHTML += '<span class="home__title__mask"><span class="home__title__line">' + line.trim() + "</span></span>";
+});
+
 _gsap.default.from(".home__title__line", {
   yPercent: 100,
   stagger: 0.1,

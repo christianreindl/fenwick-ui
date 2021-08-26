@@ -10787,12 +10787,12 @@ ul {
 
 .home__title__mask {
   overflow: hidden;
+  white-space: pre;
 }
 
 .home__title__line,
 .home__title__mask {
   display: block;
-  white-space: nowrap;
 }
 @media print, screen and (max-width: 63.99875em) {
   .home__title__line,

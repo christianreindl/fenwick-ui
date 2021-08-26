@@ -24,12 +24,13 @@
 
 .home__title__mask {
     overflow: hidden;
+    white-space: pre;
 }
 
 .home__title__line,
 .home__title__mask {
     display: block;
-    white-space: nowrap;
+    //white-space: nowrap;
 
     @include breakpoint(medium down) {
         display: inline;
