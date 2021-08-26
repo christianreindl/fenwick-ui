@@ -74,12 +74,18 @@
     }
 
     &:hover,
-    &:focus,
+    &:focus {
+        &::after {
+            transform: scaleX(1);
+        }
+    }
+
     &:focus-within {
         &::after {
             transform: scaleX(1);
         }
     }
+
 }
 
 @mixin dotted-background($theme: "light", $size: "default") {
