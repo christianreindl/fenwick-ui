@@ -156,33 +156,31 @@ $button-height-sm: 40px;
         }
     }
 
-    &.button--underline {
-        .button__icon:last-child {
-            margin-left: 32px;
-        }
+    .button__icon:last-child {
+        margin-left: 32px;
+    }
 
+    .button__label {
+        transition: $transition-ui-default;
+        display: block;
+    }
+
+    &:hover,
+    &:focus {
+        .icon {
+            transform: translateX(100%);
+        }
         .button__label {
-            transition: $transition-ui-default;
-            display: block;
+            transform: translateX(40px);
         }
+    }
 
+    &.button--underline--simple {
         &:hover,
         &:focus {
-            .icon {
-                transform: translateX(100%);
-            }
             .button__label {
-                transform: translateX(40px);
-            }
-        }
-
-        &.button--underline--simple {
-            &:hover,
-            &:focus {
-                .button__label {
-                    transform: none;
-                    margin-left: 12px;
-                }
+                transform: none;
+                margin-left: 12px;
             }
         }
     }
@@ -203,7 +201,6 @@ $button-height-sm: 40px;
         background-color: darken($color-fill, 15%);
     }
 }
-
 
 .button {
     @include button-base();
@@ -275,7 +272,7 @@ $button-height-sm: 40px;
         top: 100%;
         left: 50%;
         opacity: 0;
-        display: block; 
+        display: block;
         margin: 4px auto 0;
         padding: 4px 10px;
         visibility: hidden;
@@ -292,7 +289,6 @@ $button-height-sm: 40px;
     }
 }
 
-
 .button--rounded {
     text-align: center;
     padding-left: 1.5em;
@@ -302,7 +298,8 @@ $button-height-sm: 40px;
     overflow: hidden;
     position: relative;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         border: 1px solid currentColor;
     }
 
@@ -316,13 +313,18 @@ $button-height-sm: 40px;
     @include button--solid($color-text-base-ondark, $color-fill-primary);
 
     &.button--secondary {
-        @include button--solid($color-text-base-onlight, $color-fill-gray-light)
+        @include button--solid(
+            $color-text-base-onlight,
+            $color-fill-gray-light
+        );
     }
     &.button--alert {
-        @include button--solid($color-text-base-ondark, $color-fill-accent-orange)
+        @include button--solid(
+            $color-text-base-ondark,
+            $color-fill-accent-orange
+        );
     }
 }
-
 
 .button--secondary {
     color: $color-text-base-onlight;
@@ -347,12 +349,18 @@ $button-height-sm: 40px;
 
     .button--solid {
         @include button--solid($color-text-base-ondark, $color-fill-primary);
-    
+
         &.button--secondary {
-            @include button--solid($color-text-base-ondark, $color-fill-white-alpha-10)
+            @include button--solid(
+                $color-text-base-ondark,
+                $color-fill-white-alpha-10
+            );
         }
         &.button--alert {
-            @include button--solid($color-text-base-onlight, $color-fill-accent-orange)
+            @include button--solid(
+                $color-text-base-onlight,
+                $color-fill-accent-orange
+            );
         }
-    }  
+    }
 }
