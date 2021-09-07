@@ -4,3 +4,19 @@ html, body {
 	padding: 0;
 	color: $color-text-base-onlight;
 }
+
+.text-content {
+	.paragraph,
+	.paragraph--lg,
+	.paragraph--sm {
+		margin-top: 24px;
+
+		@include breakpoint(large up) {
+			max-width: 400px;
+		}
+	}
+
+	.button {
+		margin-top: 20px;
+	}
+}
