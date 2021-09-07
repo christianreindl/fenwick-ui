@@ -1,0 +1,123 @@
+$home-people-carousel-margin: 48px;
+
+.home__people {
+	padding-bottom: 160px;
+}
+
+.home__people__grid {
+	align-items: center;
+}
+
+.home__people__carousels {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	position: relative;
+
+	@include breakpoint(small down) {
+		order: -1;
+		margin-bottom: 40px;
+	}
+}
+
+.home__people__carousel {
+	flex: none;
+	position: relative;
+}
+
+.home__people__carousel__inner {
+	position: relative;
+	overflow: hidden;
+}
+
+.home__people__carousel__slide {
+	position: absolute;
+}
+
+
+.home__people__buttons {
+	left: 0;
+	bottom: 0;
+	z-index: 2;
+	display: flex;
+	position: absolute;
+
+	.button {
+		color: $color-text-tertiary-onlight;
+	}
+}
+
+.home__people__carousel--portraits {
+	width: 50%;
+	z-index: 1;
+	margin: 0 0 $home-people-carousel-margin $home-people-carousel-margin;
+
+	.home__people__carousel__inner {
+		padding-top: 140%;
+		background: $color-fill-gray-lighter;
+		
+		.dark & {
+			background: $color-fill-white-alpha-05;
+		}
+	}
+
+    .home__people__carousel__slide {
+		left: 0;
+		bottom: 0;
+		width: 100%;
+    }
+
+	&:nth-child(1) {
+		width: 33%;
+		margin-top: 10%;
+	}
+
+	&:nth-child(2) {
+		width: 40%;
+		margin-top: 20%;
+	}
+
+	&:nth-child(3) {
+		margin-top: -20%;
+		right: calc(40% + #{$home-people-carousel-margin});
+	}
+}
+
+
+.home__people__carousel--labels {
+	margin-top: -30%;
+	right: 0;
+	height: 240px;
+	width: calc(40% + #{$home-people-carousel-margin});
+	
+	&::before {
+		@include dotted-background();
+		content: '';
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 125%;
+		position: absolute;
+	}
+
+
+	.home__people__carousel__inner {
+		width: 100%;
+		height: 100%;
+		mask-image: linear-gradient(to right, transparent 0%, black 20%, black 60%, transparent 90%);	  
+		-webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 60%, transparent 90%);
+	}
+
+	.home__people__carousel__slide {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		padding: 20px 20px 20px $home-people-carousel-margin;
+    }
+
+	.home__people__label__name {
+		margin-bottom: 8px;
+	}
+}
