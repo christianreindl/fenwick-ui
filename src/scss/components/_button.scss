@@ -247,8 +247,10 @@ $button-height-sm: 40px;
         &::before {
             opacity: 0.08;
         }
+    }
 
-        @media (hover: hover) {
+    @media (hover: hover) {
+        &:hover {
             .button__label {
                 opacity: 1;
                 visibility: visible;

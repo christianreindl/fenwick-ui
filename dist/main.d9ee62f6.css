@@ -7902,7 +7902,7 @@ b, strong {
   opacity: 0.08;
 }
 @media (hover: hover) {
-  .button--circle:hover .button__label, .button--circle:focus .button__label {
+  .button--circle:hover .button__label {
     opacity: 1;
     visibility: visible;
     transform: translate3d(-50%, 0, 0);
