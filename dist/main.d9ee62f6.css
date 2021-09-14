@@ -7889,25 +7889,17 @@ b, strong {
 }
 .button--circle::before {
   content: "";
+  position: absolute;
   top: 0;
   left: 0;
-  opacity: 0;
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  position: absolute;
   background-color: currentColor;
+  opacity: 0;
 }
 .button--circle:hover::before, .button--circle:focus::before {
   opacity: 0.08;
-}
-@media (hover: hover) {
-  .button--circle:hover .button__label {
-    opacity: 1;
-    visibility: visible;
-    transform: translate3d(-50%, 0, 0);
-    transition: all 0.35s ease;
-  }
 }
 .button--circle:active {
   opacity: 1;
@@ -7928,12 +7920,12 @@ b, strong {
   position: absolute;
   text-align: center;
   white-space: nowrap;
-  transform: translate3d(-50%, -25%, 0);
+  transition-duration: 0.1s;
   color: #ffffff;
   box-shadow: 0px 3px 3px -1px rgba(0, 0, 0, 0.1), 0px 20px 24px -10px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   transition: all 0.35s ease;
-  transition-duration: 0.1s;
+  transform: translate3d(-50%, -25%, 0);
   background-color: #313134;
 }
 @media screen and (min-width: 0) {
@@ -7951,12 +7943,19 @@ b, strong {
     line-height: 1.42857;
   }
 }
+@media (hover: hover) {
+  .button--circle:hover .button__label {
+    opacity: 1;
+    visibility: visible;
+    transform: translate3d(-50%, 0, 0);
+    transition: all 0.35s ease;
+  }
+}
 
 .button--rounded {
   text-align: center;
   padding-left: 1.5em;
   padding-right: 1.5em;
-  border-radius: 50%;
   border: 1px dotted currentColor;
   overflow: hidden;
   position: relative;
@@ -7969,9 +7968,9 @@ b, strong {
 }
 
 .button--solid {
-  border: 1px solid transparent;
   color: #ffffff;
   background-color: #2e96ff;
+  border: 1px solid transparent;
 }
 .button--solid:hover, .button--solid:focus {
   border: 1px solid transparent;
@@ -7984,6 +7983,7 @@ b, strong {
 .button--solid.button--secondary {
   color: #313134;
   background-color: #f7f7f7;
+  border: 1px solid transparent;
 }
 .button--solid.button--secondary:hover, .button--solid.button--secondary:focus {
   border: 1px solid transparent;
@@ -7996,6 +7996,7 @@ b, strong {
 .button--solid.button--alert {
   color: #ffffff;
   background-color: #ff6633;
+  border: 1px solid transparent;
 }
 .button--solid.button--alert:hover, .button--solid.button--alert:focus {
   border: 1px solid transparent;
@@ -8026,6 +8027,7 @@ b, strong {
 .dark .button--solid {
   color: #ffffff;
   background-color: #2e96ff;
+  border: 1px solid transparent;
 }
 .dark .button--solid:hover, .dark .button--solid:focus {
   border: 1px solid transparent;
@@ -8038,6 +8040,7 @@ b, strong {
 .dark .button--solid.button--secondary {
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid transparent;
 }
 .dark .button--solid.button--secondary:hover, .dark .button--solid.button--secondary:focus {
   border: 1px solid transparent;
@@ -8050,6 +8053,7 @@ b, strong {
 .dark .button--solid.button--alert {
   color: #313134;
   background-color: #ff6633;
+  border: 1px solid transparent;
 }
 .dark .button--solid.button--alert:hover, .dark .button--solid.button--alert:focus {
   border: 1px solid transparent;
@@ -8758,7 +8762,10 @@ textarea.input {
 .list--bullets {
   list-style: none;
   margin-left: 0;
-  padding-left: 0;
+  padding-left: 1em;
+}
+.list--bullets li {
+  margin-bottom: 0.25em;
 }
 .list--bullets li:before {
   opacity: 1;
@@ -8774,10 +8781,11 @@ textarea.input {
   text-transform: none;
   font-family: "Fenwick Icons";
   display: inline-block;
-  display: inline;
-  margin-left: -0.33em;
+  width: 0;
   opacity: 50%;
-  padding-right: 0.5em;
+  left: -1.4em;
+  position: relative;
+  display: inline-block;
 }
 
 .card {

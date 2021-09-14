@@ -186,9 +186,13 @@ $button-height-sm: 40px;
     }
 }
 
-@mixin button--solid($color-text, $color-fill) {
+// @JESS: Added default values here
+@mixin button--solid($color-text: $color-text-base-ondark, $color-fill: $color-fill-primary) {
     color: $color-text;
     background-color: $color-fill;
+
+    // @JESS: Move this style to the mixin
+    border: 1px solid transparent;
 
     &:hover,
     &:focus {
@@ -199,6 +203,61 @@ $button-height-sm: 40px;
     &:active {
         opacity: 1;
         background-color: darken($color-fill, 15%);
+    }
+}
+
+// @JESS: Created mixin for rounded button
+@mixin button--rounded($style: "outline", $intent: "primary") {
+    text-align: center;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    border: 1px dotted currentColor;
+    overflow: hidden;
+    position: relative;
+
+    &:hover,
+    &:focus {
+        border: 1px solid currentColor;
+    }
+
+    &:active {
+        transform: translateY(1px);
+    }
+}
+
+// @JESS: Created mixin for circle button
+@mixin button--circle {
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: currentColor;
+        opacity: 0;
+    }
+
+    &:hover,
+    &:focus {
+        &::before {
+            opacity: 0.08;
+        }
+    }
+
+    &:active {
+        opacity: 1;
+        transform: translateY(1px);
+
+        &::before {
+            opacity: 0.15;
+        }
     }
 }
 
@@ -225,50 +284,10 @@ $button-height-sm: 40px;
 }
 
 .button--circle {
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    position: relative;
+    //@JESS: Apply mixin here
+    @include button--circle();
 
-    &::before {
-        content: "";
-        top: 0;
-        left: 0;
-        opacity: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        position: absolute;
-        background-color: currentColor;
-    }
-
-    &:hover,
-    &:focus {
-        &::before {
-            opacity: 0.08;
-        }
-    }
-
-    @media (hover: hover) {
-        &:hover {
-            .button__label {
-                opacity: 1;
-                visibility: visible;
-                transform: translate3d(-50%, 0, 0);
-                transition: $transition-ui-default;
-            }
-        }
-    }
-
-    &:active {
-        opacity: 1;
-        transform: translateY(1px);
-
-        &::before {
-            opacity: 0.15;
-        }
-    }
-
+    // Tooltip
     .button__label {
         @include type-paragraph-sm();
         top: 100%;
@@ -281,37 +300,43 @@ $button-height-sm: 40px;
         position: absolute;
         text-align: center;
         white-space: nowrap;
-        transform: translate3d(-50%, -25%, 0);
+        transition-duration: 0.1s;
         color: $color-text-base-ondark;
         box-shadow: $box-shadow-overlay;
         border-radius: $border-radius-sm;
         transition: $transition-ui-default;
-        transition-duration: 0.1s;
+        transform: translate3d(-50%, -25%, 0);
         background-color: $color-fill-gray-darker;
     }
+
+    @media (hover: hover) {
+        &:hover {
+            .button__label {
+                opacity: 1;
+                visibility: visible;
+                transform: translate3d(-50%, 0, 0);
+                transition: $transition-ui-default;
+            }
+        }
+    }
+}
+
+// @JESS: Create mixin for secondary button
+@mixin button--secondary() {
+    color: $color-text-base-onlight;
+}
+
+// @JESS: Create mixin for accent button
+@mixin button--accent-orange() {
+    color: $color-text-accent-orange-onlight;
 }
 
 .button--rounded {
-    text-align: center;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-    border-radius: 50%;
-    border: 1px dotted currentColor;
-    overflow: hidden;
-    position: relative;
-
-    &:hover,
-    &:focus {
-        border: 1px solid currentColor;
-    }
-
-    &:active {
-        transform: translateY(1px);
-    }
+    //@JESS: Apply mixin here
+    @include button--rounded();
 }
 
 .button--solid {
-    border: 1px solid transparent;
     @include button--solid($color-text-base-ondark, $color-fill-primary);
 
     &.button--secondary {
@@ -329,11 +354,13 @@ $button-height-sm: 40px;
 }
 
 .button--secondary {
-    color: $color-text-base-onlight;
+    //@JESS: Apply mixin here
+    @include button--secondary();
 }
 
 .button--accent-orange {
-    color: $color-text-accent-orange-onlight;
+    //@JESS: Apply mixin here
+    @include button--accent-orange();
 }
 
 .dark {
