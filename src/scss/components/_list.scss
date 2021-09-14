@@ -88,16 +88,22 @@
 // Regular List
 // -----------------------------------------------------------------------------
 
+// @JESS: Also updated these style below to allow for multi-line bullet list without weird indentation
 .list--bullets {
     list-style: none;
     margin-left: 0;
-    padding-left: 0;
+    padding-left: 1em;
+
+    li {
+        margin-bottom: 0.25em;
+    }
 
     li:before {
         @include icon-pseudo($ic-angle-right);
-        display: inline;
-        margin-left: -0.33em;
+        width: 0;
         opacity: 50%;
-        padding-right: 0.5em;
+        left: -1.4em;
+        position: relative;
+        display: inline-block;
     }
 }
