@@ -1,0 +1,152 @@
+// Refinement Filters
+
+.searchbox-with-refine {
+    margin-top: 48px;
+    @include xy-grid();
+    @include xy-gutters($grid-margin-gutters, margin, right left, true);
+}
+
+.page-search-box {
+    @include xy-cell(6 of 12);
+
+    @include breakpoint(large up) {
+        @include xy-cell(4 of 12);
+    }
+}
+
+.refinement-menu-container {
+    @include xy-cell(6 of 12);
+
+    @include breakpoint(large up) {
+        @include xy-cell(4 of 12);
+        @include xy-cell-offset(4 of 12);
+    }
+}
+
+.refinement-menu {
+    position: relative;
+    color: #313134;
+    margin-bottom: 1.25rem;
+}
+
+.refinement-menu > div {
+    border: none;
+}
+
+.refinement-menu h2 {
+    font-size: 1.125rem;
+    font-weight: 400;
+    margin: 0;
+    width: 100%;
+}
+
+.refinement-menu h2 > button {
+    @include button-base;
+    @include button--rounded;
+    @include button--secondary;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: $button-height-md / 2;
+    width: 100%;
+
+    &::after {
+        @include icon-pseudo($ic-angle-down);
+        font-size: $icon-size-md;
+        opacity: 0.5;
+    }
+
+    svg {
+        display: none;
+    }
+}
+
+.refinement-menu__options {
+    margin-top: 10px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    display: none;
+    position: absolute;
+    background-color: $color-fill-gray-dark;
+    color: $color-text-base-ondark;
+    padding: 10px;
+    max-height: 650px;
+    overflow: auto;
+}
+
+.refinement-list-item {
+    position: relative;
+    padding-left: 1.25rem;
+}
+
+.refinement-list-item input {
+    position: absolute;
+    left: 0;
+    top: 0.25rem;
+    margin: 0 !important;
+}
+
+.refinement-list-item .refinement-list-item__count {
+    display: none;
+}
+
+.ais-ClearRefinements {
+    @include xy-cell(12 of 12);
+}
+
+.ais-ClearRefinements .btn {
+    color: $color-text-accent-orange-ondark;
+}
+
+.ais-ClearRefinements .btn.btn--disabled {
+    display: none;
+}
+
+.ais-CurrentRefinements-list {
+    @include xy-cell(12 of 12);
+    padding-left: 0;
+}
+
+.btn.current-refinement {
+    @include type-paragraph-md();
+    color: $color-text-base-ondark;
+    background-color: $color-fill-white-alpha-10;
+
+    &::before,
+    &::after {
+        display: none;
+    }
+}
+
+.ais-CurrentRefinements-item {
+    margin-right: 0.3rem;
+    margin-top: 0.3rem;
+    padding: 4px 12px;
+    align-items: center;
+}
+
+button.current-refinement__delete,
+span.current-refinement__category span,
+span.current-refinement__label {
+    color: inherit;
+}
+
+button.current-refinement__delete {
+    margin-left: 8px;
+}
+
+.current-refinement__category {
+    display: inline-block !important;
+    font-weight: 400;
+}
+
+.ais-CurrentRefinements-category {
+    margin-left: 0.3em;
+    display: -webkit-box;
+    display: flex;
+}
+
+.current-refinement__label {
+    display: none;
+}

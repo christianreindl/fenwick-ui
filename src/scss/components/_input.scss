@@ -20,7 +20,8 @@ $input-height-md: 48px;
     }
 }
 
-.input {
+// @JESS: I moved all input styles to a mixin so I can apply to different classes in the legacy files
+@mixin input {
     @include disabled();
     @include type-paragraph-md();
 
@@ -74,6 +75,12 @@ $input-height-md: 48px;
     }
   }*/
     @include input-placeholder($color-text-tertiary-onlight);
+}
+
+
+.input {
+    // @JESS: Apply mixin here
+   @include input();
 }
 
 textarea.input {
