@@ -1,3 +1,6 @@
+// @JESS: Add this variable
+$navigation-megamenu-gutter: 16px;
+
 .nav {
     width: 100%;
     padding-top: $navbar-offset;
@@ -41,9 +44,11 @@ ul {
     align-items: center;
     height: 100%;
     color: currentColor;
-    transform: scale(1.2) translate3d(0, 0, 0);
-    transform-origin: left center;
-    transition: transform 0.35s ease;
+
+    // @JESS: REMOVE THE CSS THAT'S COMMENTED OUT
+    //transform: scale(1.2) translate3d(0, 0, 0);
+    //transform-origin: left center;
+    //transition: transform 0.35s ease;
     color: inherit;
 
     &:active {
@@ -132,23 +137,24 @@ ul {
 }
 
 .nav__megamenu__link__arrow {
+    // @JESS Change the icon size and offset from -lg to -sm in this class
     display: block;
-    width: $icon-size-lg;
-    height: $icon-size-lg;
+    width: $icon-size-sm;
+    height: $icon-size-sm;
     overflow: hidden;
     display: flex;
     color: $color-text-secondary-ondark;
 
     .icon {
         display: block;
-        @include icon-size($icon-size-lg);
+        @include icon-size($icon-size-sm);
     }
 
     &:first-child {
-        margin-right: -$icon-size-lg;
+        margin-right: -$icon-size-sm;
 
         .icon:first-child {
-            margin-left: -$icon-size-lg;
+            margin-left: -$icon-size-sm;
         }
     }
 
@@ -188,7 +194,11 @@ ul {
 }
 
 .nav__megamenu__columns {
-    justify-content: space-between;
+    // @JESS Update these styles
+    // Make this container like a grid
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -#{$navigation-megamenu-gutter * 0.5};
 }
 
 .nav__megamenu__subpages {
@@ -202,6 +212,11 @@ ul {
 
 .nav__megamenu__column {
     position: relative;
+
+    // @JESS Update these styles
+    width: calc(20% - #{$navigation-megamenu-gutter});
+    margin: 0 $navigation-megamenu-gutter*0.5 48px;
+    flex: 0 0 auto;
 
     &::before {
         @include dashed-background(
@@ -218,7 +233,8 @@ ul {
 }
 
 .nav__megamenu__column__title {
-    @include type-h5();
+    // @JESS: Change next line
+    @include type-h6();
     height: 80px;
     display: flex;
     align-items: center;
@@ -262,6 +278,9 @@ ul {
 .nav__megamenu__insight {
     display: flex;
     padding-top: 40px;
+    // @JESS: Add these lines
+    width: calc(60% - #{$navigation-megamenu-gutter});
+    margin-left: auto;
 }
 
 .nav__megamenu__insight__label {
@@ -372,10 +391,6 @@ ul {
 
 .nav__search {
     height: auto;
-
-    .nav__megamenu__column {
-        margin-left: 100px;
-    }
 }
 
 @include breakpoint(large up) {
@@ -410,7 +425,8 @@ ul {
         box-shadow: inset 0 -1px 0 0 $color-fill-black-alpha-05;
 
         .nav__logo {
-            transform: scale(1) translate3d(0, 0, 0);
+            // @JESS REMOVE THE CSS HERE
+            //transform: scale(1) translate3d(0, 0, 0);
         }
 
         .dark &,

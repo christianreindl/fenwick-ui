@@ -197,8 +197,10 @@ $color-ui-divider-dotted-ondark: $color-fill-white-alpha-25;
 // Misc
 
 $size-ui-dotted-line-large: 5px;
-$navbar-height: 72px;
-$navbar-offset: 28px;
+
+// @JESS: Change the next 2 variables
+$navbar-height: 84px;
+$navbar-offset: 0px;
 $filter-navigation-background: blur(16px);
 
 // Easings

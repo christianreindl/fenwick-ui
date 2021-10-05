@@ -16,7 +16,7 @@
 	position: relative;
 	margin-bottom: 16px;
 	align-items: flex-end;
-	background: $color-fill-gray-lighter;
+	background: $color-fill-gray-light;
 
 	.dark & {
 		background: $color-fill-white-alpha-05;
@@ -38,7 +38,7 @@
 	opacity: 0.1;
 	display: block;
 	position: absolute;
-	background-color: $color-fill-gray-lighter;
+	background-color: $color-fill-gray-light;
 	transition: $transition-ui-default;
 }
 

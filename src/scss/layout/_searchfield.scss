@@ -1,59 +1,79 @@
 .searchfield {
-	display: flex;
-	align-items: center;
-	position: relative;
-	padding-top: 0;
-	padding-bottom: 20px;
-	max-width: none;
+  @include ui-underline($color-ui-divider-dotted-onlight, 2px);
+  position: relative;
+
+  &:focus-within {
+    @include ui-underline($color-text-primary-onlight, 2px);
+  }
+
+  &::before,
+  &::after {
+    top: 100%;
+  }
 }
 
 .searchfield__input {
-	@include type-h3();
-	@include input-placeholder($color-text-tertiary-ondark);
-	//height: 200px;
-	width: 100%;
-	background-color: transparent;
-	border: none;
-	color: inherit;
-	padding: 64px 40px 64px 100px;
+  @include input-placeholder($color-text-tertiary-onlight);
+  @include breakpoint-style("font-size", $font-size-h5);
+  @include breakpoint-style("line-height", $line-height-h5);
 
-	&:hover {
-		@include input-placeholder($color-text-secondary-ondark);
-	}
-
-	&:focus {
-		outline: none;
-		@include input-placeholder($color-text-tertiary-ondark);
-	}
+  height: auto;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 16px 240px 16px 64px;
 }
 
 .searchfield__icon {
-	position: absolute;
-	opacity: 0.5;
-	@include icon-size($icon-size-xxl);
-}
-
-.searchfield__helper {
-	opacity: 0;
-	position: absolute;
-	bottom: 0;
-	padding: 0 100px 40px 100px;
-	transition: $transition-ui-default;
-
-	.icon {
-		vertical-align: top;
-	}
-}
-
-.searchfield__input:focus ~ .searchfield__helper {
-	opacity: 0.55;
-}
-
-.searchfield__input:focus ~ .searchfield__actions {
-	opacity: 1;
+  top: 50%;
+  left: 20px;
+  position: absolute;
+  pointer-events: none;
+  transform: translateY(-50%);
+  opacity: 0.4;
 }
 
 .searchfield__actions {
-	display: flex;
-	align-items: center;
+  @include breakpoint-style("font-size", $font-size-paragraph-sm);
+  @include breakpoint-style("line-height", $font-size-paragraph-sm);
+
+  top: 50%;
+  right: 0;
+  opacity: 0;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  pointer-events: none;
+  padding-right: 0.75em;
+  transform: translateY(-50%);
+
+  .button {
+    font-size: inherit;
+    margin-left: 16px;
+  }
+
+  .searchfield__helper {
+    margin: 0;
+    font-size: inherit;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+}
+
+.searchfield__input:focus ~ .searchfield__actions {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dark {
+  .searchfield {
+    @include ui-underline($color-ui-divider-dotted-ondark, 2px);
+
+    &:focus-within {
+      @include ui-underline($color-text-primary-ondark, 2px);
+    }
+  }
+
+  .searchfield__input {
+    @include input-placeholder($color-text-tertiary-ondark);
+  }
 }
